@@ -34,7 +34,7 @@ const positionLabels: Record<Position, string> = {
 
 export function ImageEditorButton({ className }: ImageEditorButtonProps) {
   const { isEditMode, toggleEditMode } = useImageEditor()
-  const [position, setPosition] = useState<Position>('top-right')
+  const [position, setPosition] = useState<Position>('bottom-right')
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
