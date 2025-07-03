@@ -25,3 +25,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+serviceAccountKey.json
+import-translations-to-firebase.js
+update-pages.sh

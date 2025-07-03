@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface TranslationValue {
   lang: string
@@ -20,6 +21,7 @@ interface TranslationEditorContextType {
 const TranslationEditorContext = createContext<TranslationEditorContextType | undefined>(undefined)
 
 export function TranslationEditorProvider({ children }: { children: ReactNode }) {
+  const router = useRouter()
   const [isEditMode, setIsEditMode] = useState(false)
   const [selectedKey, setSelectedKey] = useState<string | null>(null)
   const [translations, setTranslations] = useState<TranslationValue[]>([])
@@ -72,8 +74,8 @@ export function TranslationEditorProvider({ children }: { children: ReactNode })
         throw new Error('Failed to save translations')
       }
 
-      // Recharger la page pour mettre à jour les traductions
-      window.location.reload()
+      // Rafraîchir la route pour mettre à jour les traductions sans recharger toute la page
+      router.refresh()
     } catch (error) {
       console.error('Error saving translations:', error)
       throw error

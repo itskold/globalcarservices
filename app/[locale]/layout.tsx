@@ -31,16 +31,37 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const { locale } = await params
   let messages;
+  
   try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
+    // Récupérer les traductions depuis notre API Firebase
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/translations/${locale}`, {
+      cache: 'no-store' // Désactiver le cache pour avoir les traductions les plus récentes
+    });
+    
+    if (!response.ok) {
+      throw new Error(`API responded with status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    // Extraire uniquement la partie messages
+    if (data.success && data.messages) {
+      messages = data.messages;
+    } else {
+      throw new Error('Invalid API response format');
+    }
+    
   } catch (error) {
-    notFound();
+    console.error('Erreur lors du chargement des traductions Firebase:', error);
+    // En cas d'erreur, retourner un objet vide
+    messages = {};
   }
 
   unstable_setRequestLocale(locale)
