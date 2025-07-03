@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,6 +12,13 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const router = useRouter()
+  
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isAdminLoggedIn")
+    if (isLoggedIn) {
+      router.push("/admin/dashboard")
+    }
+  }, [router])
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
