@@ -1,31 +1,22 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Package, Users } from "lucide-react"
-import RentalFilters from "@/components/rental-filters"
-import { vehicles } from "@/data/vehicles"
+import { useState, useEffect } from "react"
 import { useTranslations } from "next-intl"
-
-interface FilterState {
-  location: string
-  dateRange: {
-    from: Date | undefined
-    to: Date | undefined
-  }
-  priceRange: [number, number]
-  vehicleTypes: string[]
-  brands: string[]
-  features: string[]
-  transmission: string[]
-  fuel: string[]
-  seats: [number, number]
-}
+import { useParams } from "next/navigation"
+import { getVehicles, type VehicleData } from "@/data/vehicles"
+import RentalFilters from "@/components/rental-filters"
+import type { FilterState } from "@/types/filters"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Users, Package, Fuel, Calendar } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function RentalPage() {
   const t = useTranslations("rental.page")
+  const [vehicles, setVehicles] = useState<VehicleData[]>([])
+  const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState<FilterState>({
     location: "",
     dateRange: { from: undefined, to: undefined },
@@ -37,6 +28,20 @@ export default function RentalPage() {
     fuel: [],
     seats: [2, 9],
   })
+
+  useEffect(() => {
+    const loadVehicles = async () => {
+      try {
+        const allVehicles = await getVehicles()
+        setVehicles(allVehicles)
+      } catch (error) {
+        console.error("Erreur lors du chargement des véhicules:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadVehicles()
+  }, [])
 
   // Filtrer les véhicules basés sur les filtres
   const filteredVehicles = vehicles.filter((vehicle) => {
@@ -56,7 +61,11 @@ export default function RentalPage() {
     }
     acc[vehicle.category].push(vehicle)
     return acc
-  }, {} as { [key: string]: typeof vehicles })
+  }, {} as { [key: string]: VehicleData[] })
+
+  if (loading) {
+    return <div>Chargement...</div>
+  }
 
   return (
     <main className="min-h-screen bg-white">

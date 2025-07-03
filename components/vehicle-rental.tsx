@@ -6,19 +6,28 @@ import { Badge } from "@/components/ui/badge"
 import { Users, Package, Fuel, Calendar } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { vehicles } from "@/data/vehicles"
+import { getVehicles, type VehicleData } from "@/data/vehicles"
 import { useTranslations } from "next-intl"
+import { useEffect, useState } from "react"
 
 export default function VehicleRental() {
   const t = useTranslations("vehicleRental")
+  const [featuredVehicles, setFeaturedVehicles] = useState<VehicleData[]>([])
 
-  // Sélectionner les 3 premiers véhicules
-  const featuredVehicles = vehicles
-    .slice(0, 3)
-    .map(vehicle => ({
-      ...vehicle,
-      price: t("pricePerDay", { price: vehicle.pricing.find(p => p.duration === "day")?.price })
-    }))
+  useEffect(() => {
+    const loadVehicles = async () => {
+      const allVehicles = await getVehicles()
+      // Sélectionner les 3 premiers véhicules
+      const featured = allVehicles
+        .slice(0, 3)
+        .map(vehicle => ({
+          ...vehicle,
+          price: t("pricePerDay", { price: vehicle.pricing.find(p => p.duration === "day")?.price })
+        }))
+      setFeaturedVehicles(featured)
+    }
+    loadVehicles()
+  }, [t])
 
   return (
     <section className="py-16 bg-white">
@@ -39,17 +48,17 @@ export default function VehicleRental() {
               </div>
               <CardHeader>
                 <CardTitle className="text-xl">{vehicle.title}</CardTitle>
-                <CardDescription className="text-2xl font-bold text-[#050b20]">{vehicle.price}</CardDescription>
+                <CardDescription className="text-2xl font-bold text-[#050b20]">{vehicle.pricing[0].price}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-3 gap-4 mb-4 text-sm">
                   <div className="flex items-center gap-1">
                     <Users className="h-4 w-4 text-gray-500" />
-                    <span>{vehicle.seats} {t("specifications.seats")}</span>
+                    <span>{vehicle.seats}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Package className="h-4 w-4 text-gray-500" />
-                    <span>{vehicle.specifications.luggage} {t("specifications.luggage")}</span>
+                    <span>{vehicle.specifications.luggage}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Fuel className="h-4 w-4 text-gray-500" />

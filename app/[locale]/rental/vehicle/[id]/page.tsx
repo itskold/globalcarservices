@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useParams, useRouter } from "next/navigation"
 import { useTranslations } from 'next-intl'
@@ -18,9 +18,41 @@ import { DateTimePicker } from "@/components/ui/date-time-picker"
 import { Users, Fuel, Settings, Phone, Mail, Check, Star, ArrowLeft, Share2, Heart, Shield, Clock } from "lucide-react"
 import { format } from "date-fns"
 import { nl } from "date-fns/locale"
-import { vehicles } from "@/data/vehicles"
+import { db } from "@/lib/firebase"
+import { doc, getDoc, collection, query, where, getDocs, DocumentData } from 'firebase/firestore'
 
-
+interface VehicleData extends DocumentData {
+  id: string;
+  brand: string;
+  title: string;
+  category: string;
+  type: string;
+  year: number;
+  seats: number;
+  fuel: string;
+  transmission: string;
+  description: string;
+  images: string[];
+  specifications: {
+    engine: string;
+    power: string;
+    consumption: string;
+    luggage: string;
+  };
+  features: string[];
+  pricing: Array<{
+    duration: string;
+    price: number;
+    included_km: string;
+  }>;
+  km_price: number;
+  extras: Array<{
+    id: string;
+    name: string;
+    price: number;
+  }>;
+  included: string[];
+}
 
 export default function VehicleDetailPage() {
   const t = useTranslations('vehicleDetail')
@@ -32,6 +64,9 @@ export default function VehicleDetailPage() {
   const [pickupDateTime, setPickupDateTime] = useState<Date | undefined>(undefined)
   const [returnDateTime, setReturnDateTime] = useState<Date | undefined>(undefined)
   const [selectedDuration, setSelectedDuration] = useState<'4_uur' | 'day' | 'weekend' | '5_days' | 'week' | 'month'>('day')
+  const [vehicle, setVehicle] = useState<VehicleData | null>(null)
+  const [similarVehicles, setSimilarVehicles] = useState<VehicleData[]>([])
+  const [loading, setLoading] = useState(true)
   const [bookingData, setBookingData] = useState({
     name: "",
     email: "",
@@ -42,27 +77,50 @@ export default function VehicleDetailPage() {
     extras: [] as string[],
   })
 
-  // Find the vehicle based on the ID
-  const vehicle = vehicles.find((v) => v.id === vehicleId)
+  useEffect(() => {
+    const fetchVehicleData = async () => {
+      try {
+        // Récupérer les détails du véhicule
+        const vehicleRef = doc(db, 'vehicles', vehicleId)
+        const vehicleSnap = await getDoc(vehicleRef)
 
-  // If vehicle not found, redirect to rental page
-  if (!vehicle) {
-    router.push("/rental")
-    return null
+        if (!vehicleSnap.exists()) {
+          router.push("/rental")
+          return
+        }
+
+        const vehicleData = { id: vehicleId, ...vehicleSnap.data() } as VehicleData
+        setVehicle(vehicleData)
+
+        // Récupérer les véhicules similaires
+        const vehiclesRef = collection(db, 'vehicles')
+        const q = query(
+          vehiclesRef, 
+          where('type', '==', vehicleData.type),
+          where('id', '!=', vehicleId)
+        )
+        const querySnapshot = await getDocs(q)
+        const similarVehiclesData = querySnapshot.docs
+          .map(doc => ({ id: doc.id, ...doc.data() } as VehicleData))
+          .slice(0, 2)
+        setSimilarVehicles(similarVehiclesData)
+
+      } catch (error) {
+        console.error("Erreur lors de la récupération des données:", error)
+        router.push("/rental")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchVehicleData()
+  }, [vehicleId, router])
+
+  if (loading || !vehicle) {
+    return <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#050b20]"></div>
+    </div>
   }
-
-  // Find similar vehicles (same type, excluding current vehicle)
-  const similarVehicles = vehicles
-    .filter((v) => v.type === vehicle.type && v.id !== vehicle.id)
-    .slice(0, 2)
-    .map((v) => ({
-      id: v.id,
-      brand: v.brand,
-      model: v.title.split(" ").slice(1).join(" "),
-      price: v.pricing[0].price,
-      seats: v.seats,
-      image: v.image,
-    }))
 
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault()
@@ -219,30 +277,7 @@ export default function VehicleDetailPage() {
               </div>
             </div>
 
-            {/* Similar Vehicles */}
-            <div>
-              <h2 className="text-2xl font-bold text-[#050b20] mb-4">{t('similar.title')}</h2>
-              <div className="grid grid-cols-2 gap-4">
-                {similarVehicles.map((similar) => (
-                  <Link key={similar.id} href={`/rental/vehicle/${similar.id}`}>
-                    <Card className="h-full hover:shadow-md transition-shadow">
-                      <CardHeader>
-                        <CardTitle className="text-lg">{similar.brand} {similar.model}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden mb-2">
-                          <img src={similar.image} alt={`${similar.brand} ${similar.model}`} className="w-full h-full object-cover" />
-                        </div>
-                        <div className="text-sm">
-                          <p>{t('similar.from')} €{similar.price}</p>
-                          <p className="text-gray-600">{similar.seats} {t('similar.seats')}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </div>
+          
           </div>
 
           {/* Right Column - Booking Form */}

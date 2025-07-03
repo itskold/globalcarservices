@@ -1,33 +1,23 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
-import { useState } from "react"
-import Link from "next/link"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { getVehicles, type VehicleData } from "@/data/vehicles"
 import RentalFilters from "@/components/rental-filters"
-import { vehicles } from "@/data/vehicles"
+import type { FilterState } from "@/types/filters"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Users, Package, Fuel, Calendar } from "lucide-react"
+import Link from "next/link"
 import Image from "next/image"
-
-interface FilterState {
-  location: string
-  dateRange: {
-    from: Date | undefined
-    to: Date | undefined
-  }
-  priceRange: [number, number]
-  vehicleTypes: string[]
-  brands: string[]
-  features: string[]
-  transmission: string[]
-  fuel: string[]
-  seats: [number, number]
-}
 
 export default function RefrigeratedPage() {
   const t = useTranslations("rental.refrigerated")
   const { locale } = useParams()
+  const [vehicles, setVehicles] = useState<VehicleData[]>([])
+  const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState<FilterState>({
     location: "",
     dateRange: { from: undefined, to: undefined },
@@ -40,11 +30,24 @@ export default function RefrigeratedPage() {
     seats: [2, 9],
   })
 
-  // Filtrer uniquement les koelwagens
-  const refrigeratedVans = vehicles.filter(vehicle => vehicle.type === "koelwagen")
+  useEffect(() => {
+    const loadVehicles = async () => {
+      try {
+        const allVehicles = await getVehicles()
+        // Filtrer uniquement les koelwagens
+        const refrigeratedVans = allVehicles.filter(vehicle => vehicle.type === "koelwagen")
+        setVehicles(refrigeratedVans)
+      } catch (error) {
+        console.error("Erreur lors du chargement des véhicules:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadVehicles()
+  }, [])
 
   // Filtrer les véhicules basés sur les filtres
-  const filteredVehicles = refrigeratedVans.filter((vehicle) => {
+  const filteredVehicles = vehicles.filter((vehicle) => {
     if (filters.vehicleTypes.length > 0 && !filters.vehicleTypes.includes(vehicle.type)) {
       return false
     }
@@ -53,6 +56,10 @@ export default function RefrigeratedPage() {
     }
     return true
   })
+
+  if (loading) {
+    return <div>Chargement...</div>
+  }
 
   return (
     <main className="min-h-screen bg-white">

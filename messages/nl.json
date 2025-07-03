@@ -130,8 +130,13 @@
     },
     "copyright": "© 2024 Global Car Services. Alle rechten voorbehouden."
   },
-  "hero": {
-    "$ref": "./nl/hero.json"
+  "home": {
+    "hero": {
+      "title": "Voertuigverhuur en autoservices",
+      "subtitle": "Professionele transportoplossingen en complete autoservice",
+      "rentButton": "Bekijk onze voertuigen",
+      "appointmentButton": "Maak een afspraak"
+    }
   },
   "services": {
     "title": "Onze Diensten",
@@ -231,13 +236,104 @@
     }
   },
   "searchSection": {
-    "$ref": "./nl/searchSection.json"
+    "title": "Vind het ideale voertuig",
+    "subtitle": "Zoek in ons uitgebreide wagenpark",
+    "pickupLocation": {
+      "label": "Ophaallocatie",
+      "placeholder": "Selecteer ophaallocatie"
+    },
+    "returnLocation": {
+      "label": "Inleverlocatie",
+      "placeholder": "Selecteer inleverlocatie"
+    },
+    "vehicleType": {
+      "label": "Voertuigtype",
+      "placeholder": "Selecteer een voertuigtype",
+      "options": {
+        "van": "Bestelwagen",
+        "minibus": "Minibus",
+        "car": "Auto",
+        "truck": "Vrachtwagen"
+      }
+    },
+    "pickupDateTime": {
+      "label": "Ophaaldatum en -tijd",
+      "placeholder": "Selecteer datum en tijd"
+    },
+    "returnDateTime": {
+      "label": "Inleverdatum en -tijd",
+      "placeholder": "Selecteer datum en tijd"
+    },
+    "locations": {
+      "antwerpen": "Antwerpen",
+      "gent": "Gent"
+    },
+    "searchButton": "Zoeken"
   },
   "vehicleRental": {
-    "$ref": "./nl/vehicleRental.json"
-  },
+    "title": "Voertuigverhuur",
+    "subtitle": "Ontdek onze moderne vloot voertuigen voor al uw behoeften",
+    "pricePerDay": "€{price}/dag",
+    "specifications": {
+      "seats": "zitplaatsen",
+      "luggage": "m³"
+    },
+    "included": "Inbegrepen:",
+    "reserve": "Reserveren",
+    "viewAll": "Bekijk alle voertuigen"
+  } ,
   "whyChooseUs": {
-    "$ref": "./nl/whyChooseUs.json"
+    "title": "Waarom kiezen voor Global Car Services?",
+    "subtitle": "Ontdek waarom duizenden klanten ons vertrouwen voor hun automotive behoeften.",
+    "reasons": {
+      "reliable": {
+        "title": "Betrouwbaar & Veilig",
+        "description": "Al onze voertuigen worden regelmatig onderhouden en gecontroleerd voor uw veiligheid."
+      },
+      "service": {
+        "title": "24/7 Service",
+        "description": "Pechverhelping en klantenservice beschikbaar rond de klok, 7 dagen per week."
+      },
+      "experience": {
+        "title": "Ervaren Team",
+        "description": "Meer dan 15 jaar ervaring in de automotive sector met gecertificeerde monteurs."
+      },
+      "personal": {
+        "title": "Persoonlijke Service",
+        "description": "Wij kennen onze klanten en bieden op maat gemaakte oplossingen voor elke situatie."
+      }
+    }
+  } ,
+  "testimonials": {
+    "title": "Wat onze klanten vertellen",
+    "subtitle": "Lees wat onze klanten over ons zeggen",
+    "reviews": {
+      "0": {
+        "text": "Snel vriendelijk en een goede prijs. Ik had voor een fotografie event snel een bestelwagen nodig om mijn set materiaal te vervoeren. Dit paste niet in mijn wagen dus ik was heel blij dat ik 2 dagen op voorhand een busje kon huren!",
+        "name": "Sara Chakib",
+        "rating": 5
+      },
+      "1": {
+        "text": "Zeer goede, vlotte en professionele service voor een zeer goede prijs!!! The place to be voor onderhoud en herstellingen!!",
+        "name": "Fahd El Uazani",
+        "rating": 5
+      },
+      "2": { 
+        "text": "Goede service , aangenaam om met de Box Van te kunnen rijden , vriendelijke eigenaar , kortweg een dikke aanrader om er te huren .",
+        "name": "Ronny Van Gucht",
+        "rating": 5
+      },
+      "3": { 
+        "text": "Niets op aan te merken, zowel ophalen als afleveren. En natuurlijk netjes mijn borg terug gekregen.",
+        "name": "Yassin Deneef",
+        "rating": 5
+      },
+      "4": { 
+        "text": "Top verhuur ! Een van de betere in Antwerpen zeker! Bestelwagens van hoge kwaliteit. 5 sterren.",
+        "name": "'Moussa Elboualati",
+        "rating": 5
+      }
+    }
   },
   "rentalFilters": {
     "vehicleType": {
@@ -344,6 +440,10 @@
       "button": "Filters",
       "clearAll": "Alles wissen",
       "show": "Toon"
+    },
+    "activeFilters":{
+      "title": "Actieve filters",
+      "clear": "Alles wissen"
     }
   },
   "diagnostic": {

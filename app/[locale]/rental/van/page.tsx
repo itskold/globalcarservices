@@ -1,30 +1,23 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
-import { useTranslations } from 'next-intl'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react"
+import { useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
+import { getVehicles, type VehicleData } from "@/data/vehicles"
 import RentalFilters from "@/components/rental-filters"
-import { vehicles } from "@/data/vehicles"
-
-interface FilterState {
-  location: string
-  dateRange: {
-    from: Date | undefined
-    to: Date | undefined
-  }
-  priceRange: number[]
-  vehicleTypes: string[]
-  brands: string[]
-  features: string[]
-  transmission: string[]
-  fuel: string[]
-  seats: number[]
-}
+import type { FilterState } from "@/types/filters"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Users, Package, Fuel, Calendar } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function VanPage() {
   const t = useTranslations('vanPage')
+  const { locale } = useParams()
+  const [vehicles, setVehicles] = useState<VehicleData[]>([])
+  const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState<FilterState>({
     location: "",
     dateRange: { from: undefined, to: undefined },
@@ -37,11 +30,24 @@ export default function VanPage() {
     seats: [2, 9],
   })
 
-  // Filtrer uniquement les bestelwagens
-  const vans = vehicles.filter(vehicle => vehicle.category === "Bestelwagen")
+  useEffect(() => {
+    const loadVehicles = async () => {
+      try {
+        const allVehicles = await getVehicles()
+        // Filtrer uniquement les bestelwagens
+        const vans = allVehicles.filter(vehicle => vehicle.category === "Bestelwagen")
+        setVehicles(vans)
+      } catch (error) {
+        console.error("Erreur lors du chargement des véhicules:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadVehicles()
+  }, [])
 
   // Filtrer les véhicules basés sur les filtres
-  const filteredVehicles = vans.filter((vehicle) => {
+  const filteredVehicles = vehicles.filter((vehicle) => {
     if (filters.vehicleTypes.length > 0 && !filters.vehicleTypes.includes(vehicle.type)) {
       return false
     }
@@ -50,6 +56,10 @@ export default function VanPage() {
     }
     return true
   })
+
+  if (loading) {
+    return <div>Chargement...</div>
+  }
 
   return (
     <main className="min-h-screen bg-white">
@@ -72,7 +82,7 @@ export default function VanPage() {
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gray-600">
-            {t('results.count', { count: filteredVehicles.length, total: vans.length })}
+            {t('results.count', { count: filteredVehicles.length, total: vehicles.length })}
           </p>
         </div>
       </section>

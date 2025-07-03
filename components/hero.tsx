@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image
           src="/images/hero-vans.jpg"
-          alt={t("imageAlt")}
+          alt="Global Car Services"
           fill
           className="object-cover rounded-t-[4rem]"
           priority

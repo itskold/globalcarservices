@@ -15,7 +15,12 @@
   },
   "home": {
     "hero": {
-      "$ref": "./en/hero.json"
+      "title": "Vehicle Rental and Automotive Services",
+      "subtitle": "Professional transport solutions and complete automotive services",
+      "cta": {
+        "rental": "View our vehicles",
+        "services": "Our services"
+      }
     },
     "search": {
       "title": "Rent a vehicle quickly",

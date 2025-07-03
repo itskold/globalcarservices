@@ -36,11 +36,10 @@ export default function Testimonials() {
                     ))}
                   </div>
                   <Image
-                    src="/placeholder.svg?height=24&width=24"
+                    src="/Google__G__logo.svg.png"
                     alt="Google"
                     width={24}
                     height={24}
-                    className="opacity-60"
                   />
                 </div>
                 <p className="text-gray-700 mb-4 italic">"{t(`reviews.${review.index}.text`)}"</p>

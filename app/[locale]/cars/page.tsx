@@ -1,13 +1,44 @@
+"use client"
+
 import { useTranslations } from "next-intl"
-import { cars } from "@/data/cars"
+import { getCars } from "@/data/cars"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Fuel, Calendar, Users, Gauge, Car } from "lucide-react"
+import { useEffect, useState } from "react"
+import type { CarData } from "@/data/cars"
 
 export default function CarsPage() {
   const t = useTranslations("cars")
+  const [cars, setCars] = useState<CarData[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const loadCars = async () => {
+      try {
+        const carsData = await getCars()
+        setCars(carsData)
+      } catch (error) {
+        console.error("Erreur lors du chargement des voitures:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadCars()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#050b20]"></div>
+      </div>
+    )
+  }
+
+  const categories = Array.from(new Set(cars.map(car => car.category)))
 
   return (
     <main className="min-h-screen bg-white">
@@ -28,7 +59,7 @@ export default function CarsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-[#050b20] mb-8 text-center">{t("categories.title")}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {["Berline", "SUV"].map((category) => {
+            {categories.map((category) => {
               const count = cars.filter((car) => car.category === category).length
               return (
                 <Card key={category} className="hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02]">
@@ -59,7 +90,7 @@ export default function CarsPage() {
               >
                 <div className="aspect-video bg-gray-100 rounded-t-2xl">
                   <img
-                    src={car.image}
+                    src={car.images[0]}
                     alt={car.title}
                     className="w-full h-full object-cover"
                   />

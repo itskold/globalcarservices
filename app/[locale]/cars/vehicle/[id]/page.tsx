@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, use } from "react"
-import { cars } from "@/data/cars"
+import { useState, useEffect } from "react"
+import { useParams, useRouter } from "next/navigation"
 import { notFound } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -10,21 +10,84 @@ import { Separator } from "@/components/ui/separator"
 import { Calendar, Fuel, Gauge, Users, Phone, Mail, Car } from "lucide-react"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
+import { db } from "@/lib/firebase"
+import { doc, getDoc, DocumentData, collection, query, where, getDocs, limit } from 'firebase/firestore'
 
-interface CarPageProps {
-  params: Promise<{
-    id: string
-  }>
+interface CarData extends DocumentData {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  rating: number;
+  reviewCount: number;
+  year: number;
+  fuel: string;
+  seats: number;
+  mileage: number;
+  images: string[];
+  specifications: {
+    engine: string;
+    power: string;
+    consumption: string;
+    color: string;
+    interior: string;
+    doors: string;
+  };
+  options: string[];
+  included: string[];
 }
 
-export default function CarPage({ params }: CarPageProps) {
-  const { id } = use(params)
-  const car = cars.find((c) => c.id === id)
+export default function CarPage() {
+  const params = useParams()
+  const router = useRouter()
+  const id = params.id as string
+  const [car, setCar] = useState<CarData | null>(null)
   const [selectedImage, setSelectedImage] = useState(0)
+  const [loading, setLoading] = useState(true)
+  const [similarCars, setSimilarCars] = useState<CarData[]>([])
   const t = useTranslations("cars.vehicle.page")
 
-  if (!car) {
-    notFound()
+  useEffect(() => {
+    const fetchCarData = async () => {
+      try {
+        const carRef = doc(db, 'cars', id)
+        const carSnap = await getDoc(carRef)
+
+        if (!carSnap.exists()) {
+          notFound()
+          return
+        }
+
+        const carData = { id: carSnap.id, ...carSnap.data() } as CarData
+        setCar(carData)
+
+        const carsRef = collection(db, 'cars')
+        const q = query(
+          carsRef,
+          where('category', '==', carData.category),
+          where('id', '!=', id),
+          limit(2)
+        )
+        const querySnapshot = await getDocs(q)
+        const similarCarsData = querySnapshot.docs
+          .map(doc => ({ id: doc.id, ...doc.data() } as CarData))
+        setSimilarCars(similarCarsData)
+
+      } catch (error) {
+        console.error("Erreur lors de la récupération des données:", error)
+        notFound()
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchCarData()
+  }, [id])
+
+  if (loading || !car) {
+    return <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#050b20]"></div>
+    </div>
   }
 
   return (
@@ -34,7 +97,6 @@ export default function CarPage({ params }: CarPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{car.title}</h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">{car.description}</p>
           </div>
         </div>
       </section>
@@ -52,7 +114,7 @@ export default function CarPage({ params }: CarPageProps) {
                 />
               </div>
               <div className="grid grid-cols-4 gap-4">
-                {car.images.map((image, idx) => (
+                {car.images.map((image: string, idx: number) => (
                   <button
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
@@ -75,7 +137,7 @@ export default function CarPage({ params }: CarPageProps) {
                   </Badge>
                   <div className="flex items-center gap-2">
                     <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => (
+                      {[...Array(5)].map((_, i: number) => (
                         <svg
                           key={i}
                           className={`w-5 h-5 ${i < car.rating ? "text-yellow-400" : "text-gray-300"}`}
@@ -159,7 +221,7 @@ export default function CarPage({ params }: CarPageProps) {
                   <div>
                     <h2 className="text-2xl font-semibold mb-4">{t("options.title")}</h2>
                     <div className="grid grid-cols-2 gap-2">
-                      {car.options.map((option, index) => (
+                      {car.options.map((option: string, index: number) => (
                         <div key={index} className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-[#95c8e2] rounded-full"></div>
                           <span className="text-gray-600">{option}</span>
@@ -173,7 +235,7 @@ export default function CarPage({ params }: CarPageProps) {
                   <div>
                     <h2 className="text-2xl font-semibold mb-4">{t("included.title")}</h2>
                     <div className="grid grid-cols-2 gap-2">
-                      {car.included.map((item, index) => (
+                      {car.included.map((item: string, index: number) => (
                         <div key={index} className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-[#95c8e2] rounded-full"></div>
                           <span className="text-gray-600">{item}</span>
@@ -203,44 +265,7 @@ export default function CarPage({ params }: CarPageProps) {
         </div>
       </section>
 
-      {/* Similar Cars */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#050b20] mb-8 text-center">Vergelijkbare auto's</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {cars
-              .filter((c) => c.id !== car.id && c.category === car.category)
-              .slice(0, 3)
-              .map((similarCar) => (
-                <Card
-                  key={similarCar.id}
-                  className="overflow-hidden hover:shadow-xl transition-all duration-300 rounded-2xl border-0 shadow-md hover:scale-[1.02]"
-                >
-                  <div className="aspect-video bg-gray-100 rounded-t-2xl">
-                    <img
-                      src={similarCar.image}
-                      alt={similarCar.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-[#050b20] mb-2">{similarCar.title}</h3>
-                    <p className="text-gray-600 mb-4">{similarCar.description}</p>
-                    <div className="text-2xl font-bold text-[#050b20] mb-4">
-                      €{similarCar.price.toLocaleString()}
-                    </div>
-                    <Button
-                      asChild
-                      className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium rounded-2xl shadow-sm hover:shadow-md transition-all"
-                    >
-                      <Link href={`/cars/vehicle/${similarCar.id}`}>Details bekijken</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-          </div>
-        </div>
-      </section>
+
     </main>
   )
 } 
