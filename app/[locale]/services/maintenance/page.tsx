@@ -14,6 +14,7 @@ import { TbCarCrash, TbBatteryAutomotive } from "react-icons/tb"
 import { GiCarWheel } from "react-icons/gi"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 import { useTranslations } from "next-intl"
+import { EditableImage } from "@/components/admin/editable-image"
 
 export default function MaintenancePage() {
   const t = useTranslations("maintenance")
@@ -126,7 +127,7 @@ export default function MaintenancePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="relative">
-                <img src="/Globalcar2024-2.jpg" alt="Auto onderhoud" className="rounded-lg shadow-lg aspect-square object-cover" />
+                <EditableImage src="/Globalcar2024-2.jpg" alt="Auto onderhoud" className="rounded-lg shadow-lg aspect-square object-cover" />
                 <div className="absolute -bottom-4 -right-4">
                   <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">

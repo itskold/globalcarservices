@@ -69,7 +69,7 @@ export default function SearchSection() {
                   <MapPin className="h-4 w-4" />
                   <EditableTranslationText namespace="searchSection" id="pickupLocation.label" />
                 </Label>
-                <Select value={pickupLocation} onValueChange={setPickupLocation}>
+                <Select value={pickupLocation} onValueChange={setPickupLocation} defaultValue="antwerpen">
                   <SelectTrigger>
                     <SelectValue>
                       <EditableTranslationText namespace="searchSection" id="pickupLocation.placeholder" />
@@ -92,7 +92,7 @@ export default function SearchSection() {
                   <MapPin className="h-4 w-4" />
                   <EditableTranslationText namespace="searchSection" id="returnLocation.label" />
                 </Label>
-                <Select value={returnLocation} onValueChange={setReturnLocation}>
+                <Select value={returnLocation} onValueChange={setReturnLocation} defaultValue="antwerpen">
                   <SelectTrigger>
                     <SelectValue>
                       <EditableTranslationText namespace="searchSection" id="returnLocation.placeholder" />
@@ -114,7 +114,7 @@ export default function SearchSection() {
                 <Label htmlFor="vehicle-type">
                   <EditableTranslationText namespace="searchSection" id="vehicleType.label" />
                 </Label>
-                <Select value={vehicleType} onValueChange={setVehicleType}>
+                <Select value={vehicleType} onValueChange={setVehicleType} defaultValue="van">
                   <SelectTrigger>
                     <SelectValue>
                       <EditableTranslationText namespace="searchSection" id="vehicleType.placeholder" />

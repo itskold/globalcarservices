@@ -7,6 +7,7 @@ import Image from "next/image"
 import { Phone, MapPin } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { EditableTranslation } from "./admin/editable-translation"
+import { EditableImage } from "./admin/editable-image"
 
 export default function Services() {
   const t = useTranslations("services")
@@ -55,7 +56,7 @@ export default function Services() {
           {services.map((service, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden">
               <div className="relative h-48 w-full">
-                <Image src={service.image || "/placeholder.svg"} alt={t(service.titleKey)} fill className="object-cover filter grayscale" />
+                <EditableImage src={service.image || "/placeholder.svg"} alt={t(service.titleKey)} fill className="object-cover filter grayscale" />
               </div>
               <CardHeader className="text-center">
                 <CardTitle className="text-xl">

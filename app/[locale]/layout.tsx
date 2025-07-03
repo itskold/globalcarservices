@@ -10,6 +10,8 @@ import { NextIntlClientProvider } from 'next-intl'
 import { TranslationEditorProvider } from '@/lib/contexts/translation-editor-context'
 import { TranslationEditorWrapper } from '@/components/admin/translation-editor-wrapper'
 import { TranslationEditorButton } from '@/components/admin/translation-editor-button'
+import { ImageEditorProvider } from '@/lib/contexts/image-editor-context'
+import { ImageEditorButton } from '@/components/admin/image-editor-button'
 import { headers } from 'next/headers'
 
 const inter = Inter({ subsets: ["latin"] })
@@ -45,12 +47,17 @@ export default async function LocaleLayout({
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <TranslationEditorProvider>
-            <Header />
-            <SmoothScrollToTop />
-            {children}
-            <Footer />
-            <TranslationEditorWrapper />
-            <TranslationEditorButton />
+            <ImageEditorProvider>
+              <Header />
+              <SmoothScrollToTop />
+              {children}
+              <Footer />
+              <TranslationEditorWrapper />
+              <div className="fixed bottom-4 right-4 flex flex-col gap-2 z-50">
+                <ImageEditorButton />
+                <TranslationEditorButton />
+              </div>
+            </ImageEditorProvider>
           </TranslationEditorProvider>
         </NextIntlClientProvider>
       </body>

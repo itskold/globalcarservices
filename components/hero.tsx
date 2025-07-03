@@ -6,6 +6,7 @@ import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import { EditableTranslation } from "./admin/editable-translation"
+import { EditableImage } from "./admin/editable-image"
 
 export default function Hero() {
   const t = useTranslations("home.hero")
@@ -16,14 +17,14 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-center rounded-t-[4rem]">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <Image
+        <EditableImage
           src="/images/hero-vans.jpg"
           alt="Global Car Services"
           fill
           className="object-cover rounded-t-[4rem]"
           priority
         />
-        {/*<div className="absolute inset-0 bg-[#050b20]/70"></div>*/}
+        {/* <div className="absolute inset-0 bg-[#050b20]/70"></div> */}
       </div>
 
       {/* Content */}

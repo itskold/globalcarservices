@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, Clock, DollarSign, Shield } from "lucide-react"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
+import { EditableImage } from "@/components/admin/editable-image"
 
 export default function AboutPage() {
   const t = useTranslations("about")
@@ -50,7 +51,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="/about-inner1-2.jpg" alt={t("story.image")} className="rounded-lg shadow-lg aspect-square object-cover" />
+              <EditableImage src="/about-inner1-2.jpg" alt={t("story.image")} className="rounded-lg shadow-lg aspect-square object-cover" />
             </div>
             <div>
               <h2 className="text-3xl font-bold text-[#050b20] mb-6">
