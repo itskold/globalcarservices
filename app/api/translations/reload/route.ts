@@ -1,11 +1,6 @@
-import { notFound } from 'next/navigation'
-import { getRequestConfig } from 'next-intl/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { getDatabase, ref, get } from 'firebase/database'
 import { app } from '@/lib/firebase'
-
-export const locales = ['nl', 'fr', 'en'] as const
-export type Locale = typeof locales[number]
-export const defaultLocale = 'nl' as const
 
 // Fonction pour charger les traductions depuis Firebase
 async function getFirebaseTranslations(locale: string): Promise<Record<string, any>> {
@@ -16,7 +11,6 @@ async function getFirebaseTranslations(locale: string): Promise<Record<string, a
     
     if (snapshot.exists()) {
       const data = snapshot.val() as Record<string, any>
-      // On retourne l'objet plat { encodedKey: { value: ... } }
       const flat: Record<string, string> = {}
       for (const encodedKey in data) {
         if (data[encodedKey]?.value) {
@@ -39,18 +33,15 @@ function decodeKey(encodedKey: string): string {
 
 // Fusionne les traductions Firebase (plates) dans l'objet imbriqué
 function mergeDecodedFirebaseTranslations(defaultTranslations: Record<string, any>, firebaseTranslations: Record<string, string>) {
-  // On part d'une copie du JSON
   const merged = { ...defaultTranslations }
 
   for (const encodedKey in firebaseTranslations) {
     const decodedKey = decodeKey(encodedKey)
     const value = firebaseTranslations[encodedKey]
-    // Recrée l'objet imbriqué à partir de la clé décodée
     const keys = decodedKey.split('.')
     let current = merged
     for (let i = 0; i < keys.length - 1; i++) {
       if (!current[keys[i]]) current[keys[i]] = {}
-      // Si la valeur existante est une chaîne, on la transforme en objet vide
       if (typeof current[keys[i]] === 'string') {
         current[keys[i]] = {}
       }
@@ -61,30 +52,28 @@ function mergeDecodedFirebaseTranslations(defaultTranslations: Record<string, an
   return merged
 }
 
-export default getRequestConfig(async ({ locale }) => {
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound()
-
+export async function GET(request: NextRequest) {
+  const locale = request.nextUrl.searchParams.get('locale') || 'fr'
+  
   try {
     // Charger les traductions par défaut depuis les fichiers JSON
-    const defaultMessages = (await import(`./messages/${locale}.json`)).default
+    const defaultMessages = (await import(`../../../messages/${locale}.json`)).default
     // Charger les traductions modifiées depuis Firebase
     const firebaseMessages = await getFirebaseTranslations(locale)
     // Fusionner : les traductions Firebase remplacent celles du JSON
     const messages = mergeDecodedFirebaseTranslations(defaultMessages, firebaseMessages)
     
-    return { 
+    return NextResponse.json({ 
+      success: true, 
       messages,
-      // Désactiver le cache pour forcer le rechargement des traductions
-      unstable_noStore: true
-    }
+      firebaseCount: Object.keys(firebaseMessages).length,
+      timestamp: new Date().toISOString()
+    })
   } catch (error) {
-    console.error('Error loading translations:', error)
-    // En cas d'erreur, retourner seulement les traductions par défaut
-    const defaultMessages = (await import(`./messages/${locale}.json`)).default
-    return { 
-      messages: defaultMessages,
-      unstable_noStore: true
-    }
+    console.error('Error reloading translations:', error)
+    return NextResponse.json({ 
+      success: false, 
+      error: error instanceof Error ? error.message : 'Unknown error' 
+    }, { status: 500 })
   }
-}) 
+} 

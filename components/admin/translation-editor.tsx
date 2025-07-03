@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { X } from 'lucide-react'
+import { X, RefreshCw } from 'lucide-react'
 
 interface TranslationValue {
   lang: string
@@ -26,6 +26,7 @@ export function TranslationEditor({
 }: TranslationEditorProps) {
   const [values, setValues] = useState<TranslationValue[]>(translations)
   const [isSaving, setIsSaving] = useState(false)
+  const [isReloading, setIsReloading] = useState(false)
 
   useEffect(() => {
     setValues(translations)
@@ -50,6 +51,18 @@ export function TranslationEditor({
     }
   }
 
+  const handleReload = async () => {
+    setIsReloading(true)
+    try {
+      // Forcer le rechargement de la page pour récupérer les nouvelles traductions
+      window.location.reload()
+    } catch (error) {
+      console.error('Failed to reload translations:', error)
+    } finally {
+      setIsReloading(false)
+    }
+  }
+
   if (!isOpen) return null
 
   return (
@@ -57,9 +70,20 @@ export function TranslationEditor({
       <Card className="w-96 p-4">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold">Modifier les traductions</h3>
-          <Button variant="ghost" size="icon" onClick={onClose}>
-            <X className="h-4 w-4" />
-          </Button>
+          <div className="flex space-x-2">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={handleReload}
+              disabled={isReloading}
+              title="Recharger les traductions"
+            >
+              <RefreshCw className={`h-4 w-4 ${isReloading ? 'animate-spin' : ''}`} />
+            </Button>
+            <Button variant="ghost" size="icon" onClick={onClose}>
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
         
         <div className="space-y-4">
