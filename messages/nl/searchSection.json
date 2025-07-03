@@ -1,0 +1,35 @@
+{
+  "title": "Vind het ideale voertuig",
+  "subtitle": "Zoek in ons uitgebreide wagenpark",
+  "pickupLocation": {
+    "label": "Ophaallocatie",
+    "placeholder": "Selecteer ophaallocatie"
+  },
+  "returnLocation": {
+    "label": "Inleverlocatie",
+    "placeholder": "Selecteer inleverlocatie"
+  },
+  "vehicleType": {
+    "label": "Voertuigtype",
+    "placeholder": "Selecteer een voertuigtype",
+    "options": {
+      "van": "Bestelwagen",
+      "minibus": "Minibus",
+      "car": "Auto",
+      "truck": "Vrachtwagen"
+    }
+  },
+  "pickupDateTime": {
+    "label": "Ophaaldatum en -tijd",
+    "placeholder": "Selecteer datum en tijd"
+  },
+  "returnDateTime": {
+    "label": "Inleverdatum en -tijd",
+    "placeholder": "Selecteer datum en tijd"
+  },
+  "locations": {
+    "antwerpen": "Antwerpen",
+    "gent": "Gent"
+  },
+  "searchButton": "Zoeken"
+} 

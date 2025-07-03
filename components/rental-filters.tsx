@@ -14,6 +14,7 @@ import { CalendarIcon, SlidersHorizontal, X, MapPin, Users, Car, Euro, Settings,
 import { format } from "date-fns"
 import { nl } from "date-fns/locale"
 import { DateRange } from "react-day-picker"
+import { useTranslations } from 'next-intl'
 
 interface FilterState {
   location: string
@@ -45,6 +46,7 @@ type VehicleFeatures = {
 };
 
 export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: RentalFiltersProps) {
+  const t = useTranslations('rentalFilters')
   const [filters, setFilters] = useState<FilterState>({
     location: "",
     dateRange: { from: undefined, to: undefined },
@@ -61,26 +63,15 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
 
-  const vehicleTypeOptions = [
-    { id: "mini-van", label: "Mini Van" },
-    { id: "normal-van", label: "Normal Van" },
-    { id: "large-van", label: "Large Van" },
-    { id: "xl-van", label: "Extra Large Van" },
-    { id: "box-van", label: "Box Van" },
-    { id: "box-van-lift", label: "Box Van met Laadklep" },
-    { id: "minibus", label: "Minibus" },
-    { id: "koelwagen", label: "Koelwagen" }
-  ]
-
   const vehicleTypes = [
-    { value: "mini-van", label: "Mini Van" },
-    { value: "normal-van", label: "Normal Van" },
-    { value: "large-van", label: "Large Van" },
-    { value: "xl-van", label: "Extra Large Van" },
-    { value: "box-van", label: "Box Van" },
-    { value: "box-van-lift", label: "Box Van met Laadklep" },
-    { value: "minibus", label: "Minibus" },
-    { value: "koelwagen", label: "Koelwagen" }
+    { id: "mini-van", label: t('vehicleType.options.mini-van') },
+    { id: "normal-van", label: t('vehicleType.options.normal-van') },
+    { id: "large-van", label: t('vehicleType.options.large-van') },
+    { id: "xl-van", label: t('vehicleType.options.xl-van') },
+    { id: "box-van", label: t('vehicleType.options.box-van') },
+    { id: "box-van-lift", label: t('vehicleType.options.box-van-lift') },
+    { id: "minibus", label: t('vehicleType.options.minibus') },
+    { id: "koelwagen", label: t('vehicleType.options.koelwagen') }
   ]
 
   const models = [
@@ -112,43 +103,43 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
   ]
 
   const brands = [
-    { value: "Peugeot", label: "Peugeot" },
-    { value: "Citroen", label: "Citroën" },
-    { value: "Renault", label: "Renault" },
-    { value: "Ford", label: "Ford" },
-    { value: "VW", label: "Volkswagen" },
-    { value: "Mercedes", label: "Mercedes" }
+    { value: "Peugeot", label: t('brands.options.Peugeot') },
+    { value: "Citroen", label: t('brands.options.Citroen') },
+    { value: "Renault", label: t('brands.options.Renault') },
+    { value: "Ford", label: t('brands.options.Ford') },
+    { value: "VW", label: t('brands.options.VW') },
+    { value: "Mercedes", label: t('brands.options.Mercedes') }
   ]
 
   const features = [
-    { value: "airco", label: "Airconditioning" },
-    { value: "navigation", label: "Navigatie" },
-    { value: "carplay", label: "Apple CarPlay" },
-    { value: "android-auto", label: "Android Auto" },
-    { value: "trekhaak", label: "Trekhaak" },
-    { value: "laadklep", label: "Laadklep" },
-    { value: "koeling", label: "Koeling" },
-    { value: "camera", label: "Achteruitrijcamera" },
-    { value: "schuifdeuren", label: "Schuifdeuren" }
+    { value: "airco", label: t('features.options.airco') },
+    { value: "navigation", label: t('features.options.navigation') },
+    { value: "carplay", label: t('features.options.carplay') },
+    { value: "android-auto", label: t('features.options.android-auto') },
+    { value: "trekhaak", label: t('features.options.trekhaak') },
+    { value: "laadklep", label: t('features.options.laadklep') },
+    { value: "koeling", label: t('features.options.koeling') },
+    { value: "camera", label: t('features.options.camera') },
+    { value: "schuifdeuren", label: t('features.options.schuifdeuren') }
   ]
 
   const transmissionOptions = [
-    { id: "manual", label: "Handgeschakeld" },
-    { id: "automatic", label: "Automaat" },
+    { id: "manual", label: t('transmission.options.manual') },
+    { id: "automatic", label: t('transmission.options.automatic') },
   ]
 
   const fuelOptions = [
-    { id: "diesel", label: "Diesel" },
-    { id: "petrol", label: "Benzine" },
-    { id: "electric", label: "Elektrisch" },
+    { id: "diesel", label: t('fuel.options.diesel') },
+    { id: "petrol", label: t('fuel.options.petrol') },
+    { id: "electric", label: t('fuel.options.electric') },
   ]
 
   const durations = [
-    { value: "half-day", label: "½ dag (4u)" },
-    { value: "day", label: "Dag" },
-    { value: "weekend", label: "Weekend" },
-    { value: "week", label: "Week" },
-    { value: "month", label: "Maand" }
+    { value: "half-day", label: t('duration.options.half-day') },
+    { value: "day", label: t('duration.options.day') },
+    { value: "weekend", label: t('duration.options.weekend') },
+    { value: "week", label: t('duration.options.week') },
+    { value: "month", label: t('duration.options.month') }
   ]
 
   const updateFilters = (newFilters: Partial<FilterState>) => {
@@ -255,7 +246,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
           <div className="flex items-center gap-2 min-w-fit">
             <MapPin className="h-4 w-4 text-gray-500" />
             <Input
-              placeholder="Locatie"
+              placeholder={t('location.placeholder')}
               value={filters.location}
               onChange={(e) => updateFilters({ location: e.target.value })}
               className="w-32 h-10 border-gray-300 rounded-2xl"
@@ -296,7 +287,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                     format(filters.dateRange.from, "dd MMM", { locale: nl })
                   )
                 ) : (
-                  "Datum"
+                  t('date.label')
                 )}
               </Button>
             </PopoverTrigger>
@@ -317,7 +308,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
           <div className="flex items-center gap-2 min-w-fit">
             <Euro className="h-4 w-4 text-gray-500" />
             <span className="text-sm text-gray-600 whitespace-nowrap">
-              €{filters.priceRange[0]} - €{filters.priceRange[1]}
+              {t('price.range', { min: filters.priceRange[0], max: filters.priceRange[1] })}
             </span>
           </div>
 
@@ -335,8 +326,8 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                 }}
                 className="h-10 border-gray-300 rounded-2xl bg-transparent"
               >
-                <option value="">Type voertuig</option>
-                {vehicleTypeOptions.map((type) => (
+                <option value="">{t('vehicleType.placeholder')}</option>
+                {vehicleTypes.map((type) => (
                   <option key={type.id} value={type.id}>
                     {type.label}
                   </option>
@@ -353,7 +344,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                 className="h-10 px-4 rounded-3xl border-gray-300 hover:border-gray-400 min-w-fit bg-transparent shadow-sm hover:shadow-md transition-all"
               >
                 <SlidersHorizontal className="mr-2 h-4 w-4" />
-                Filters
+                {t('filters.button')}
                 {getActiveFiltersCount() > 0 && (
                   <Badge className="ml-2 bg-[#050b20] text-white text-xs px-3 py-1 rounded-2xl">
                     {getActiveFiltersCount()}
@@ -363,13 +354,13 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto rounded-3xl">
               <DialogHeader>
-                <DialogTitle className="text-xl font-semibold text-[#050b20]">Filters</DialogTitle>
+                <DialogTitle className="text-xl font-semibold text-[#050b20]">{t('filters.title')}</DialogTitle>
               </DialogHeader>
 
               <div className="space-y-8 py-4">
                 {/* Price Range */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">Prijsbereik per dag</Label>
+                  <Label className="text-base font-medium text-[#050b20]">{t('price.label')}</Label>
                   <div className="px-4">
                     <Slider
                       value={filters.priceRange}
@@ -388,7 +379,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Brands */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">Merken</Label>
+                  <Label className="text-base font-medium text-[#050b20]">{t('brands.title')}</Label>
                   <div className="grid grid-cols-2 gap-3">
                     {brands.map((brand) => (
                       <div key={brand.value} className="flex items-center space-x-2">
@@ -412,7 +403,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Transmission */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">Transmissie</Label>
+                  <Label className="text-base font-medium text-[#050b20]">{t('transmission.title')}</Label>
                   <div className="flex gap-3">
                     {transmissionOptions.map((option) => (
                       <Button
@@ -438,7 +429,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Fuel Type */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">Brandstof</Label>
+                  <Label className="text-base font-medium text-[#050b20]">{t('fuel.title')}</Label>
                   <div className="flex gap-3">
                     {fuelOptions.map((option) => (
                       <Button
@@ -465,7 +456,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                 {/* Seats (for minibus/car) */}
                 {(vehicleType === "minibus" || vehicleType === "car" || vehicleType === "all") && (
                   <div className="space-y-4">
-                    <Label className="text-base font-medium text-[#050b20]">Aantal zitplaatsen</Label>
+                    <Label className="text-base font-medium text-[#050b20]">{t('seats.title')}</Label>
                     <div className="px-4">
                       <Slider
                         value={filters.seats}
@@ -476,8 +467,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                         className="w-full"
                       />
                       <div className="flex justify-between text-sm text-gray-600 mt-2">
-                        <span>{filters.seats[0]} personen</span>
-                        <span>{filters.seats[1]} personen</span>
+                        <span>{t('seats.range', { min: filters.seats[0], max: filters.seats[1] })}</span>
                       </div>
                     </div>
                   </div>
@@ -485,25 +475,23 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Vehicle Types */}
                 <div>
-                  <Label className="text-base font-medium text-[#050b20]">Type Voertuig</Label>
+                  <Label className="text-base font-medium text-[#050b20]">{t('vehicleType.label')}</Label>
                   <div className="grid grid-cols-2 gap-3 mt-2">
                     {vehicleTypes.map((type) => (
-                      <div key={type.value} className="flex items-center space-x-2">
+                      <div key={type.id} className="flex items-center space-x-2">
                         <Checkbox
-                          id={type.value}
-                          checked={filters.vehicleTypes.includes(type.value)}
+                          id={type.id}
+                          checked={filters.vehicleTypes.includes(type.id)}
                           onCheckedChange={(checked) => {
                             const newTypes = checked
-                              ? [...filters.vehicleTypes, type.value]
-                              : filters.vehicleTypes.filter((t) => t !== type.value);
+                              ? [...filters.vehicleTypes, type.id]
+                              : filters.vehicleTypes.filter((t) => t !== type.id);
                             
-                            // Mettre à jour les modèles si nécessaire
                             const availableModels = getFilteredModels(newTypes);
                             const updatedModels = filters.models.filter(model => 
                               availableModels.some(m => m.value === model)
                             );
                             
-                            // Mettre à jour les caractéristiques si nécessaire
                             const availableFeatures = getFilteredFeatures(newTypes);
                             const updatedFeatures = filters.features.filter(feature =>
                               availableFeatures.some(f => f.value === feature)
@@ -516,7 +504,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                             });
                           }}
                         />
-                        <Label htmlFor={type.value} className="text-sm font-normal cursor-pointer">
+                        <Label htmlFor={type.id} className="text-sm font-normal cursor-pointer">
                           {type.label}
                         </Label>
                       </div>
@@ -574,7 +562,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Duration */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">Huurperiode</Label>
+                  <Label className="text-base font-medium text-[#050b20]">{t('duration.label')}</Label>
                   <div className="flex flex-wrap gap-3">
                     {durations.map((duration) => (
                       <Button
@@ -596,13 +584,13 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
               {/* Modal Footer */}
               <div className="flex justify-between items-center pt-6 border-t">
                 <Button variant="ghost" onClick={clearAllFilters} className="text-gray-600 hover:text-gray-800">
-                  Alles wissen
+                  {t('filters.clearAll')}
                 </Button>
                 <Button
                   onClick={() => setIsFilterModalOpen(false)}
                   className="bg-[#050b20] hover:bg-[#0a1530] text-white px-8 rounded-2xl shadow-lg hover:shadow-xl transition-all"
                 >
-                  Tonen ({getActiveFiltersCount()} filters)
+                  {t('filters.show')} ({getActiveFiltersCount()} {t('filters.button').toLowerCase()})
                 </Button>
               </div>
             </DialogContent>
@@ -617,7 +605,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
               className="h-10 px-4 rounded-2xl text-gray-600 hover:text-gray-800 min-w-fit hover:bg-gray-100 transition-all"
             >
               <X className="mr-2 h-4 w-4" />
-              Wissen
+              {t('activeFilters.clear')}
             </Button>
           )}
         </div>
@@ -625,7 +613,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
         {/* Active Filters */}
         {getActiveFiltersCount() > 0 && (
           <div className="flex items-center gap-2 mt-4 flex-wrap">
-            <span className="text-sm text-gray-600">Actieve filters:</span>
+            <span className="text-sm text-gray-600">{t('activeFilters.title')}:</span>
             {filters.location && (
               <Badge variant="secondary" className="rounded-2xl px-3 py-1 shadow-sm">
                 {filters.location}
@@ -643,7 +631,7 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
             )}
             {filters.vehicleTypes.map((type) => (
               <Badge key={type} variant="secondary" className="rounded-2xl px-3 py-1 shadow-sm">
-                {vehicleTypes.find((v) => v.value === type)?.label}
+                {vehicleTypes.find((v) => v.id === type)?.label}
                 <X
                   className="ml-1 h-3 w-3 cursor-pointer"
                   onClick={() => updateFilters({ vehicleTypes: filters.vehicleTypes.filter((t) => t !== type) })}

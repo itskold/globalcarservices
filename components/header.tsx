@@ -1,59 +1,52 @@
 "use client"
 
 import { useState, useRef } from "react"
-import Link from "next/link"
-import { Menu, Car, ChevronDown, Globe } from "lucide-react"
+import { Menu, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-const languages = [
-  { code: "nl", label: "NL"},
-  { code: "fr", label: "FR" },
-  { code: "en", label: "EN" },
-]
+import { useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+import LanguageSwitcher from '@/components/language-switcher'
+import { useLocale } from 'next-intl'
 
 export default function Header() {
+  const t = useTranslations('navigation')
+  const tServices = useTranslations('services')
+  const pathname = usePathname()
+  const locale = useLocale()
   const [isOpen, setIsOpen] = useState(false)
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
-  const [language, setLanguage] = useState("nl")
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Diensten", href: "/services", hasMegaMenu: true },
-    { name: "Verhuur", href: "/rental" },
-    { name: "Over ons", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: t('home'), href: `/${locale}` },
+    { name: t('services'), href: `/${locale}/services`, hasMegaMenu: true },
+    { name: t('rental'), href: `/${locale}/rental` },
+    { name: t('about'), href: `/${locale}/about` },
+    { name: t('contact'), href: `/${locale}/contact` },
   ]
 
   const megaMenuItems = {
-    "Onderhoud & herstelling": [
-      { name: "Auto onderhoud", href: "/services/maintenance" },
-      { name: "Auto diagnose", href: "/services/diagnostic" },
-      { name: "Auto herstelling", href: "/services/repair" },
-      { name: "Volledige onderhoud", href: "/services/revision" },
+    [tServices('maintenance.title')]: [
+      { name: tServices('maintenance.diagnostic'), href: `/${locale}/services/diagnostic` },
+      { name: tServices('maintenance.repair'), href: `/${locale}/services/repair` },
+      { name: tServices('maintenance.revision'), href: `/${locale}/services/revision` },
     ],
-    Verhuur: [
-      { name: "Alle voertuigen", href: "/rental" },
-      { name: "Bestelwagens", href: "/rental/van" },
-      { name: "Bakwagens", href: "/rental/box" },
-      { name: "Minibussen", href: "/rental/minibus" },
-      { name: "Koelwagens", href: "/rental/refrigerated" },
-      { name: "Huurvoorwaarden", href: "/rental/conditions" },
+    [tServices('rental.title')]: [
+      { name: tServices('rental.all'), href: `/${locale}/rental` },
+      { name: tServices('rental.van'), href: `/${locale}/rental/van` },
+      { name: tServices('rental.box'), href: `/${locale}/rental/box` },
+      { name: tServices('rental.minibus'), href: `/${locale}/rental/minibus` },
+      { name: tServices('rental.refrigerated'), href: `/${locale}/rental/refrigerated` },
+      { name: tServices('rental.conditions'), href: `/${locale}/rental/conditions` },
     ],
-    "Extra diensten": [
-      { name: "Tweedehands wagens", href: "/cars" },
-      { name: "24/7 Pechhulp", href: "/breakdown" },
-      { name: "Gratis offerte", href: "/contact" },
-      { name: "Advies op maat", href: "/contact" },
+    [tServices('extra.title')]: [
+      { name: tServices('extra.usedCars'), href: `/${locale}/cars` },
+      { name: tServices('extra.breakdown'), href: `/${locale}/breakdown` },
+      { name: tServices('extra.quote'), href: `/${locale}/contact` },
+      { name: tServices('extra.advice'), href: `/${locale}/contact` },
     ],
   }
 
@@ -71,11 +64,11 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white border-b border-gray-100 sticky top-0 z-50 ">
+    <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href={`/${locale}`} className="flex items-center space-x-2">
               <Image src="/logo.png" alt="Logo" width={200} height={200} className="p-2" />
             </Link>
           </div>
@@ -135,31 +128,9 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Select value={language} onValueChange={setLanguage}>
-              <SelectTrigger className="w-[80px] h-9 px-2 border-none bg-transparent hover:bg-gray-100 rounded-full transition-colors">
-                <div className="flex items-center gap-1">
-                  <Globe className="h-4 w-4 text-gray-600" />
-                  <span className="text-sm font-medium">
-                    {languages.find(lang => lang.code === language)?.label}
-                  </span>
-                </div>
-              </SelectTrigger>
-              <SelectContent className="w-[120px]">
-                {languages.map((lang) => (
-                  <SelectItem 
-                    key={lang.code} 
-                    value={lang.code}
-                    className="cursor-pointer hover:bg-gray-100"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium">{lang.label}</span>
-                    </div>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <LanguageSwitcher />
             <Button asChild className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium">
-              <Link href="/appointment">Afspraak maken</Link>
+              <Link href={`/${locale}/appointment`}>{t('appointment')}</Link>
             </Button>
           </div>
 
@@ -207,32 +178,10 @@ export default function Header() {
                   </div>
                 ))}
                 <div className="px-3 py-2">
-                  <Select value={language} onValueChange={setLanguage}>
-                    <SelectTrigger className="w-full border-[#95c8e2] bg-transparent hover:bg-gray-50">
-                      <div className="flex items-center gap-2">
-                        <Globe className="h-4 w-4 text-[#95c8e2]" />
-                        <span className="text-sm font-medium">
-                          Changer de langue
-                        </span>
-                      </div>
-                    </SelectTrigger>
-                    <SelectContent>
-                      {languages.map((lang) => (
-                        <SelectItem 
-                          key={lang.code} 
-                          value={lang.code}
-                          className="cursor-pointer hover:bg-gray-50"
-                        >
-                          <div className="flex items-center gap-3">
-                            <span className="text-sm font-medium">{lang.label}</span>
-                          </div>
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <LanguageSwitcher />
                 </div>
                 <Button asChild className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium mt-4">
-                  <Link href="/appointment">Afspraak maken</Link>
+                  <Link href={`/${locale}/appointment`}>{t('appointment')}</Link>
                 </Button>
               </nav>
             </SheetContent>

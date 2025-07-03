@@ -1,0 +1,63 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "rental": "Rental",
+    "about": "About",
+    "contact": "Contact",
+    "appointment": "Make an appointment",
+    "changeLanguage": "Change language"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "contact": "Contact us",
+    "book": "Book now"
+  },
+  "home": {
+    "hero": {
+      "title": "Global Car Service",
+      "subtitle": "Your trusted partner for all your automotive needs"
+    }
+  },
+  "services": {
+    "maintenance": {
+      "title": "Car maintenance",
+      "diagnostic": "Car diagnostic",
+      "repair": "Car repair",
+      "revision": "Full service"
+    },
+    "rental": {
+      "title": "Rental",
+      "all": "All vehicles",
+      "van": "Vans",
+      "box": "Box trucks",
+      "minibus": "Minibuses",
+      "refrigerated": "Refrigerated vehicles",
+      "conditions": "Rental conditions"
+    },
+    "extra": {
+      "title": "Extra services",
+      "usedCars": "Used cars",
+      "breakdown": "24/7 Breakdown",
+      "quote": "Free quote",
+      "advice": "Custom advice"
+    }
+  },
+  "rental": {
+    "refrigerated": {
+      "title": "Refrigerated Truck Rental",
+      "description": "Discover our range of refrigerated trucks available for rent. Perfect for transporting goods that require temperature control.",
+      "hero": {
+        "title": "Refrigerated Truck Rental",
+        "subtitle": "Reliable and efficient refrigerated transport solutions"
+      },
+      "results": {
+        "showing": "Showing",
+        "results": "results"
+      },
+      "viewDetails": "View details",
+      "pricePerHour": "/ 4 hours",
+      "fromPrice": "From"
+    }
+  }
+} 

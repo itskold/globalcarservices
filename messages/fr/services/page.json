@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "title": "Nos Services",
+    "description": "De l'entretien à la réparation, nous offrons un service complet pour tous vos besoins automobiles"
+  },
+  "mainServices": {
+    "title": "Entretien & Réparation",
+    "subtitle": "Services automobiles professionnels pour toutes les marques",
+    "services": {
+      "maintenance": {
+        "title": "Entretien automobile",
+        "description": "Entretien régulier pour des performances optimales de votre véhicule"
+      },
+      "diagnostic": {
+        "title": "Diagnostic automobile",
+        "description": "Diagnostic professionnel avec équipement moderne"
+      },
+      "repair": {
+        "title": "Réparation automobile",
+        "description": "Réparations approfondies des dommages et défauts"
+      },
+      "revision": {
+        "title": "Révision complète",
+        "description": "Révision complète pour des performances optimales"
+      },
+      "moreInfo": "Plus d'infos"
+    }
+  },
+  "additionalServices": {
+    "title": "Services Supplémentaires",
+    "subtitle": "Services complémentaires pour votre confort",
+    "services": {
+      "breakdown": {
+        "title": "Assistance 24/7",
+        "description": "Aide rapide où que vous soyez, jour et nuit"
+      },
+      "quote": {
+        "title": "Devis gratuit",
+        "description": "Demandez un devis gratuit pour votre véhicule"
+      },
+      "advice": {
+        "title": "Conseil personnalisé",
+        "description": "Conseils personnalisés pour vos besoins spécifiques"
+      },
+      "viewService": "Voir le service"
+    }
+  },
+  "cta": {
+    "title": "Besoin d'entretien ou de réparation ?",
+    "description": "Prenez rendez-vous avec nos experts pour l'entretien et la réparation de votre véhicule",
+    "button": "Prendre rendez-vous"
+  }
+} 

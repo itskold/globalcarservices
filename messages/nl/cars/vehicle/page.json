@@ -1,0 +1,26 @@
+{
+  "specs": {
+    "year": "Bouwjaar",
+    "fuel": "Brandstof",
+    "seats": "Zitplaatsen",
+    "mileage": "Kilometerstand",
+    "title": "Specificaties",
+    "engine": "Motor",
+    "power": "Vermogen",
+    "consumption": "Verbruik",
+    "color": "Kleur",
+    "interior": "Interieur",
+    "doors": "Deuren"
+  },
+  "options": {
+    "title": "Opties en uitrusting"
+  },
+  "included": {
+    "title": "Inbegrepen"
+  },
+  "actions": {
+    "call": "Bellen",
+    "email": "E-mail"
+  },
+  "reviews": "beoordelingen"
+} 

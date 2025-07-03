@@ -1,0 +1,12 @@
+{
+  "title": "Vehicle Rental",
+  "subtitle": "Discover our modern fleet of vehicles for all your needs",
+  "pricePerDay": "€{price}/day",
+  "specifications": {
+    "seats": "seats",
+    "luggage": "m³"
+  },
+  "included": "Included:",
+  "reserve": "Reserve",
+  "viewAll": "View all vehicles"
+} 

@@ -1,0 +1,26 @@
+{
+  "company": {
+    "title": "Bedrijf",
+    "about": "Over ons",
+    "services": "Diensten",
+    "contact": "Contact"
+  },
+  "services": {
+    "title": "Diensten",
+    "maintenance": "Onderhoud",
+    "repair": "Reparatie",
+    "rental": "Verhuur"
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Van Heetveldelei 157",
+    "city": "2100 Antwerpen",
+    "phone": "Telefoon",
+    "email": "E-mail"
+  },
+  "social": {
+    "title": "Sociale media",
+    "follow": "Volg ons"
+  },
+  "copyright": "© 2024 Global Car Services. Alle rechten voorbehouden."
+} 

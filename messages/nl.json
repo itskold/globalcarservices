@@ -1,0 +1,1072 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Diensten",
+    "rental": "Verhuur",
+    "about": "Over ons",
+    "contact": "Contact",
+    "appointment": "Afspraak maken",
+    "changeLanguage": "Taal wijzigen"
+  },
+  "cars": {
+    "hero": {
+      "title": "Auto's te Koop",
+      "subtitle": "Ontdek onze selectie premium tweedehands voertuigen"
+    },
+    "categories": {
+      "title": "Onze Categorieën",
+      "types": {
+        "berline": "Berline",
+        "suv": "SUV"
+      },
+      "available": "{count} beschikbare modellen"
+    },
+    "specs": {
+      "fuel": {
+        "benzine": "Benzine",
+        "diesel": "Diesel",
+        "hybride": "Hybride",
+        "elektrisch": "Elektrisch"
+      },
+      "seats": "{count} zitplaatsen",
+      "mileage": "{count} km"
+    },
+    "features": {
+      "airconditioning": "Airconditioning",
+      "cruise_control": "Cruise control",
+      "navigation_system": "Navigatiesysteem",
+      "parking_sensors": "Parkeersensoren",
+      "bluetooth": "Bluetooth",
+      "leather_seats": "Lederen zetels",
+      "sunroof": "Schuifdak",
+      "automatic_transmission": "Automatische versnellingsbak",
+      "m_sport_afwerking": "M Sport afwerking",
+      "panoramisch_schuifdak": "Panoramisch schuifdak",
+      "harman_kardon_audiosysteem": "Harman Kardon audiosysteem",
+      "sport_pakket": "Sport pakket",
+      "amg_line_pakket": "AMG Line pakket",
+      "sfeerverlichting": "Sfeerverlichting",
+      "burmester_geluidssysteem": "Burmester geluidssysteem",
+      "rijassistentie_pakket": "Rijassistentie pakket",
+      "s_line_exterieur": "S line exterieur",
+      "panoramadak": "Panoramadak",
+      "bang_&_olufsen_sound": "Bang & Olufsen Sound",
+      "technology_pakket": "Technology pakket",
+      "r-design": "R-Design",
+      "bowers_&_wilkins_audio": "Bowers & Wilkins audio",
+      "intellisafe_pro_pakket": "IntelliSafe Pro pakket"
+    },
+    "vehicle": {
+      "view_details": "Details bekijken",
+      "page": {
+        "specs": {
+          "year": "Bouwjaar",
+          "fuel": "Brandstof",
+          "seats": "Zitplaatsen",
+          "mileage": "Kilometerstand",
+          "title": "Specificaties",
+          "engine": "Motor",
+          "power": "Vermogen",
+          "consumption": "Verbruik",
+          "color": "Kleur",
+          "interior": "Interieur",
+          "doors": "Deuren"
+        },
+        "options": {
+          "title": "Opties en uitrusting"
+        },
+        "included": {
+          "title": "Inbegrepen"
+        },
+        "actions": {
+          "call": "Bellen",
+          "email": "E-mail"
+        },
+        "reviews": "beoordelingen"
+      }
+    },
+    "cta": {
+      "title": "Interesse in een van onze auto's?",
+      "description": "Neem contact met ons op voor meer informatie of om een afspraak te maken voor een proefrit",
+      "contact": "Contact opnemen",
+      "appointment": "Afspraak maken"
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "Bedrijf",
+      "about": "Over ons",
+      "services": "Diensten",
+      "contact": "Contact",
+      "description": "Uw betrouwbare partner voor al uw automotive behoeften sinds meer dan 20 jaar."
+    },
+    "services": {
+      "title": "Diensten",
+      "maintenance": "Onderhoud",
+      "repair": "Reparatie",
+      "rental": "Verhuur",
+      "breakdown": "Pechverhelping"
+    },
+    "quickLinks": {
+      "title": "Snelle links",
+      "about": "Over ons",
+      "appointment": "Afspraak maken",
+      "rental": "Voertuigverhuur",
+      "usedCars": "Tweedehands auto's",
+      "conditions": "Algemene voorwaarden",
+      "privacy": "Privacybeleid",
+      "contact": "Contact"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Van Heetveldelei 157",
+      "city": "2100 Antwerpen",
+      "phone": "Telefoon",
+      "email": "E-mail"
+    },
+    "social": {
+      "title": "Sociale media",
+      "follow": "Volg ons"
+    },
+    "copyright": "© 2024 Global Car Services. Alle rechten voorbehouden."
+  },
+  "hero": {
+    "$ref": "./nl/hero.json"
+  },
+  "services": {
+    "title": "Onze Diensten",
+    "subtitle": "Van voertuigverhuur tot complete onderhoudsdiensten - wij zijn uw betrouwbare partner voor alle automotive behoeften.",
+    "rental": {
+      "title": "Voertuigverhuur",
+      "description": "Bestelwagens, minibussen en personenwagens voor al uw vervoersbehoeften.",
+      "button": "Bekijk aanbod",
+      "all": "Alle voertuigen",
+      "van": "Bestelwagens",
+      "minibus": "Minibussen",
+      "refrigerated": "Koelwagens",
+      "box": "Bakwagens",
+      "conditions": "Huurvoorwaarden"
+    },
+    "maintenance": {
+      "title": "Onderhoud & Reparatie",
+      "description": "Professionele onderhoudsdiensten en reparaties door gecertificeerde monteurs.",
+      "button": "Afspraak maken",
+      "diagnostic": "Auto diagnose",
+      "repair": "Auto herstelling",
+      "revision": "Volledige onderhoud"
+    },
+    "extra": {
+      "title": "Extra Diensten",
+      "description": "Aanvullende diensten om aan al uw behoeften te voldoen",
+      "insurance": "All-risk verzekering",
+      "gps": "GPS",
+      "driver": "Chauffeur",
+      "accessories": "Accessoires",
+      "usedCars": "Tweedehands auto's",
+      "breakdown": "Pechverhelping",
+      "quote": "Gratis offerte",
+      "advice": "Persoonlijk advies"
+    },
+    "breakdown": {
+      "title": "Pechverhelping",
+      "description": "24/7 pechverhelping en sleepservice voor wanneer u ons het meest nodig heeft.",
+      "button": "Bekijk tweedehands aanbod"
+    },
+    "help": {
+      "title": "Nood aan hulp?",
+      "subtitle": "Ons ervaren team staat klaar om u te helpen met al uw automotive behoeften."
+    },
+    "page": {
+      "hero": {
+        "title": "Onze Diensten",
+        "description": "Van onderhoud tot reparatie, wij bieden een complete service voor al uw voertuigbehoeften"
+      },
+      "mainServices": {
+        "title": "Onderhoud & Herstelling",
+        "subtitle": "Professionele autoservices voor alle merken",
+        "services": {
+          "maintenance": {
+            "title": "Auto onderhoud",
+            "description": "Regelmatig onderhoud voor optimale prestaties van uw voertuig"
+          },
+          "diagnostic": {
+            "title": "Auto diagnose",
+            "description": "Professionele diagnose met moderne apparatuur"
+          },
+          "repair": {
+            "title": "Auto herstelling",
+            "description": "Grondige reparaties van schade en defecten"
+          },
+          "revision": {
+            "title": "Volledige onderhoud",
+            "description": "Complete revisie voor optimale prestaties"
+          },
+          "moreInfo": "Meer info"
+        }
+      },
+      "additionalServices": {
+        "title": "Extra Diensten",
+        "subtitle": "Aanvullende services voor uw gemak",
+        "services": {
+          "breakdown": {
+            "title": "24/7 Pechhulp",
+            "description": "Snelle hulp waar u ook bent, dag en nacht"
+          },
+          "quote": {
+            "title": "Gratis offerte",
+            "description": "Vraag een gratis offerte aan voor uw voertuig"
+          },
+          "advice": {
+            "title": "Advies op maat",
+            "description": "Persoonlijk advies voor uw specifieke behoeften"
+          },
+          "viewService": "Bekijk service"
+        }
+      },
+      "cta": {
+        "title": "Heeft u onderhoud of reparatie nodig?",
+        "description": "Maak een afspraak met onze experts voor het onderhoud en de reparatie van uw voertuig",
+        "button": "Afspraak maken"
+      }
+    }
+  },
+  "searchSection": {
+    "$ref": "./nl/searchSection.json"
+  },
+  "vehicleRental": {
+    "$ref": "./nl/vehicleRental.json"
+  },
+  "whyChooseUs": {
+    "$ref": "./nl/whyChooseUs.json"
+  },
+  "rentalFilters": {
+    "vehicleType": {
+      "label": "Voertuigtype",
+      "placeholder": "Selecteer voertuigtype",
+      "options": {
+        "all": "Alle voertuigen",
+        "mini-van": "Mini bestelwagen",
+        "normal-van": "Standaard bestelwagen",
+        "van": "Bestelwagen",
+        "large-van": "Grote bestelwagen",
+        "xl-van": "XL bestelwagen",
+        "box-van": "Gesloten bestelwagen",
+        "box-van-lift": "Gesloten bestelwagen met laadklep",
+        "box-truck": "Bakwagen",
+        "refrigerated": "Koelwagen",
+        "koelwagen": "Koelwagen",
+        "minibus": "Minibus"
+      }
+    },
+    "brand": {
+      "label": "Merk",
+      "placeholder": "Selecteer merk"
+    },
+    "brands": {
+      "title": "Merken",
+      "options": {
+        "Peugeot": "Peugeot",
+        "Citroen": "Citroën",
+        "Renault": "Renault",
+        "Ford": "Ford",
+        "VW": "Volkswagen",
+        "Mercedes": "Mercedes"
+      }
+    },
+    "features": {
+      "label": "Kenmerken",
+      "placeholder": "Selecteer kenmerken",
+      "options": {
+        "airco": "Airconditioning",
+        "navigation": "Navigatie",
+        "carplay": "Apple CarPlay",
+        "android-auto": "Android Auto",
+        "trekhaak": "Trekhaak",
+        "laadklep": "Laadklep",
+        "koeling": "Koeling",
+        "camera": "Achteruitrijcamera",
+        "schuifdeuren": "Schuifdeuren"
+      }
+    },
+    "transmission": {
+      "title": "Transmissie",
+      "options": {
+        "manual": "Handgeschakeld",
+        "automatic": "Automatisch"
+      }
+    },
+    "fuel": {
+      "title": "Brandstof",
+      "options": {
+        "diesel": "Diesel",
+        "petrol": "Benzine",
+        "electric": "Elektrisch",
+        "hybrid": "Hybride"
+      }
+    },
+    "seats": {
+      "title": "Zitplaatsen",
+      "options": {
+        "2": "2 zitplaatsen",
+        "3": "3 zitplaatsen",
+        "5": "5 zitplaatsen",
+        "7": "7 zitplaatsen",
+        "9": "9 zitplaatsen"
+      },
+      "range": "{min} - {max} zitplaatsen"
+    },
+    "price": {
+      "label": "Prijs per dag",
+      "min": "Min",
+      "max": "Max",
+      "range": "€{min} - €{max}"
+    },
+    "location": {
+      "label": "Ophaallocatie",
+      "placeholder": "Selecteer locatie"
+    },
+    "date": {
+      "label": "Huurdata",
+      "placeholder": "Selecteer data"
+    },
+    "duration": {
+      "label": "Duur",
+      "options": {
+        "half-day": "½ dag (4u)",
+        "day": "Dag",
+        "weekend": "Weekend",
+        "week": "Week",
+        "month": "Maand"
+      }
+    },
+    "filters": {
+      "title": "Filters",
+      "button": "Filters",
+      "clearAll": "Alles wissen",
+      "show": "Toon"
+    }
+  },
+  "diagnostic": {
+    "title": "Auto Diagnose",
+    "subtitle": "Een juiste diagnose met effectieve oplossingen",
+    "intro": {
+      "description1": "We gebruiken moderne apparatuur om exact te zien wat er met uw wagen aan de hand is",
+      "description2": "Elektrisch of mechanisch? Wij checken alles. U krijgt een duidelijk beeld van wat er aan de hand is, en wat we eraan kunnen doen.",
+      "experience": {
+        "more_than": "Meer dan",
+        "years": "Jaren ervaring"
+      }
+    },
+    "services": {
+      "title": "Onze Diagnosediensten",
+      "items": {
+        "computer": {
+          "title": "Auto herstelling",
+          "description": "Uitlezen en analyseren van foutcodes van alle computers"
+        },
+        "engine": {
+          "title": "Motordiagnose",
+          "description": "Volledige analyse van motorprestaties en afwijkingen"
+        },
+        "battery": {
+          "title": "Batterijtest",
+          "description": "Controle van de staat van de batterij en het laadsysteem"
+        },
+        "ac": {
+          "title": "Airco",
+          "description": "Diagnose van het airconditioningsysteem en lekdetectie"
+        }
+      }
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": {
+        "cost": {
+          "question": "Hoeveel kost een diagnose?",
+          "answer": "De kosten van de diagnose variëren afhankelijk van het type interventie. We informeren u over onze tarieven voordat we ingrijpen."
+        },
+        "duration": {
+          "question": "Hoe lang duurt een diagnose?",
+          "answer": "Een volledige diagnose duurt meestal tussen 30 minuten en 1 uur, afhankelijk van de complexiteit van het probleem."
+        },
+        "vehicles": {
+          "question": "Welke soorten voertuigen diagnosticeert u?",
+          "answer": "We diagnosticeren alle soorten voertuigen: personenauto's, bedrijfswagens, alle merken."
+        },
+        "warranty": {
+          "question": "Biedt u garantie op reparaties?",
+          "answer": "Ja, al onze reparaties worden gedekt door een garantie van minimaal 6 maanden."
+        },
+        "brands": {
+          "question": "Accepteert u voertuigen van alle merken?",
+          "answer": "We werken aan de meeste automerken, of ze nu op benzine, diesel of elektrisch rijden."
+        }
+      }
+    },
+    "appointment": {
+      "title": "Diagnoseverzoek",
+      "subtitle": "Maak een afspraak voor een volledige diagnose van uw voertuig. Onze gespecialiseerde technici zullen de nieuwste diagnosehulpmiddelen gebruiken om de oorzaak van problemen nauwkeurig te identificeren.",
+      "form": {
+        "name": "Uw Naam",
+        "phone": "Uw telefoon",
+        "date": "Gewenste datum",
+        "vehicle_type": {
+          "label": "Type voertuig",
+          "placeholder": "Selecteer",
+          "options": {
+            "city_car": "Stadsauto",
+            "sedan": "Sedan",
+            "suv": "SUV / 4x4",
+            "station_wagon": "Stationwagen",
+            "utility": "Bedrijfswagen",
+            "other": "Andere"
+          }
+        },
+        "symptoms": {
+          "label": "Waargenomen symptomen",
+          "placeholder": "Beschrijf de symptomen of problemen die u hebt opgemerkt"
+        },
+        "submit": "Afspraak maken"
+      }
+    }
+  },
+  "repair": {
+    "title": "Auto herstelling",
+    "subtitle": "Grondige autoherstellingen van schade en defecten",
+    "intro": {
+      "description1": "Bij Global Car Services kennen we auto's door en door. Onze ervaren experts pakken elke storing aan, van mechanisch tot elektronisch.",
+      "description2": "Met het beste gereedschap vinden we snel wat er scheelt en lossen we het op. Zo zorgen we ervoor dat uw wagen zo snel mogelijk weer veilig de baan op kan.",
+      "experience": {
+        "more_than": "Meer dan",
+        "years": "Jaren ervaring"
+      }
+    },
+    "services": {
+      "title": "Onze reparatiediensten",
+      "items": {
+        "engine": {
+          "title": "Motorreparatie",
+          "description": "Interventie bij alle soorten motorstoringen, van eenvoudig onderhoud tot complexe reparaties"
+        },
+        "gearbox": {
+          "title": "Versnellingsbak",
+          "description": "Diagnose en reparatie van handmatige en automatische versnellingsbakken"
+        },
+        "brakes": {
+          "title": "Remsysteem",
+          "description": "Reparatie en vervanging van remsysteemcomponenten"
+        },
+        "electronics": {
+          "title": "Elektronica",
+          "description": "Oplossen van elektrische en elektronische problemen"
+        }
+      }
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": {
+        "cost": {
+          "question": "Hoeveel kost een reparatie?",
+          "answer": "De kosten hangen af van de aard van de storing. We voeren een nauwkeurige diagnose uit en geven u een gedetailleerde offerte voordat we ingrijpen."
+        },
+        "duration": {
+          "question": "Wat is de reparatietijd?",
+          "answer": "De reparatietijd hangt af van de complexiteit van het probleem. We streven ernaar om uw voertuig zo snel mogelijk te repareren, zonder afbreuk te doen aan de kwaliteit van onze service."
+        },
+        "warranty": {
+          "question": "Biedt u garantie op reparaties?",
+          "answer": "Ja, al onze reparaties worden gedekt door een garantie van minimaal 6 maanden."
+        },
+        "brands": {
+          "question": "Accepteert u voertuigen van alle merken?",
+          "answer": "We werken aan de meeste automerken, of ze nu op benzine, diesel of elektrisch rijden."
+        }
+      }
+    },
+    "appointment": {
+      "title": "Reparatieverzoek",
+      "subtitle": "Maak een afspraak voor een reparatie van uw voertuig. Onze gekwalificeerde technici zullen de nieuwste reparatiehulpmiddelen gebruiken om de oorzaak van problemen nauwkeurig te identificeren.",
+      "form": {
+        "name": {
+          "label": "Uw naam",
+          "placeholder": "Naam"
+        },
+        "phone": {
+          "label": "Uw telefoon",
+          "placeholder": "Telefoonnummer"
+        },
+        "date": {
+          "label": "Gewenste datum"
+        },
+        "vehicle_type": {
+          "label": "Type voertuig",
+          "placeholder": "Selecteer",
+          "options": {
+            "city_car": "Stadsauto",
+            "sedan": "Sedan",
+            "suv": "SUV / 4x4",
+            "station_wagon": "Stationwagen",
+            "utility": "Bedrijfswagen",
+            "other": "Andere"
+          }
+        },
+        "problem": {
+          "label": "Probleembeschrijving",
+          "placeholder": "Waarmee kunnen we u van dienst zijn?"
+        },
+        "submit": "Afspraak maken"
+      }
+    }
+  },
+  "revision": {
+    "title": "Auto Revisie",
+    "subtitle": "Volledige controle voor optimale prestaties",
+    "intro": {
+      "description1": "Bij Global Car Services bieden we een complete revisieservice om de optimale werking van uw voertuig te garanderen. Onze gekwalificeerde technici voeren een grondige inspectie uit van alle essentiële componenten.",
+      "description2": "Regelmatige revisies zijn essentieel om de levensduur van uw voertuig te verlengen en dure reparaties te voorkomen. Vertrouw op onze expertise voor een volledige en professionele revisie.",
+      "experience": {
+        "more_than": "Meer dan",
+        "years": "Jaren ervaring"
+      }
+    },
+    "services": {
+      "title": "Onze Revisiediensten",
+      "items": {
+        "inspection": {
+          "title": "Volledige Inspectie",
+          "description": "Grondige controle van alle mechanische en elektronische systemen"
+        },
+        "performance": {
+          "title": "Prestatiecontrole",
+          "description": "Evaluatie van motor-, transmissie- en remprestaties"
+        },
+        "safety": {
+          "title": "Veiligheidscontrole",
+          "description": "Inspectie van veiligheidselementen zoals remmen, banden, ophanging en verlichting"
+        },
+        "emissions": {
+          "title": "Emissiecontrole",
+          "description": "Controle van het uitlaatsysteem en emissieniveaus om naleving van milieunormen te garanderen"
+        }
+      }
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": {
+        "frequency": {
+          "question": "Hoe vaak moet ik een revisie laten uitvoeren?",
+          "answer": "We raden aan om elke 20.000 tot 30.000 km of om de twee jaar een volledige revisie uit te voeren, afhankelijk van wat het eerst komt. De frequentie kan echter variëren afhankelijk van het model, de leeftijd van het voertuig en uw rijgewoonten."
+        },
+        "difference": {
+          "question": "Wat is het verschil tussen onderhoud en revisie?",
+          "answer": "Onderhoud betreft regelmatige operaties zoals olieverversingen of filtervervanging. Revisie is uitgebreider en omvat een grondige inspectie van alle voertuigsystemen, met vervanging van versleten onderdelen indien nodig."
+        },
+        "preparation": {
+          "question": "Hoe bereid ik mijn voertuig voor op een revisie?",
+          "answer": "Er is geen speciale voorbereiding nodig. Het is echter nuttig om eventuele problemen of ongewoon gedrag dat u hebt opgemerkt te noteren, zodat onze technici hier bijzondere aandacht aan kunnen besteden."
+        },
+        "report": {
+          "question": "Ontvang ik een gedetailleerd rapport na de revisie?",
+          "answer": "Ja, na elke revisie ontvangt u een gedetailleerd rapport met de staat van elk gecontroleerd onderdeel, de uitgevoerde werkzaamheden en onze aanbevelingen voor toekomstige interventies indien nodig."
+        }
+      }
+    },
+    "appointment": {
+      "title": "Revisieverzoek",
+      "form": {
+        "name": {
+          "label": "Uw naam",
+          "placeholder": "Naam"
+        },
+        "phone": {
+          "label": "Uw telefoon",
+          "placeholder": "Telefoonnummer"
+        },
+        "date": {
+          "label": "Gewenste datum"
+        },
+        "vehicle_type": {
+          "label": "Type voertuig",
+          "placeholder": "Selecteer",
+          "options": {
+            "city_car": "Stadsauto",
+            "sedan": "Sedan",
+            "suv": "SUV / 4x4",
+            "station_wagon": "Stationwagen",
+            "utility": "Bedrijfswagen",
+            "other": "Andere"
+          }
+        },
+        "symptoms": {
+          "label": "Waargenomen symptomen",
+          "placeholder": "Waarmee kunnen we u van dienst zijn?"
+        },
+        "submit": "Afspraak maken"
+      }
+    }
+  },
+  "rental": {
+    "page": {
+      "hero": {
+        "title": "Voertuigverhuur",
+        "description": "Professionele voertuigverhuur voor al uw transport- en mobiliteitsbehoeften"
+      },
+      "categories": {
+        "title": "Onze Categorieën",
+        "van": {
+          "title": "Bestelwagens",
+          "available": "beschikbare modellen"
+        },
+        "box": {
+          "title": "Bakwagens",
+          "available": "beschikbare modellen"
+        },
+        "minibus": {
+          "title": "Minibussen",
+          "available": "beschikbare modellen"
+        },
+        "refrigerated": {
+          "title": "Koelwagens",
+          "available": "beschikbare modellen"
+        }
+      },
+      "results": {
+        "found": "van",
+        "types": "voertuigtypes gevonden"
+      },
+      "vehicle": {
+        "from": "Vanaf",
+        "perHours": "/ 4 uur",
+        "viewDetails": "Bekijk details"
+      },
+      "conditions": {
+        "title": "Huurvoorwaarden",
+        "kilometers": {
+          "title": "Kilometers",
+          "description": "200 km inbegrepen per dag (toeslag 0,21€/km)"
+        },
+        "periods": {
+          "title": "Beschikbare periodes",
+          "description": "½ dag (4u), dag, weekend, week, maand"
+        },
+        "options": {
+          "title": "Opties",
+          "description": "Navigatie, airco, CarPlay, trekhaak volgens model"
+        },
+        "documents": {
+          "title": "Vereiste documenten",
+          "description": "Geldig rijbewijs en identiteitsbewijs"
+        },
+        "fullConditions": "Volledige voorwaarden"
+      },
+      "cta": {
+        "title": "Klaar om te huren?",
+        "description": "Bekijk onze beschikbaarheid en reserveer direct online uw gewenste voertuig",
+        "checkAvailability": "Beschikbaarheid bekijken",
+        "contact": "Contact opnemen"
+      }
+    },
+    "refrigerated": {
+      "hero": {
+        "title": "Koelwagens",
+        "subtitle": "Professionele koelwagens voor het transport van temperatuurgevoelige goederen"
+      },
+      "results": {
+        "showing": "Weergave van",
+        "results": "resultaten"
+      },
+      "fromPrice": "Vanaf",
+      "pricePerHour": "/ 4 uur",
+      "viewDetails": "Bekijk details"
+    },
+    "minibus": {
+      "hero": {
+        "title": "Minibussen",
+        "subtitle": "Comfortabel groepsvervoer voor maximaal 9 personen"
+      },
+      "results": {
+        "showing": "Weergave van",
+        "results": "resultaten"
+      },
+      "fromPrice": "Vanaf",
+      "pricePerHour": "/ 4 uur",
+      "viewDetails": "Bekijk details"
+    },
+    "box": {
+      "hero": {
+        "title": "Bakwagens",
+        "subtitle": "Professionele bakwagens voor het transport van grote volumes"
+      },
+      "results": {
+        "showing": "Weergave van",
+        "results": "resultaten"
+      },
+      "fromPrice": "Vanaf",
+      "pricePerHour": "/ 4 uur",
+      "viewDetails": "Bekijk details"
+    },
+    "conditions": {
+      "hero": {
+        "title": "Huurvoorwaarden",
+        "subtitle": "Alle belangrijke informatie over het huren van onze voertuigen"
+      },
+      "general": {
+        "title": "Algemene Voorwaarden",
+        "subtitle": "Belangrijke informatie voor het huren van uw voertuig"
+      },
+      "conditions": {
+        "driver": {
+          "title": "Bestuurdersvereisten",
+          "content": "• Geldig Europees rijbewijs B (geen voorlopig rijbewijs)\n• Minimum 2 jaar rijbewijs of 25 jaar oud\n• Kopie identiteitskaart en rijbewijs vereist\n• Extra bestuurders mogelijk mits toeslag"
+        },
+        "documents": {
+          "title": "Vereiste Documenten",
+          "content": "• Geldig identiteitsbewijs\n• Geldig Europees rijbewijs\n• Creditcard op naam van de hoofdbestuurder\n• Ondertekende huurovereenkomst"
+        },
+        "payment": {
+          "title": "Betaling en Borg",
+          "content": "• Waarborgsom via creditcard blokkering\n• Terugstorting na controle voertuig\n• Facturen betaalbaar op vervaldag\n• Bij schade: forfaitaire vergoeding €500 per schadegeval"
+        },
+        "insurance": {
+          "title": "Verzekering",
+          "content": "• WA-verzekering inbegrepen\n• Eigen risico bij schade\n• Optionele uitbreidingen:\n  - Verlaging eigen risico\n  - Bestuurdersverzekering\n  - Band- en ruitbescherming"
+        },
+        "usage": {
+          "title": "Gebruiksvoorwaarden",
+          "content": "• Gebruik als goede huisvader\n• Verboden:\n  - Roken of vapen\n  - Dieren (behalve in afgesloten draagmand)\n  - Rijden buiten verharde wegen\n• Tank minimaal 1/4 vol bij inlevering\n• Voertuig proper inleveren"
+        },
+        "mileage": {
+          "title": "Kilometerstand",
+          "content": "Inbegrepen kilometers:\n• Halve dag: 75 km\n• Dag: 200 km\n• Weekend: 400 km\n• 5 dagen: 750 km\n• Week: 1000 km\n\nToeslag per extra km:\n• Bestelwagens: 0,21€\n• Minibus: 0,19€\n• Koelwagens: 0,28€"
+        },
+        "accident": {
+          "title": "Bij Ongeval",
+          "content": "• Direct GLOBAL CAR SERVICES informeren\n• Indien nodig politie verwittigen\n• Ter plaatse blijven tot anders geadviseerd\n• Geen aansprakelijkheid erkennen\n• Contactgegevens andere partijen noteren"
+        },
+        "cancellation": {
+          "title": "Annulering en Wijziging",
+          "content": "• Annulering: 40% van totaalbedrag als schadevergoeding\n• Wijzigingen mogelijk met extra kosten\n• Te late inlevering: 50% toeslag op dagtarief\n• Verkeersboetes worden doorgerekend"
+        }
+      },
+      "insurance": {
+        "title": "Verzekeringen",
+        "basic": {
+          "title": "Basisdekking",
+          "description": "Al onze voertuigen zijn WA-verzekerd. Bij schade geldt een eigen risico."
+        },
+        "options": {
+          "title": "Extra Opties",
+          "deductible": "• Verlaging eigen risico",
+          "driver": "• Bestuurdersverzekering",
+          "tire": "• Band- en ruiten bescherming"
+        }
+      },
+      "restrictions": {
+        "title": "Beperkingen en Kilometerstand",
+        "mileage": {
+          "title": "Inbegrepen kilometers",
+          "halfDay": "• Halve dag: 75 km",
+          "day": "• Dag: 200 km",
+          "weekend": "• Weekend: 400 km",
+          "fiveDays": "• 5 dagen: 750 km",
+          "week": "• Week: 1000 km"
+        },
+        "extraKm": {
+          "title": "Toeslag per extra km",
+          "van": "• Bestelwagens: 0,21€",
+          "minibus": "• Minibus: 0,19€",
+          "refrigerated": "• Koelwagens: 0,28€"
+        }
+      },
+      "penalties": {
+        "title": "Boetes en Extra Kosten",
+        "late": {
+          "title": "Te Late Inlevering",
+          "description": "Elke vertraging bij het inleveren van het voertuig wordt in rekening gebracht tegen het dagtarief plus 50%."
+        },
+        "traffic": {
+          "title": "Verkeersovertredingen",
+          "description": "Boetes en kosten in verband met verkeersovertredingen zijn voor rekening van de huurder."
+        }
+      },
+      "faq": {
+        "title": "Veelgestelde Vragen",
+        "pickup": {
+          "question": "Kan ik het voertuig op een ander tijdstip ophalen?",
+          "answer": "Ja, we bieden flexibele ophaal- en inlevertijden. Neem contact met ons op om een afspraak te maken buiten de reguliere openingstijden."
+        },
+        "damage": {
+          "question": "Wat gebeurt er bij schade aan het voertuig?",
+          "answer": "Bij schade geldt een forfaitaire schadevergoeding van €500 per schadegeval. Het eigen risico wordt van de borg afgetrokken. Grote schades worden afgehandeld via de verzekeringsmaatschappij. Voor bandenschade bent u zelf verantwoordelijk voor herstel of vervanging."
+        },
+        "extension": {
+          "question": "Kan ik de huurperiode verlengen?",
+          "answer": "Ja, verlenging is mogelijk mits het voertuig beschikbaar is. Neem zo vroeg mogelijk contact met ons op om de verlenging te regelen."
+        },
+        "included": {
+          "question": "Wat is inbegrepen in de huurprijs?",
+          "answer": "De huurprijs omvat: WA-verzekering, kilometerstand volgens gekozen formule, 24/7 pechservice, en een schone, getankte auto bij ophaling."
+        },
+        "insurance": {
+          "question": "Ben ik verzekerd voor alle schade?",
+          "answer": "Het voertuig is WA-verzekerd met een eigen risico. U kunt optioneel kiezen voor extra verzekeringen zoals verlaging eigen risico, bestuurdersverzekering en band- en ruitbescherming. Let op: schade door het niet naleven van hoogtebeperking of offroad rijden valt niet onder de verzekering."
+        }
+      }
+    }
+  },
+  "vehicleDetail": {
+    "navigation": {
+      "backToOverview": "Terug naar overzicht",
+      "share": "Delen",
+      "save": "Bewaren"
+    },
+    "specifications": {
+      "title": "Specificaties",
+      "engine": "Motor",
+      "power": "Vermogen",
+      "consumption": "Verbruik",
+      "storage": "Laadruimte",
+      "persons": "personen",
+      "features": "Kenmerken",
+      "aboutVehicle": "Over dit voertuig"
+    },
+    "similar": {
+      "title": "Vergelijkbare voertuigen",
+      "from": "Vanaf",
+      "seats": "zitplaatsen"
+    },
+    "booking": {
+      "included_km": "km inbegrepen",
+      "extra_km": "Extra kilometers",
+      "per_km": "/km",
+      "selectDuration": "Selecteer huurtermijn",
+      "duration": {
+        "half_day": "½ dag (4 uur)",
+        "day": "1 dag",
+        "weekend": "Weekend",
+        "five_days": "5 dagen",
+        "week": "1 week",
+        "month": "1 maand (op aanvraag)"
+      },
+      "insurance": {
+        "title": "Verzekering",
+        "basic": "Basis verzekering (inbegrepen)",
+        "premium": "Premium verzekering (+€15/dag)"
+      },
+      "extras": {
+        "title": "Extra's",
+        "selected": "Geselecteerd",
+        "add": "Toevoegen"
+      },
+      "contact": {
+        "name": "Naam",
+        "name_placeholder": "Uw volledige naam",
+        "email": "E-mail",
+        "email_placeholder": "uw@email.com",
+        "phone": "Telefoon",
+        "phone_placeholder": "+32 489 87 66 13",
+        "message": "Bericht (optioneel)",
+        "message_placeholder": "Extra informatie of vragen..."
+      },
+      "total": {
+        "days": "Aantal dagen",
+        "total": "Totaal",
+        "vat_included": "Inclusief BTW"
+      },
+      "submit": "Nu reserveren",
+      "included_services": "Inbegrepen services",
+      "need_help": "Hulp nodig?"
+    }
+  },
+  "vanPage": {
+    "hero": {
+      "title": "Bestelwagens",
+      "description": "Ontdek ons assortiment professionele bestelwagens voor al uw transportbehoeften"
+    },
+    "results": {
+      "count": "{count} van {total} bestelwagens gevonden"
+    },
+    "vehicle": {
+      "from": "Vanaf",
+      "per": "/ 4 uur",
+      "viewDetails": "Bekijk details"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact",
+      "subtitle": "We staan klaar om al uw vragen en behoeften te beantwoorden"
+    },
+    "form": {
+      "title": "Neem contact op",
+      "firstName": {
+        "label": "Voornaam",
+        "placeholder": "Voer uw voornaam in"
+      },
+      "lastName": {
+        "label": "Achternaam",
+        "placeholder": "Voer uw achternaam in"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "Voer uw e-mail in"
+      },
+      "phone": {
+        "label": "Telefoon",
+        "placeholder": "Telefoonnummer"
+      },
+      "message": {
+        "label": "Bericht",
+        "placeholder": "Voer uw bericht in"
+      },
+      "submit": "Verstuur bericht"
+    },
+    "info": {
+      "title": "Contactgegevens",
+      "subtitle": "Aarzel niet om contact met ons op te nemen via telefoon, e-mail of door een van onze kantoren te bezoeken.",
+      "phone": {
+        "title": "Telefoon",
+        "value": "+32 489 87 66 13"
+      },
+      "email": {
+        "title": "E-mail",
+        "value": "info@globalcarservices.be"
+      },
+      "address": {
+        "title": "Adres",
+        "value": "Antwerpen, België"
+      },
+      "hours": {
+        "title": "Openingsuren",
+        "weekdays": "Maandag - Vrijdag: 8:00 - 18:00",
+        "saturday": "Zaterdag: 9:00 - 16:00",
+        "sunday": "Zondag: Gesloten"
+      }
+    }
+  },
+  "breakdown": {
+    "hero": {
+      "title": "24/7 Pechservice",
+      "subtitle": "Snelle hulp waar u ook bent"
+    },
+    "emergency": {
+      "title": "Noodgeval? Bel direct!",
+      "phone": "+32 489 87 66 13",
+      "subtitle": "24/7 beschikbaar voor alle pechgevallen"
+    },
+    "intro": {
+      "image": "Auto diagnose",
+      "stats": {
+        "prefix": "Meer dan",
+        "suffix": "Jaren ervaring"
+      },
+      "paragraph1": "Autopech komt nooit goed uit. Daarom is onze depannagedienst dag en nacht bereikbaar. We sturen een ervaren mechanieker tot bij u, of u nu thuis staat, onderweg bent of langs de snelweg. Eén telefoontje en wij zorgen dat u weer verder kunt.",
+      "paragraph2": "Ons team van professionele monteurs reageert snel op alle soorten pech, of het nu op de weg, snelweg of thuis is. Onthoud slechts één nummer voor directe hulp."
+    },
+    "services": {
+      "title": "Onze Pechservices",
+      "towing": {
+        "title": "Takeldienst",
+        "description": "Professionele takeldienst voor alle soorten voertuigen"
+      },
+      "battery": {
+        "title": "Batterijservice",
+        "description": "Snelle interventie voor batterijproblemen en starthulp"
+      },
+      "fuel": {
+        "title": "Brandstoflevering",
+        "description": "Noodlevering van brandstof op uw pechlocatie"
+      },
+      "repair": {
+        "title": "Herstelling ter plaatse",
+        "description": "Snelle herstelling ter plaatse wanneer mogelijk"
+      }
+    },
+    "faq": {
+      "title": "Veelgestelde Vragen",
+      "response": {
+        "question": "Wat is de responstijd?",
+        "answer": "Ons team komt meestal binnen 30 tot 45 minuten, afhankelijk van uw locatie."
+      },
+      "area": {
+        "question": "Wat is het servicegebied?",
+        "answer": "We werken in de hele regio Antwerpen en omgeving, op wegen en snelwegen."
+      },
+      "billing": {
+        "question": "Hoe werkt de facturering?",
+        "answer": "We geven u een vast tarief voordat we ingrijpen. Betaling mogelijk met kaart of contant."
+      },
+      "highway": {
+        "question": "Wat te doen bij pech op de snelweg?",
+        "answer": "Zorg voor uw veiligheid, zet uw waarschuwingslichten aan, plaats uw gevarendriehoek en bel ons onmiddellijk."
+      }
+    },
+    "form": {
+      "title": "Hulpverzoek",
+      "subtitle": "Bel ons in geval van nood direct op {phone}. Voor niet-dringende verzoeken kunt u het onderstaande formulier gebruiken.",
+      "location": {
+        "label": "Locatie",
+        "placeholder": "Uw huidige locatie (adres, kilometerpaal...)"
+      },
+      "type": {
+        "label": "Soort pech",
+        "placeholder": "Selecteer het type pech",
+        "options": {
+          "battery": "Batterijstoring",
+          "fuel": "Brandstoftekort",
+          "mechanical": "Mechanisch defect",
+          "accident": "Ongeval",
+          "other": "Anders"
+        }
+      },
+      "call": "Nu bellen: {phone}",
+      "submit": "Verzoek indienen"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Over ons",
+      "subtitle": "Van passie naar professioneel maatwerk"
+    },
+    "story": {
+      "title": "Ons verhaal",
+      "image": "Onze garage",
+      "paragraph1": "In 2013 begon Samir met één hefbrug en een duidelijke overtuiging: als je eerlijk werkt en je vak verstaat dan volgt succes. Onder de naam RS Cars bouwde hij stap voor stap aan iets groters.",
+      "paragraph2": "Wat begon als een eenmanszaak is vandaag uitgegroeid tot een professionele garage en verhuurdienst. We combineren jaren ervaring met persoonlijke service, en blijven investeren in kwaliteit, zowel in ons team als in onze infrastructuur."
+    },
+    "mission": {
+      "title": "Wat ons drijft",
+      "description": "Wij geloven dat kwaliteit geen toeval is. Elk voertuig dat bij ons binnenkomt krijgt onze volle aandacht. We werken efficiënt, communiceren helder, en denken in oplossingen. Snel schakelen is standaard."
+    },
+    "values": {
+      "title": "Waarom kiezen voor Global Car Services?",
+      "personal": {
+        "title": "Persoonlijk contact",
+        "description": "We geloven in persoonlijke service en directe communicatie met onze klanten."
+      },
+      "technicians": {
+        "title": "Ervaren technici",
+        "description": "Ons team bestaat uit gekwalificeerde professionals met jarenlange ervaring."
+      },
+      "speed": {
+        "title": "Snelle opvolging",
+        "description": "We werken efficiënt en communiceren helder over de voortgang van uw opdracht."
+      },
+      "prices": {
+        "title": "Betaalbare prijzen",
+        "description": "Kwaliteitsservice tegen eerlijke en transparante tarieven."
+      }
+    }
+  },
+  "appointment": {
+    "page": {
+      "title": "Afspraak maken",
+      "subtitle": "Maak eenvoudig online een afspraak voor onderhoud, reparatie of keuring",
+      "iframe_title": "Afspraak maken - Global Car Service",
+      "questions": {
+        "title": "Heeft u vragen?",
+        "description": "Kunt u geen geschikte tijd vinden of heeft u specifieke vragen? Neem direct contact met ons op."
+      }
+    }
+  }
+} 

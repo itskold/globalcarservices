@@ -1,0 +1,1138 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "rental": "Rental",
+    "about": "About",
+    "contact": "Contact",
+    "appointment": "Make appointment",
+    "changeLanguage": "Change language"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "contact": "Contact us",
+    "book": "Book now"
+  },
+  "home": {
+    "hero": {
+      "$ref": "./en/hero.json"
+    },
+    "search": {
+      "title": "Rent a vehicle quickly",
+      "subtitle": "Find the perfect vehicle for your needs",
+      "pickupLocation": {
+        "label": "Pickup location",
+        "placeholder": "Select pickup location"
+      },
+      "returnLocation": {
+        "label": "Return location",
+        "placeholder": "Select return location"
+      },
+      "vehicleType": {
+        "label": "Vehicle type",
+        "placeholder": "Select",
+        "options": {
+          "van": "Van",
+          "minibus": "Minibus",
+          "car": "Car",
+          "truck": "Truck"
+        }
+      },
+      "pickupDateTime": {
+        "label": "Pickup date & time",
+        "placeholder": "Pickup date"
+      },
+      "returnDateTime": {
+        "label": "Return date & time",
+        "placeholder": "Return date"
+      },
+      "searchButton": "Search available vehicles",
+      "locations": {
+        "antwerpen": "Van Heetveldelei 157, 2100 Antwerp",
+        "gent": "Baarledorpstraat 51a, 9031 Drongen, Ghent"
+      }
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "From vehicle rental to complete maintenance services - we are your reliable partner for all automotive needs.",
+    "rental": {
+      "title": "Vehicle Rental",
+      "description": "Vans, minibuses and passenger cars for all your transportation needs.",
+      "button": "View offers",
+      "all": "All vehicles",
+      "van": "Vans",
+      "minibus": "Minibuses",
+      "refrigerated": "Refrigerated vehicles",
+      "box": "Box trucks",
+      "conditions": "Rental conditions"
+    },
+    "maintenance": {
+      "title": "Maintenance & Repair",
+      "description": "Professional maintenance services and repairs by certified mechanics.",
+      "button": "Make appointment",
+      "diagnostic": "Car diagnostic",
+      "repair": "Car repair",
+      "revision": "Full maintenance"
+    },
+    "extra": {
+      "title": "Additional Services",
+      "description": "Complementary services to meet all your needs",
+      "insurance": "Full coverage insurance",
+      "gps": "GPS",
+      "driver": "Driver",
+      "accessories": "Accessories",
+      "usedCars": "Used cars",
+      "breakdown": "Breakdown service",
+      "quote": "Free quote",
+      "advice": "Personal advice"
+    },
+    "breakdown": {
+      "title": "Breakdown Assistance",
+      "description": "24/7 breakdown and towing service for when you need us most.",
+      "button": "View used vehicles"
+    },
+    "help": {
+      "title": "Need Help?",
+      "subtitle": "Our experienced team is ready to help you with all your automotive needs."
+    },
+    "page": {
+      "hero": {
+        "title": "Our Services",
+        "description": "From maintenance to repair, we offer complete service for all your vehicle needs"
+      },
+      "mainServices": {
+        "title": "Maintenance & Repair",
+        "subtitle": "Professional auto services for all brands",
+        "services": {
+          "maintenance": {
+            "title": "Car Maintenance",
+            "description": "Regular maintenance for optimal vehicle performance"
+          },
+          "diagnostic": {
+            "title": "Car Diagnostics",
+            "description": "Professional diagnostics with modern equipment"
+          },
+          "repair": {
+            "title": "Car Repair",
+            "description": "Thorough repairs of damage and defects"
+          },
+          "revision": {
+            "title": "Complete Revision",
+            "description": "Complete overhaul for optimal performance"
+          },
+          "moreInfo": "More info"
+        }
+      },
+      "additionalServices": {
+        "title": "Additional Services",
+        "subtitle": "Complementary services for your convenience",
+        "services": {
+          "breakdown": {
+            "title": "24/7 Breakdown",
+            "description": "Quick help wherever you are, day or night"
+          },
+          "quote": {
+            "title": "Free Quote",
+            "description": "Request a free quote for your vehicle"
+          },
+          "advice": {
+            "title": "Custom Advice",
+            "description": "Personal advice for your specific needs"
+          },
+          "viewService": "View service"
+        }
+      },
+      "cta": {
+        "title": "Need maintenance or repair?",
+        "description": "Make an appointment with our experts for the maintenance and repair of your vehicle",
+        "button": "Make appointment"
+      }
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "Company",
+      "about": "About",
+      "services": "Services",
+      "contact": "Contact",
+      "description": "Your trusted partner for all your automotive needs for over 20 years."
+    },
+    "services": {
+      "title": "Services",
+      "maintenance": "Maintenance",
+      "repair": "Repair",
+      "rental": "Rental",
+      "breakdown": "Breakdown"
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "about": "About",
+      "appointment": "Make appointment",
+      "rental": "Vehicle rental",
+      "usedCars": "Used cars",
+      "conditions": "Terms and conditions",
+      "privacy": "Privacy policy",
+      "contact": "Contact"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Van Heetveldelei 157",
+      "city": "2100 Antwerpen",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "social": {
+      "title": "Social Media",
+      "follow": "Follow us"
+    },
+    "copyright": "© 2024 Global Car Services. All rights reserved."
+  },
+  "vehicleRental": {
+    "$ref": "./en/vehicleRental.json"
+  },
+  "searchSection": {
+    "$ref": "./en/searchSection.json"
+  },
+  "whyChooseUs": {
+    "$ref": "./en/whyChooseUs.json"
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Read the experiences of our satisfied customers and discover why they choose us.",
+    "reviews": [
+      {
+        "name": "Marie Dubois",
+        "rating": 5,
+        "text": "Excellent service! The van was perfect for our move and the team was very helpful."
+      },
+      {
+        "name": "Jan Peeters",
+        "rating": 5,
+        "text": "Customer for years for maintenance of our company vehicles. Always professional and fair prices."
+      },
+      {
+        "name": "Sophie Laurent",
+        "rating": 5,
+        "text": "The minibus rental went smoothly. Clean vehicles and flexible service. Highly recommended!"
+      }
+    ]
+  },
+  "rentalFilters": {
+    "vehicleType": {
+      "label": "Vehicle type",
+      "placeholder": "Select vehicle type",
+      "options": {
+        "all": "All vehicles",
+        "mini-van": "Mini van",
+        "normal-van": "Standard van",
+        "van": "Van",
+        "large-van": "Large van",
+        "xl-van": "XL van",
+        "box-van": "Box van",
+        "box-van-lift": "Box van with lift gate",
+        "box-truck": "Box truck",
+        "refrigerated": "Refrigerated vehicle",
+        "koelwagen": "Refrigerated vehicle",
+        "minibus": "Minibus"
+      }
+    },
+    "brand": {
+      "label": "Brand",
+      "placeholder": "Select brand"
+    },
+    "features": {
+      "title": "Features",
+      "placeholder": "Select features",
+      "options": {
+        "airco": "Air conditioning",
+        "navigation": "Navigation",
+        "carplay": "Apple CarPlay",
+        "android-auto": "Android Auto",
+        "trekhaak": "Tow bar",
+        "laadklep": "Lift gate",
+        "koeling": "Refrigeration",
+        "camera": "Backup camera",
+        "schuifdeuren": "Sliding doors"
+      }
+    },
+    "transmission": {
+      "title": "Transmission",
+      "options": {
+        "manual": "Manual",
+        "automatic": "Automatic"
+      }
+    },
+    "fuel": {
+      "title": "Fuel",
+      "options": {
+        "diesel": "Diesel",
+        "petrol": "Petrol",
+        "electric": "Electric",
+        "hybrid": "Hybrid"
+      }
+    },
+    "seats": {
+      "title": "Seats",
+      "options": {
+        "2": "2 seats",
+        "3": "3 seats",
+        "5": "5 seats",
+        "7": "7 seats",
+        "9": "9 seats"
+      },
+      "range": "{min} - {max} seats"
+    },
+    "price": {
+      "label": "Price per day",
+      "min": "Min",
+      "max": "Max",
+      "range": "€{min} - €{max}"
+    },
+    "location": {
+      "label": "Pickup location",
+      "placeholder": "Select location"
+    },
+    "date": {
+      "label": "Rental dates",
+      "placeholder": "Select dates"
+    },
+    "filters": {
+      "title": "Filters",
+      "button": "Filters",
+      "clearAll": "Clear all",
+      "show": "Show"
+    },
+    "brands": {
+      "title": "Brands",
+      "placeholder": "Select a brand",
+      "options": {
+        "Peugeot": "Peugeot",
+        "Citroen": "Citroen",
+        "Renault": "Renault",
+        "VW": "VW",
+        "Mercedes": "Mercedes",
+        "Ford": "Ford",
+        "Opel": "Opel",
+        "Fiat": "Fiat"
+      }
+    },
+    "duration": {
+      "label": "Duration",
+      "options": {
+        "half-day": "½ day (4h)",
+        "day": "Day",
+        "weekend": "Weekend",
+        "week": "Week",
+        "month": "Month"
+      }
+    }
+  },
+  "diagnostic": {
+    "title": "Car Diagnostics",
+    "subtitle": "Accurate diagnosis for effective solutions",
+    "intro": {
+      "description1": "We use modern equipment to precisely identify what's wrong with your vehicle",
+      "description2": "Electrical or mechanical? We check everything. You'll get a clear picture of what's wrong and what we can do about it.",
+      "experience": {
+        "more_than": "More than",
+        "years": "Years of experience"
+      }
+    },
+    "services": {
+      "title": "Our Diagnostic Services",
+      "items": {
+        "computer": {
+          "title": "Car Repair",
+          "description": "Reading and analyzing error codes from all computers"
+        },
+        "engine": {
+          "title": "Engine Diagnostics",
+          "description": "Complete analysis of engine performance and anomalies"
+        },
+        "battery": {
+          "title": "Battery Test",
+          "description": "Checking the condition of the battery and charging system"
+        },
+        "ac": {
+          "title": "Air Conditioning",
+          "description": "Diagnosis of the air conditioning system and leak detection"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "cost": {
+          "question": "How much does a diagnosis cost?",
+          "answer": "Diagnostic costs vary depending on the type of intervention. We'll inform you of our rates before we intervene."
+        },
+        "duration": {
+          "question": "How long does a diagnosis take?",
+          "answer": "A complete diagnosis usually takes between 30 minutes and 1 hour, depending on the complexity of the problem."
+        },
+        "vehicles": {
+          "question": "What types of vehicles do you diagnose?",
+          "answer": "We diagnose all types of vehicles: passenger cars, commercial vehicles, all brands."
+        },
+        "warranty": {
+          "question": "Do you offer warranty on repairs?",
+          "answer": "Yes, all our repairs are covered by a minimum 6-month warranty."
+        },
+        "brands": {
+          "question": "Do you accept vehicles of all brands?",
+          "answer": "We work on most car brands, whether they run on petrol, diesel, or electric."
+        }
+      }
+    },
+    "appointment": {
+      "title": "Diagnostic Request",
+      "subtitle": "Schedule an appointment for a complete diagnosis of your vehicle. Our specialized technicians will use the latest diagnostic tools to accurately identify the cause of problems.",
+      "form": {
+        "name": "Your Name",
+        "phone": "Your Phone",
+        "date": "Desired Date",
+        "vehicle_type": {
+          "label": "Vehicle Type",
+          "placeholder": "Select",
+          "options": {
+            "city_car": "City Car",
+            "sedan": "Sedan",
+            "suv": "SUV / 4x4",
+            "station_wagon": "Station Wagon",
+            "utility": "Commercial Vehicle",
+            "other": "Other"
+          }
+        },
+        "symptoms": {
+          "label": "Observed Symptoms",
+          "placeholder": "Describe the symptoms or problems you've noticed"
+        },
+        "submit": "Make Appointment"
+      }
+    }
+  },
+  "repair": {
+    "title": "Car Repair",
+    "subtitle": "Thorough repairs of damage and malfunctions",
+    "intro": {
+      "description1": "At Global Car Services, we know cars inside and out. Our experienced experts handle all types of breakdowns, both mechanical and electronic.",
+      "description2": "With the best tools, we quickly identify the problem and solve it. We ensure your vehicle can safely get back on the road as quickly as possible.",
+      "experience": {
+        "more_than": "More than",
+        "years": "Years of experience"
+      }
+    },
+    "services": {
+      "title": "Our Repair Services",
+      "items": {
+        "engine": {
+          "title": "Engine Repair",
+          "description": "Intervention for all types of engine failures, from simple maintenance to complex repairs"
+        },
+        "gearbox": {
+          "title": "Transmission",
+          "description": "Diagnosis and repair of manual and automatic transmissions"
+        },
+        "brakes": {
+          "title": "Brake System",
+          "description": "Repair and replacement of brake system components"
+        },
+        "electronics": {
+          "title": "Electronics",
+          "description": "Resolution of electrical and electronic problems"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "cost": {
+          "question": "How much does a repair cost?",
+          "answer": "The cost depends on the nature of the breakdown. We perform an accurate diagnosis and provide you with a detailed quote before any intervention."
+        },
+        "duration": {
+          "question": "What is the repair time?",
+          "answer": "Repair time depends on the complexity of the problem. We strive to repair your vehicle as quickly as possible without compromising the quality of our service."
+        },
+        "warranty": {
+          "question": "Do you offer a warranty on repairs?",
+          "answer": "Yes, all our repairs are covered by a minimum 6-month warranty."
+        },
+        "brands": {
+          "question": "Do you accept vehicles of all brands?",
+          "answer": "We work on most car brands, whether they run on petrol, diesel, or electricity."
+        }
+      }
+    },
+    "appointment": {
+      "title": "Repair Request",
+      "subtitle": "Schedule an appointment for your vehicle repair. Our qualified technicians will use the latest repair tools to accurately identify the cause of problems.",
+      "form": {
+        "name": {
+          "label": "Your name",
+          "placeholder": "Name"
+        },
+        "phone": {
+          "label": "Your phone",
+          "placeholder": "Phone number"
+        },
+        "date": {
+          "label": "Desired date"
+        },
+        "vehicle_type": {
+          "label": "Vehicle type",
+          "placeholder": "Select",
+          "options": {
+            "city_car": "City car",
+            "sedan": "Sedan",
+            "suv": "SUV / 4x4",
+            "station_wagon": "Station wagon",
+            "utility": "Utility vehicle",
+            "other": "Other"
+          }
+        },
+        "problem": {
+          "label": "Problem description",
+          "placeholder": "How can we help you?"
+        },
+        "submit": "Make appointment"
+      }
+    }
+  },
+  "revision": {
+    "title": "Car Service",
+    "subtitle": "Complete check for optimal performance",
+    "intro": {
+      "description1": "At Global Car Services, we offer a comprehensive service to ensure your vehicle's optimal performance. Our qualified technicians perform a thorough inspection of all essential components.",
+      "description2": "Regular servicing is essential to extend your vehicle's lifespan and prevent costly repairs. Trust our expertise for a complete and professional service.",
+      "experience": {
+        "more_than": "More than",
+        "years": "Years of experience"
+      }
+    },
+    "services": {
+      "title": "Our Service Options",
+      "items": {
+        "inspection": {
+          "title": "Complete Inspection",
+          "description": "Thorough check of all mechanical and electronic systems"
+        },
+        "performance": {
+          "title": "Performance Check",
+          "description": "Evaluation of engine, transmission, and brake performance"
+        },
+        "safety": {
+          "title": "Safety Check",
+          "description": "Inspection of safety elements such as brakes, tires, suspension, and lighting"
+        },
+        "emissions": {
+          "title": "Emissions Check",
+          "description": "Verification of exhaust system and emission levels to ensure environmental compliance"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "frequency": {
+          "question": "How often should I get my car serviced?",
+          "answer": "We recommend a complete service every 20,000 to 30,000 km or every two years, whichever comes first. Frequency may vary depending on the model, age of the vehicle, and your driving habits."
+        },
+        "difference": {
+          "question": "What's the difference between maintenance and service?",
+          "answer": "Maintenance involves regular operations like oil changes or filter replacement. Service is more comprehensive and includes a thorough inspection of all vehicle systems, with replacement of worn parts if necessary."
+        },
+        "preparation": {
+          "question": "How do I prepare my vehicle for service?",
+          "answer": "No special preparation is needed. However, it's helpful to note any problems or unusual behavior you've noticed so our technicians can pay special attention to these areas."
+        },
+        "report": {
+          "question": "Do I receive a detailed report after the service?",
+          "answer": "Yes, after each service, you receive a detailed report indicating the condition of each checked item, work performed, and our recommendations for future interventions if needed."
+        }
+      }
+    },
+    "appointment": {
+      "title": "Service Request",
+      "form": {
+        "name": {
+          "label": "Your name",
+          "placeholder": "Name"
+        },
+        "phone": {
+          "label": "Your phone",
+          "placeholder": "Phone number"
+        },
+        "date": {
+          "label": "Desired date"
+        },
+        "vehicle_type": {
+          "label": "Vehicle type",
+          "placeholder": "Select",
+          "options": {
+            "city_car": "City car",
+            "sedan": "Sedan",
+            "suv": "SUV / 4x4",
+            "station_wagon": "Station wagon",
+            "utility": "Utility vehicle",
+            "other": "Other"
+          }
+        },
+        "symptoms": {
+          "label": "Observed symptoms",
+          "placeholder": "How can we help you?"
+        },
+        "submit": "Make appointment"
+      }
+    }
+  },
+  "rental": {
+    "page": {
+      "hero": {
+        "title": "Vehicle Rental",
+        "description": "Professional vehicle rental for all your transport and mobility needs"
+      },
+      "categories": {
+        "title": "Our Categories",
+        "van": {
+          "title": "Vans",
+          "available": "models available"
+        },
+        "box": {
+          "title": "Box Trucks",
+          "available": "models available"
+        },
+        "minibus": {
+          "title": "Minibuses",
+          "available": "models available"
+        },
+        "refrigerated": {
+          "title": "Refrigerated Vehicles",
+          "available": "models available"
+        }
+      },
+      "results": {
+        "found": "vehicles found out of",
+        "types": "vehicle types"
+      },
+      "vehicle": {
+        "from": "From",
+        "perHours": "/ 4 hours",
+        "viewDetails": "View details"
+      },
+      "conditions": {
+        "title": "Rental Conditions",
+        "kilometers": {
+          "title": "Mileage",
+          "description": "200 km included per day (surcharge 0.21€/km)"
+        },
+        "periods": {
+          "title": "Available periods",
+          "description": "½ day (4h), day, weekend, week, month"
+        },
+        "options": {
+          "title": "Options",
+          "description": "Navigation, air conditioning, CarPlay, tow hitch depending on model"
+        },
+        "documents": {
+          "title": "Required documents",
+          "description": "Valid driving license and ID card"
+        },
+        "fullConditions": "Full conditions"
+      },
+      "cta": {
+        "title": "Ready to rent?",
+        "description": "Check our availability and book your vehicle directly online",
+        "checkAvailability": "Check availability",
+        "contact": "Contact us"
+      }
+    },
+    "refrigerated": {
+      "hero": {
+        "title": "Refrigerated Vehicles",
+        "subtitle": "Professional refrigerated vehicles for temperature-controlled goods transport"
+      },
+      "results": {
+        "showing": "Showing",
+        "results": "results"
+      },
+      "fromPrice": "From",
+      "pricePerHour": "/ 4 hours",
+      "viewDetails": "View details"
+    },
+    "minibus": {
+      "hero": {
+        "title": "Minibuses",
+        "subtitle": "Comfortable group transport for up to 9 people"
+      },
+      "results": {
+        "showing": "Showing",
+        "results": "results"
+      },
+      "fromPrice": "From",
+      "pricePerHour": "/ 4 hours",
+      "viewDetails": "View details"
+    },
+    "box": {
+      "hero": {
+        "title": "Box Trucks",
+        "subtitle": "Professional box trucks for large volume transport"
+      },
+      "results": {
+        "showing": "Showing",
+        "results": "results"
+      },
+      "fromPrice": "From",
+      "pricePerHour": "/ 4 hours",
+      "viewDetails": "View details"
+    },
+    "conditions": {
+      "hero": {
+        "title": "Rental Conditions",
+        "subtitle": "All important information about renting our vehicles"
+      },
+      "general": {
+        "title": "General Conditions",
+        "subtitle": "Important information for renting your vehicle"
+      },
+      "conditions": {
+        "driver": {
+          "title": "Driver Requirements",
+          "content": "• Valid European driving license B (no provisional license)\n• Minimum 2 years license or 25 years old\n• Copy of ID card and driving license required\n• Additional drivers possible with surcharge"
+        },
+        "documents": {
+          "title": "Required Documents",
+          "content": "• Valid ID\n• Valid European driving license\n• Credit card in the name of the main driver\n• Signed rental agreement"
+        },
+        "payment": {
+          "title": "Payment and Deposit",
+          "content": "• Deposit via credit card hold\n• Refund after vehicle inspection\n• Invoices payable on due date\n• In case of damage: fixed compensation €500 per incident"
+        },
+        "insurance": {
+          "title": "Insurance",
+          "content": "• Liability insurance included\n• Deductible in case of damage\n• Optional extensions:\n  - Reduced deductible\n  - Driver insurance\n  - Tire and glass protection"
+        },
+        "usage": {
+          "title": "Usage Conditions",
+          "content": "• Use as a good caretaker\n• Prohibited:\n  - Smoking or vaping\n  - Animals (except in closed carrier)\n  - Driving off paved roads\n• Tank minimum 1/4 full when returning\n• Return vehicle clean"
+        },
+        "mileage": {
+          "title": "Mileage",
+          "content": "Included kilometers:\n• Half day: 75 km\n• Day: 200 km\n• Weekend: 400 km\n• 5 days: 750 km\n• Week: 1000 km\n\nSurcharge per extra km:\n• Vans: €0.21\n• Minibus: €0.19\n• Refrigerated vehicles: €0.28"
+        },
+        "accident": {
+          "title": "In Case of Accident",
+          "content": "• Immediately inform GLOBAL CAR SERVICES\n• Call police if necessary\n• Stay on site until advised otherwise\n• Do not admit liability\n• Note contact details of other parties"
+        },
+        "cancellation": {
+          "title": "Cancellation and Changes",
+          "content": "• Cancellation: 40% of total amount as compensation\n• Changes possible with additional costs\n• Late return: 50% surcharge on daily rate\n• Traffic fines will be charged"
+        }
+      },
+      "insurance": {
+        "title": "Insurance",
+        "basic": {
+          "title": "Basic Coverage",
+          "description": "All our vehicles are liability insured. A deductible applies in case of damage."
+        },
+        "options": {
+          "title": "Extra Options",
+          "deductible": "• Reduced deductible",
+          "driver": "• Driver insurance",
+          "tire": "• Tire and glass protection"
+        }
+      },
+      "restrictions": {
+        "title": "Restrictions and Mileage",
+        "mileage": {
+          "title": "Included kilometers",
+          "halfDay": "• Half day: 75 km",
+          "day": "• Day: 200 km",
+          "weekend": "• Weekend: 400 km",
+          "fiveDays": "• 5 days: 750 km",
+          "week": "• Week: 1000 km"
+        },
+        "extraKm": {
+          "title": "Surcharge per extra km",
+          "van": "• Vans: €0.21",
+          "minibus": "• Minibus: €0.19",
+          "refrigerated": "• Refrigerated vehicles: €0.28"
+        }
+      },
+      "penalties": {
+        "title": "Fines and Extra Costs",
+        "late": {
+          "title": "Late Return",
+          "description": "Any delay in returning the vehicle will be charged at the daily rate plus 50%."
+        },
+        "traffic": {
+          "title": "Traffic Violations",
+          "description": "Fines and costs related to traffic violations are the responsibility of the renter."
+        }
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "pickup": {
+          "question": "Can I pick up the vehicle at a different time?",
+          "answer": "Yes, we offer flexible pickup and return times. Contact us to make an appointment outside regular opening hours."
+        },
+        "damage": {
+          "question": "What happens in case of damage to the vehicle?",
+          "answer": "In case of damage, a fixed compensation of €500 per incident applies. The deductible will be deducted from the deposit. Major damage is handled through the insurance company. For tire damage, you are responsible for repair or replacement."
+        },
+        "extension": {
+          "question": "Can I extend the rental period?",
+          "answer": "Yes, extension is possible if the vehicle is available. Contact us as early as possible to arrange the extension."
+        },
+        "included": {
+          "question": "What is included in the rental price?",
+          "answer": "The rental price includes: liability insurance, mileage according to chosen formula, 24/7 breakdown service, and a clean, fueled vehicle at pickup."
+        },
+        "insurance": {
+          "question": "Am I insured for all damage?",
+          "answer": "The vehicle is liability insured with a deductible. You can optionally choose additional insurance such as reduced deductible, driver insurance, and tire and glass protection. Note: damage due to not observing height restrictions or off-road driving is not covered by insurance."
+        }
+      }
+    }
+  },
+  "vehicleDetail": {
+    "navigation": {
+      "backToOverview": "Back to overview",
+      "share": "Share",
+      "save": "Save"
+    },
+    "specifications": {
+      "title": "Specifications",
+      "engine": "Engine",
+      "power": "Power",
+      "consumption": "Consumption",
+      "storage": "Storage space",
+      "persons": "persons",
+      "features": "Features",
+      "aboutVehicle": "About this vehicle"
+    },
+    "similar": {
+      "title": "Similar vehicles",
+      "from": "From",
+      "seats": "seats"
+    },
+    "booking": {
+      "included_km": "km included",
+      "extra_km": "Extra kilometers",
+      "per_km": "/km",
+      "selectDuration": "Select rental duration",
+      "duration": {
+        "half_day": "½ day (4 hours)",
+        "day": "1 day",
+        "weekend": "Weekend",
+        "five_days": "5 days",
+        "week": "1 week",
+        "month": "1 month (on request)"
+      },
+      "insurance": {
+        "title": "Insurance",
+        "basic": "Basic insurance (included)",
+        "premium": "Premium insurance (+€15/day)"
+      },
+      "extras": {
+        "title": "Extras",
+        "selected": "Selected",
+        "add": "Add"
+      },
+      "contact": {
+        "name": "Name",
+        "name_placeholder": "Your full name",
+        "email": "Email",
+        "email_placeholder": "your@email.com",
+        "phone": "Phone",
+        "phone_placeholder": "+32 489 87 66 13",
+        "message": "Message (optional)",
+        "message_placeholder": "Additional information or questions..."
+      },
+      "total": {
+        "days": "Number of days",
+        "total": "Total",
+        "vat_included": "VAT included"
+      },
+      "submit": "Book now",
+      "included_services": "Included services",
+      "need_help": "Need help?"
+    }
+  },
+  "vanPage": {
+    "hero": {
+      "title": "Vans",
+      "description": "Discover our range of professional vans for all your transport needs"
+    },
+    "results": {
+      "count": "{count} out of {total} vans found"
+    },
+    "vehicle": {
+      "from": "From",
+      "per": "/ 4h",
+      "viewDetails": "View details"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact",
+      "subtitle": "We are ready to answer all your questions and needs"
+    },
+    "form": {
+      "title": "Get in Touch",
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Enter your first name"
+      },
+      "lastName": {
+        "label": "Last Name",
+        "placeholder": "Enter your last name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Phone number"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Enter your message"
+      },
+      "submit": "Send Message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "subtitle": "Don't hesitate to contact us by phone, email, or by visiting one of our offices.",
+      "phone": {
+        "title": "Phone",
+        "value": "+32 489 87 66 13"
+      },
+      "email": {
+        "title": "Email",
+        "value": "info@globalcarservices.be"
+      },
+      "address": {
+        "title": "Address",
+        "value": "Antwerp, Belgium"
+      },
+      "hours": {
+        "title": "Opening Hours",
+        "weekdays": "Monday - Friday: 8:00 - 18:00",
+        "saturday": "Saturday: 9:00 - 16:00",
+        "sunday": "Sunday: Closed"
+      }
+    }
+  },
+  "breakdown": {
+    "hero": {
+      "title": "24/7 Breakdown Service",
+      "subtitle": "Fast assistance wherever you are"
+    },
+    "emergency": {
+      "title": "Emergency? Call now!",
+      "phone": "+32 489 87 66 13",
+      "subtitle": "Available 24/7 for all breakdowns"
+    },
+    "intro": {
+      "image": "Car diagnostics",
+      "stats": {
+        "prefix": "More than",
+        "suffix": "Years of experience"
+      },
+      "paragraph1": "Car breakdowns never come at a good time. That's why our breakdown service is available day and night. We'll send an experienced mechanic to you, whether you're at home, on the road, or on the highway. One call and we'll get you back on track.",
+      "paragraph2": "Our team of professional mechanics responds quickly to all types of breakdowns, whether on the road, highway, or at home. Remember just one number for immediate help."
+    },
+    "services": {
+      "title": "Our Breakdown Services",
+      "towing": {
+        "title": "Towing Service",
+        "description": "Professional towing service for all types of vehicles"
+      },
+      "battery": {
+        "title": "Battery Service",
+        "description": "Quick intervention for battery problems and jump starts"
+      },
+      "fuel": {
+        "title": "Fuel Delivery",
+        "description": "Emergency fuel delivery at your breakdown location"
+      },
+      "repair": {
+        "title": "On-site Repair",
+        "description": "Quick on-site repair when possible"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "response": {
+        "question": "What is the response time?",
+        "answer": "Our team usually arrives within 30 to 45 minutes, depending on your location."
+      },
+      "area": {
+        "question": "What is the service area?",
+        "answer": "We operate throughout the Antwerp region and surroundings, on roads and highways."
+      },
+      "billing": {
+        "question": "How does billing work?",
+        "answer": "We provide you with a fixed rate before we intervene. Payment possible by card or cash."
+      },
+      "highway": {
+        "question": "What to do in case of a breakdown on the highway?",
+        "answer": "Ensure your safety, turn on your hazard lights, place your warning triangle, and call us immediately."
+      }
+    },
+    "form": {
+      "title": "Assistance Request",
+      "subtitle": "Call us immediately in case of emergency at {phone}. For non-urgent requests, you can use the form below.",
+      "location": {
+        "label": "Location",
+        "placeholder": "Your current location (address, mile marker...)"
+      },
+      "type": {
+        "label": "Type of Breakdown",
+        "placeholder": "Select the type of breakdown",
+        "options": {
+          "battery": "Battery Failure",
+          "fuel": "Fuel Shortage",
+          "mechanical": "Mechanical Failure",
+          "accident": "Accident",
+          "other": "Other"
+        }
+      },
+      "call": "Call now: {phone}",
+      "submit": "Submit Request"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "From passion to professional customization"
+    },
+    "story": {
+      "title": "Our Story",
+      "image": "Our garage",
+      "paragraph1": "In 2013, Samir started with one car lift and a clear conviction: if you work honestly and know your trade, success will follow. Under the name RS Cars, he built something bigger step by step.",
+      "paragraph2": "What began as a one-man business has grown into a professional garage and rental service today. We combine years of experience with personal service, and continue to invest in quality, both in our team and in our infrastructure."
+    },
+    "mission": {
+      "title": "What Drives Us",
+      "description": "We believe that quality is no coincidence. Every vehicle that comes to us receives our full attention. We work efficiently, communicate clearly, and think in solutions. Quick response is our standard."
+    },
+    "values": {
+      "title": "Why Choose Global Car Services?",
+      "personal": {
+        "title": "Personal Contact",
+        "description": "We believe in personal service and direct communication with our customers."
+      },
+      "technicians": {
+        "title": "Experienced Technicians",
+        "description": "Our team consists of qualified professionals with years of experience."
+      },
+      "speed": {
+        "title": "Quick Follow-up",
+        "description": "We work efficiently and communicate clearly about the progress of your service."
+      },
+      "prices": {
+        "title": "Affordable Prices",
+        "description": "Quality service at fair and transparent rates."
+      }
+    }
+  },
+  "cars": {
+    "hero": {
+      "title": "Cars for Sale",
+      "subtitle": "Discover our selection of premium used vehicles"
+    },
+    "categories": {
+      "title": "Our Categories",
+      "types": {
+        "berline": "Sedan",
+        "suv": "SUV"
+      },
+      "available": "{count} available models"
+    },
+    "specs": {
+      "fuel": {
+        "benzine": "Petrol",
+        "diesel": "Diesel",
+        "hybride": "Hybrid",
+        "elektrisch": "Electric"
+      },
+      "seats": "{count} seats",
+      "mileage": "{count} km"
+    },
+    "features": {
+      "airconditioning": "Air conditioning",
+      "cruise_control": "Cruise control",
+      "navigation_system": "Navigation system",
+      "parking_sensors": "Parking sensors",
+      "bluetooth": "Bluetooth",
+      "leather_seats": "Leather seats",
+      "sunroof": "Sunroof",
+      "automatic_transmission": "Automatic transmission",
+      "m_sport_afwerking": "M Sport package",
+      "panoramisch_schuifdak": "Panoramic sunroof",
+      "harman_kardon_audiosysteem": "Harman Kardon sound system",
+      "sport_pakket": "Sport package",
+      "amg_line_pakket": "AMG Line package",
+      "sfeerverlichting": "Ambient lighting",
+      "burmester_geluidssysteem": "Burmester sound system",
+      "rijassistentie_pakket": "Driving assistance package",
+      "s_line_exterieur": "S line exterior",
+      "panoramadak": "Panoramic roof",
+      "bang_&_olufsen_sound": "Bang & Olufsen sound",
+      "technology_pakket": "Technology package",
+      "r-design": "R-Design",
+      "bowers_&_wilkins_audio": "Bowers & Wilkins audio",
+      "intellisafe_pro_pakket": "IntelliSafe Pro package"
+    },
+    "vehicle": {
+      "view_details": "View Details",
+      "page": {
+        "specs": {
+          "year": "Year",
+          "fuel": "Fuel",
+          "seats": "Seats",
+          "mileage": "Mileage",
+          "title": "Specifications",
+          "engine": "Engine",
+          "power": "Power",
+          "consumption": "Consumption",
+          "color": "Color",
+          "interior": "Interior",
+          "doors": "Doors"
+        },
+        "options": {
+          "title": "Options and Equipment"
+        },
+        "included": {
+          "title": "Included"
+        },
+        "actions": {
+          "call": "Call",
+          "email": "Email"
+        },
+        "reviews": "reviews"
+      }
+    },
+    "cta": {
+      "title": "Interested in one of our cars?",
+      "description": "Contact us for more information or to schedule a test drive",
+      "contact": "Contact Us",
+      "appointment": "Make Appointment"
+    }
+  },
+  "appointment": {
+    "page": {
+      "title": "Make an appointment",
+      "subtitle": "Easily book an appointment online for maintenance, repair or inspection",
+      "iframe_title": "Make an appointment - Global Car Service",
+      "questions": {
+        "title": "Have questions?",
+        "description": "Can't find a suitable time or have specific questions? Contact us directly."
+      }
+    }
+  }
+} 

@@ -1,0 +1,47 @@
+{
+  "title": "Our Services",
+  "subtitle": "From maintenance to repair, we offer complete service for all your vehicle needs",
+  "mainServices": {
+    "title": "Maintenance & Repair",
+    "subtitle": "Professional auto services for all brands",
+    "maintenance": {
+      "title": "Car Maintenance",
+      "description": "Regular maintenance for optimal vehicle performance"
+    },
+    "diagnostic": {
+      "title": "Car Diagnostics",
+      "description": "Professional diagnostics with modern equipment"
+    },
+    "repair": {
+      "title": "Car Repair",
+      "description": "Thorough repairs of damage and defects"
+    },
+    "revision": {
+      "title": "Complete Revision",
+      "description": "Complete overhaul for optimal performance"
+    }
+  },
+  "additionalServices": {
+    "title": "Additional Services",
+    "subtitle": "Additional services for your convenience",
+    "breakdown": {
+      "title": "24/7 Assistance",
+      "description": "Quick help wherever you are, day and night"
+    },
+    "quote": {
+      "title": "Free Quote",
+      "description": "Request a free quote for your vehicle"
+    },
+    "advice": {
+      "title": "Custom Advice",
+      "description": "Personalized advice for your specific needs"
+    }
+  },
+  "cta": {
+    "title": "Need maintenance or repair?",
+    "subtitle": "Make an appointment with our experts for the maintenance and repair of your vehicle",
+    "button": "Make an appointment"
+  },
+  "moreInfo": "More info",
+  "viewService": "View service"
+} 

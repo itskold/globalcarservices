@@ -1,0 +1,92 @@
+{
+  "location": {
+    "label": "Localisation",
+    "placeholder": "Localisation"
+  },
+  "duration": {
+    "label": "Durée",
+    "options": {
+      "half-day": "½ journée (4h)",
+      "day": "Jour",
+      "weekend": "Week-end",
+      "week": "Semaine",
+      "month": "Mois"
+    }
+  },
+  "date": {
+    "label": "Date"
+  },
+  "price": {
+    "label": "Prix par jour",
+    "range": "€{min} - €{max}"
+  },
+  "vehicleType": {
+    "label": "Type de véhicule",
+    "placeholder": "Type de véhicule",
+    "options": {
+      "mini-van": "Mini Van",
+      "normal-van": "Van Normal",
+      "large-van": "Grand Van",
+      "xl-van": "Van Extra Large",
+      "box-van": "Van avec Caisse",
+      "box-van-lift": "Van avec Hayon",
+      "minibus": "Minibus",
+      "koelwagen": "Véhicule Frigorifique"
+    }
+  },
+  "filters": {
+    "button": "Filtres",
+    "title": "Filtres",
+    "activeCount": "{count} filtres",
+    "clearAll": "Tout effacer",
+    "show": "Afficher"
+  },
+  "brands": {
+    "title": "Marques",
+    "options": {
+      "Peugeot": "Peugeot",
+      "Citroen": "Citroën",
+      "Renault": "Renault",
+      "Ford": "Ford",
+      "VW": "Volkswagen",
+      "Mercedes": "Mercedes"
+    }
+  },
+  "transmission": {
+    "title": "Transmission",
+    "options": {
+      "manual": "Manuelle",
+      "automatic": "Automatique"
+    }
+  },
+  "fuel": {
+    "title": "Carburant",
+    "options": {
+      "diesel": "Diesel",
+      "petrol": "Essence",
+      "electric": "Électrique"
+    }
+  },
+  "seats": {
+    "title": "Nombre de places",
+    "range": "{min} personnes - {max} personnes"
+  },
+  "features": {
+    "title": "Caractéristiques",
+    "options": {
+      "airco": "Climatisation",
+      "navigation": "Navigation",
+      "carplay": "Apple CarPlay",
+      "android-auto": "Android Auto",
+      "trekhaak": "Attelage",
+      "laadklep": "Hayon élévateur",
+      "koeling": "Réfrigération",
+      "camera": "Caméra de recul",
+      "schuifdeuren": "Portes coulissantes"
+    }
+  },
+  "activeFilters": {
+    "title": "Filtres actifs",
+    "clear": "Effacer"
+  }
+} 

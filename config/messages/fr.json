@@ -1,0 +1,63 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "rental": "Location",
+    "about": "À propos",
+    "contact": "Contact",
+    "appointment": "Prendre rendez-vous",
+    "changeLanguage": "Changer de langue"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "contact": "Contactez-nous",
+    "book": "Réserver"
+  },
+  "home": {
+    "hero": {
+      "title": "Service automobile global",
+      "subtitle": "Votre partenaire de confiance pour tous vos besoins automobiles"
+    }
+  },
+  "services": {
+    "maintenance": {
+      "title": "Entretien auto",
+      "diagnostic": "Diagnostic auto",
+      "repair": "Réparation auto",
+      "revision": "Révision complète"
+    },
+    "rental": {
+      "title": "Location",
+      "all": "Tous les véhicules",
+      "van": "Camionnettes",
+      "box": "Camions à caisse",
+      "minibus": "Minibus",
+      "refrigerated": "Véhicules frigorifiques",
+      "conditions": "Conditions de location"
+    },
+    "extra": {
+      "title": "Services supplémentaires",
+      "usedCars": "Véhicules d'occasion",
+      "breakdown": "Dépannage 24/7",
+      "quote": "Devis gratuit",
+      "advice": "Conseil personnalisé"
+    }
+  },
+  "rental": {
+    "refrigerated": {
+      "title": "Location de Camions Réfrigérés",
+      "description": "Découvrez notre gamme de camions réfrigérés disponibles à la location. Idéal pour le transport de marchandises nécessitant une température contrôlée.",
+      "hero": {
+        "title": "Location de Camions Réfrigérés",
+        "subtitle": "Solutions de transport réfrigéré fiables et efficaces"
+      },
+      "results": {
+        "showing": "Affichage de",
+        "results": "résultats"
+      },
+      "viewDetails": "Voir les détails",
+      "pricePerHour": "/ 4 heures",
+      "fromPrice": "À partir de"
+    }
+  }
+} 

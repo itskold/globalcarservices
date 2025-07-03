@@ -1,0 +1,26 @@
+{
+  "specs": {
+    "year": "Year",
+    "fuel": "Fuel",
+    "seats": "Seats",
+    "mileage": "Mileage",
+    "title": "Specifications",
+    "engine": "Engine",
+    "power": "Power",
+    "consumption": "Consumption",
+    "color": "Color",
+    "interior": "Interior",
+    "doors": "Doors"
+  },
+  "options": {
+    "title": "Options and Equipment"
+  },
+  "included": {
+    "title": "Included"
+  },
+  "actions": {
+    "call": "Call",
+    "email": "Email"
+  },
+  "reviews": "reviews"
+} 

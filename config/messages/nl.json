@@ -1,0 +1,63 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Diensten",
+    "rental": "Verhuur",
+    "about": "Over ons",
+    "contact": "Contact",
+    "appointment": "Afspraak maken",
+    "changeLanguage": "Taal wijzigen"
+  },
+  "common": {
+    "learnMore": "Meer informatie",
+    "contact": "Neem contact op",
+    "book": "Reserveren"
+  },
+  "home": {
+    "hero": {
+      "title": "Globale autoservice",
+      "subtitle": "Uw betrouwbare partner voor al uw autobehoeften"
+    }
+  },
+  "services": {
+    "maintenance": {
+      "title": "Auto onderhoud",
+      "diagnostic": "Auto diagnose",
+      "repair": "Auto herstelling",
+      "revision": "Volledige onderhoud"
+    },
+    "rental": {
+      "title": "Verhuur",
+      "all": "Alle voertuigen",
+      "van": "Bestelwagens",
+      "box": "Bakwagens",
+      "minibus": "Minibussen",
+      "refrigerated": "Koelwagens",
+      "conditions": "Huurvoorwaarden"
+    },
+    "extra": {
+      "title": "Extra diensten",
+      "usedCars": "Tweedehands wagens",
+      "breakdown": "24/7 Pechhulp",
+      "quote": "Gratis offerte",
+      "advice": "Advies op maat"
+    }
+  },
+  "rental": {
+    "refrigerated": {
+      "title": "Koelwagen Verhuur",
+      "description": "Ontdek ons assortiment koelwagens te huur. Ideaal voor het transport van goederen die temperatuurcontrole vereisen.",
+      "hero": {
+        "title": "Koelwagen Verhuur",
+        "subtitle": "Betrouwbare en efficiënte gekoelde transportoplossingen"
+      },
+      "results": {
+        "showing": "Tonen",
+        "results": "resultaten"
+      },
+      "viewDetails": "Bekijk details",
+      "pricePerHour": "/ 4 uur",
+      "fromPrice": "Vanaf"
+    }
+  }
+} 

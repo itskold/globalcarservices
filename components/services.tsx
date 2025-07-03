@@ -5,28 +5,31 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { Phone, MapPin } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function Services() {
+  const t = useTranslations("services")
+
   const services = [
     {
       image: "/rental.jpg",
-      title: "Voertuigverhuur",
-      description: "Bestelwagens, minibussen en personenwagens voor al uw vervoersbehoeften.",
-      button: "Bekijk aanbod",
+      titleKey: "rental.title",
+      descriptionKey: "rental.description",
+      buttonKey: "rental.button",
       href: "/rental",
     },
     {
       image: "/repair.jpg",
-      title: "Onderhoud & Reparatie",
-      description: "Professionele onderhoudsdiensten en reparaties door gecertificeerde monteurs.",
-      button: "Afspraak maken",
+      titleKey: "maintenance.title",
+      descriptionKey: "maintenance.description",
+      buttonKey: "maintenance.button",
       href: "/services",
     },
     {
       image: "/dealer1-3.jpg",
-      title: "Pechverhelping",
-      description: "24/7 pechverhelping en sleepservice voor wanneer u ons het meest nodig heeft.",
-      button: "Bekijk tweedehands aanbod ",
+      titleKey: "breakdown.title",
+      descriptionKey: "breakdown.description",
+      buttonKey: "breakdown.button",
       href: "/breakdown",
     },
   ]
@@ -35,10 +38,9 @@ export default function Services() {
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Onze Diensten</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("title")}</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Van voertuigverhuur tot complete onderhoudsdiensten - wij zijn uw betrouwbare partner voor alle automotive
-            behoeften.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -46,15 +48,15 @@ export default function Services() {
           {services.map((service, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden">
               <div className="relative h-48 w-full">
-                <Image src={service.image || "/placeholder.svg"} alt={service.title} fill className="object-cover filter grayscale" />
+                <Image src={service.image || "/placeholder.svg"} alt={t(service.titleKey)} fill className="object-cover filter grayscale" />
               </div>
               <CardHeader className="text-center">
-                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardTitle className="text-xl">{t(service.titleKey)}</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <CardDescription className="mb-4">{service.description}</CardDescription>
+                <CardDescription className="mb-4">{t(service.descriptionKey)}</CardDescription>
                 <Button asChild variant="outline" className="w-full bg-transparent">
-                  <Link href={service.href}>{service.button}</Link>
+                  <Link href={service.href}>{t(service.buttonKey)}</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -62,9 +64,9 @@ export default function Services() {
         </div>
 
         <div className="bg-[#050b20] rounded-lg p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Nood aan hulp?</h3>
+          <h3 className="text-2xl font-bold mb-4">{t("help.title")}</h3>
           <p className="text-gray-300 mb-6">
-            Ons ervaren team staat klaar om u te helpen met al uw automotive behoeften.
+            {t("help.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center gap-2">

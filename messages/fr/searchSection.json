@@ -1,0 +1,35 @@
+{
+  "title": "Trouvez le véhicule idéal",
+  "subtitle": "Recherchez parmi notre large gamme de véhicules",
+  "pickupLocation": {
+    "label": "Lieu de prise en charge",
+    "placeholder": "Sélectionnez le lieu de prise en charge"
+  },
+  "returnLocation": {
+    "label": "Lieu de retour",
+    "placeholder": "Sélectionnez le lieu de retour"
+  },
+  "vehicleType": {
+    "label": "Type de véhicule",
+    "placeholder": "Sélectionnez un type de véhicule",
+    "options": {
+      "van": "Camionnette",
+      "minibus": "Minibus",
+      "car": "Voiture",
+      "truck": "Camion"
+    }
+  },
+  "pickupDateTime": {
+    "label": "Date et heure de prise en charge",
+    "placeholder": "Sélectionnez la date et l'heure"
+  },
+  "returnDateTime": {
+    "label": "Date et heure de retour",
+    "placeholder": "Sélectionnez la date et l'heure"
+  },
+  "locations": {
+    "antwerpen": "Anvers",
+    "gent": "Gand"
+  },
+  "searchButton": "Rechercher"
+} 
