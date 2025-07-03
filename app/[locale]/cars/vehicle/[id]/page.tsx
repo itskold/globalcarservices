@@ -46,7 +46,7 @@ export default function CarPage() {
   const [selectedImage, setSelectedImage] = useState(0)
   const [loading, setLoading] = useState(true)
   const [similarCars, setSimilarCars] = useState<CarData[]>([])
-  const t = useTranslations("cars.vehicle.page")
+    const t = useTranslations("cars.vehicle.page")
 
   useEffect(() => {
     const fetchCarData = async () => {

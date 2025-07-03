@@ -14,7 +14,7 @@ import { EditableTranslationText } from "@/components/admin/editable-translation
 import { EditableImage } from "@/components/admin/editable-image"
 
 export default function RevisionPage() {
-  const t = useTranslations("revision")
+    const t = useTranslations("revision")
   
   const [formData, setFormData] = useState({
     name: "",

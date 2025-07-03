@@ -15,7 +15,7 @@ import Image from "next/image"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function RentalPage() {
-  const t = useTranslations("rental.page")
+    const t = useTranslations("rental.page")
   const [vehicles, setVehicles] = useState<VehicleData[]>([])
   const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState<FilterState>({

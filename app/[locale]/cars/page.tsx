@@ -12,7 +12,7 @@ import type { CarData } from "@/data/cars"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function CarsPage() {
-  const t = useTranslations("cars")
+    const t = useTranslations("cars")
   const [cars, setCars] = useState<CarData[]>([])
   const [loading, setLoading] = useState(true)
 

@@ -56,7 +56,7 @@ interface VehicleData extends DocumentData {
 }
 
 export default function VehicleDetailPage() {
-  const t = useTranslations('vehicleDetail')
+    const t = useTranslations('vehicleDetail')
   const params = useParams()
   const router = useRouter()
   const vehicleId = params.id as string

@@ -6,7 +6,7 @@ import { useTranslations, useLocale } from "next-intl"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function AppointmentPage() {
-  const t = useTranslations("appointment.page")
+    const t = useTranslations("appointment.page")
   const locale = useLocale()
   const [formData, setFormData] = useState({
     fullName: "",

@@ -11,7 +11,7 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function ContactPage() {
-  const t = useTranslations("contact")
+    const t = useTranslations("contact")
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",

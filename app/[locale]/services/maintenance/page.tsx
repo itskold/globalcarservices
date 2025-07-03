@@ -17,7 +17,7 @@ import { useTranslations } from "next-intl"
 import { EditableImage } from "@/components/admin/editable-image"
 
 export default function MaintenancePage() {
-  const t = useTranslations("maintenance")
+    const t = useTranslations("maintenance")
 
   const [formData, setFormData] = useState({
     name: "",

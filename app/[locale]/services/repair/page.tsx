@@ -14,7 +14,7 @@ import { EditableTranslationText } from "@/components/admin/editable-translation
 import { EditableImage } from "@/components/admin/editable-image"
 
 export default function RepairPage() {
-  const t = useTranslations("repair")
+    const t = useTranslations("repair")
   
   const [formData, setFormData] = useState({
     name: "",

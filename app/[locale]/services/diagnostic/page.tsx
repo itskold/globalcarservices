@@ -16,7 +16,7 @@ import { EditableTranslationText } from "@/components/admin/editable-translation
 import { EditableImage } from "@/components/admin/editable-image"
 
 export default function DiagnosticPage() {
-  const t = useTranslations("diagnostic")
+    const t = useTranslations("diagnostic")
   const { locale } = useParams()
 
   const [formData, setFormData] = useState({

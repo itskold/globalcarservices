@@ -15,7 +15,7 @@ import Image from "next/image"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function BoxVanPage() {
-  const t = useTranslations("rental.box")
+    const t = useTranslations("rental.box")
   const { locale } = useParams()
   const [vehicles, setVehicles] = useState<VehicleData[]>([])
   const [loading, setLoading] = useState(true)

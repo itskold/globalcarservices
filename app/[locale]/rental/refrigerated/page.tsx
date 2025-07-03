@@ -15,7 +15,7 @@ import Image from "next/image"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function RefrigeratedPage() {
-  const t = useTranslations("rental.refrigerated")
+    const t = useTranslations("rental.refrigerated")
   const { locale } = useParams()
   const [vehicles, setVehicles] = useState<VehicleData[]>([])
   const [loading, setLoading] = useState(true)

@@ -14,7 +14,7 @@ import { BsTruckFlatbed } from "react-icons/bs";
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function BreakdownPage() {
-  const t = useTranslations("breakdown")
+    const t = useTranslations("breakdown")
   const [formData, setFormData] = useState({
     location: "",
     breakdownType: "",

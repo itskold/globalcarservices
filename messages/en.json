@@ -2,7 +2,7 @@
   "navigation": {
     "home": "Home",
     "services": "Services",
-    "rental": "Location",
+    "rental": "Rental",
     "about": "About Us",
     "contact": "Contact",
     "appointment": "Make an Appointment",
@@ -43,7 +43,7 @@
       "m_sport_afwerking": "M Sport Package",
       "panoramisch_schuifdak": "Panoramic Sunroof",
       "harman_kardon_audiosysteem": "Harman Kardon Audio System",
-      "sport_pakket": "Sport Package",
+      "sport_pakket": "Sports Package",
       "amg_line_pakket": "AMG Line Package",
       "sfeerverlichting": "Ambient Lighting",
       "burmester_geluidssysteem": "Burmester Sound System",
@@ -143,26 +143,27 @@
     "subtitle": "From vehicle rental to complete maintenance services - we are your reliable partner for all automotive needs.",
     "rental": {
       "title": "Vehicle Rental",
-      "description": "Vans, minibuses, and passenger cars for all your transport needs.",
+      "description": "Vans, minibuses, and cars for all your transportation needs.",
       "button": "View Offer",
       "all": "All Vehicles",
       "van": "Vans",
       "minibus": "Minibuses",
-      "refrigerated": "Refrigerated Vehicles",
-      "box": "Box Trucks",
+      "refrigerated": "Refrigerated Vans",
+      "box": "Box Vans",
       "conditions": "Rental Conditions"
     },
     "maintenance": {
       "title": "Maintenance & Repair",
-      "description": "Professional maintenance services and repairs by certified mechanics.",
+      "description": "Professional maintenance and repair services by certified mechanics.",
       "button": "Make an Appointment",
-      "diagnostic": "Car Diagnostic",
+      "diagnostic": "Car Diagnostics",
       "repair": "Car Repair",
-      "revision": "Full Maintenance"
+      "revision": "Full Maintenance",
+      "maintenance": "Car Maintenance"
     },
     "extra": {
       "title": "Additional Services",
-      "description": "Complementary services to meet all your needs",
+      "description": "Additional services to meet all your needs",
       "insurance": "All-Risk Insurance",
       "gps": "GPS",
       "driver": "Driver",
@@ -175,7 +176,7 @@
     "breakdown": {
       "title": "Breakdown Assistance",
       "description": "24/7 breakdown assistance and towing service when you need it most.",
-      "button": "View Our Used Car Offer"
+      "button": "View Used Cars Offer"
     },
     "help": {
       "title": "Need Help?",
@@ -195,8 +196,8 @@
             "description": "Regular maintenance for optimal vehicle performance"
           },
           "diagnostic": {
-            "title": "Car Diagnostic",
-            "description": "Professional diagnostic with modern equipment"
+            "title": "Car Diagnostics",
+            "description": "Professional diagnostics with modern equipment"
           },
           "repair": {
             "title": "Car Repair",
@@ -204,14 +205,14 @@
           },
           "revision": {
             "title": "Full Maintenance",
-            "description": "Complete overhaul for optimal performance"
+            "description": "Complete revision for optimal performance"
           },
           "moreInfo": "More Info"
         }
       },
       "additionalServices": {
         "title": "Additional Services",
-        "subtitle": "Complementary services for your convenience",
+        "subtitle": "Additional services for your convenience",
         "services": {
           "breakdown": {
             "title": "24/7 Breakdown Assistance",
@@ -222,15 +223,15 @@
             "description": "Request a free quote for your vehicle"
           },
           "advice": {
-            "title": "Personalized Advice",
-            "description": "Tailored advice for your specific needs"
+            "title": "Tailored Advice",
+            "description": "Personalized advice for your specific needs"
           },
           "viewService": "View Service"
         }
       },
       "cta": {
-        "title": "Need Maintenance or Repair?",
-        "description": "Schedule an appointment with our experts for the maintenance and repair of your vehicle",
+        "title": "Do You Need Maintenance or Repair?",
+        "description": "Make an appointment with our experts for the maintenance and repair of your vehicle",
         "button": "Make an Appointment"
       }
     }
@@ -309,22 +310,22 @@
     "subtitle": "Read what our customers say about us",
     "reviews": {
       "0": {
-        "text": "Quick, friendly, and at a good price. I needed a van quickly for a photography event. It didn't fit in my car, so I was very happy to be able to rent a van 2 days in advance!",
+        "text": "Fast, friendly, and a good price. I needed a van quickly for a photography event. It wouldn't fit in my car, so I was very happy to rent a van 2 days in advance!",
         "name": "Sara Chakib",
         "rating": 5
       },
       "1": {
-        "text": "Very good, smooth, and professional service at a very good price!!! The place to be for maintenance and repairs!!",
+        "text": "Very good, smooth, and professional service at a very good price! The place to be for maintenance and repairs!!",
         "name": "Fahd El Uazani",
         "rating": 5
       },
       "2": {
-        "text": "Good service, pleasant to drive the Box Van, friendly owner, in short a strong recommendation to rent here.",
+        "text": "Good service, pleasant to drive the Box Van, friendly owner, in short, highly recommended to rent here.",
         "name": "Ronny Van Gucht",
         "rating": 5
       },
       "3": {
-        "text": "Nothing to complain about, both for pickup and return. And of course, I got my deposit back.",
+        "text": "Nothing to complain about, both pickup and return. And of course, I got my deposit back.",
         "name": "Yassin Deneef",
         "rating": 5
       },
@@ -346,11 +347,11 @@
         "van": "Van",
         "large-van": "Large Van",
         "xl-van": "XL Van",
-        "box-van": "Closed Van",
-        "box-van-lift": "Closed Van with Liftgate",
+        "box-van": "Box Van",
+        "box-van-lift": "Box Van with Tail Lift",
         "box-truck": "Box Truck",
-        "refrigerated": "Refrigerated Vehicle",
-        "koelwagen": "Refrigerated Vehicle",
+        "refrigerated": "Refrigerated Van",
+        "koelwagen": "Refrigerated Van",
         "minibus": "Minibus"
       }
     },
@@ -378,7 +379,7 @@
         "carplay": "Apple CarPlay",
         "android-auto": "Android Auto",
         "trekhaak": "Tow Bar",
-        "laadklep": "Liftgate",
+        "laadklep": "Tail Lift",
         "koeling": "Cooling",
         "camera": "Rearview Camera",
         "schuifdeuren": "Sliding Doors"
@@ -447,11 +448,11 @@
     }
   },
   "diagnostic": {
-    "title": "Car Diagnostic",
-    "subtitle": "Accurate diagnosis with effective solutions",
+    "title": "Car Diagnostics",
+    "subtitle": "Accurate diagnostics with effective solutions",
     "intro": {
       "description1": "We use modern equipment to see exactly what's wrong with your car",
-      "description2": "Electrical or mechanical? We check everything. You'll get a clear picture of the situation and what we can do.",
+      "description2": "Electrical or mechanical? We check everything. You'll get a clear picture of the issue and what we can do about it.",
       "experience": {
         "more_than": "More than",
         "years": "Years of experience"
@@ -465,16 +466,16 @@
           "description": "Reading and analyzing error codes from all computers"
         },
         "engine": {
-          "title": "Engine Diagnostic",
+          "title": "Engine Diagnostics",
           "description": "Complete analysis of engine performance and anomalies"
         },
         "battery": {
           "title": "Battery Test",
-          "description": "Checking the battery status and charging system"
+          "description": "Checking the condition of the battery and charging system"
         },
         "ac": {
           "title": "Air Conditioning",
-          "description": "Diagnosis of the air conditioning system and leak detection"
+          "description": "Diagnostics of the air conditioning system and leak detection"
         }
       }
     },
@@ -483,7 +484,7 @@
       "items": {
         "cost": {
           "question": "How much does a diagnostic cost?",
-          "answer": "The cost of the diagnostic varies depending on the type of intervention. We inform you of our rates before intervening."
+          "answer": "The cost of diagnostics varies depending on the type of intervention. We inform you of our rates before any intervention."
         },
         "duration": {
           "question": "How long does a diagnostic take?",
@@ -505,7 +506,7 @@
     },
     "appointment": {
       "title": "Diagnostic Request",
-      "subtitle": "Schedule an appointment for a complete diagnostic of your vehicle. Our specialized technicians will use the latest diagnostic tools to precisely identify the cause of problems.",
+      "subtitle": "Schedule an appointment for a full diagnostic of your vehicle. Our specialized technicians will use the latest diagnostic tools to accurately identify the cause of problems.",
       "form": {
         "name": "Your Name",
         "phone": "Your Phone",
@@ -526,7 +527,7 @@
           "label": "Observed Symptoms",
           "placeholder": "Describe the symptoms or problems you've noticed"
         },
-        "submit": "Schedule Appointment"
+        "submit": "Make an Appointment"
       }
     }
   },
@@ -534,7 +535,7 @@
     "title": "Car Repair",
     "subtitle": "Thorough repairs of damage and defects",
     "intro": {
-      "description1": "At Global Car Services, we know cars inside out. Our experienced experts tackle every breakdown, from mechanical to electronic.",
+      "description1": "At Global Car Services, we know cars inside out. Our experienced experts tackle any malfunction, from mechanical to electronic.",
       "description2": "With the best tools, we quickly find what's wrong and fix it. We ensure your car can get back on the road safely as soon as possible.",
       "experience": {
         "more_than": "More than",
@@ -567,7 +568,7 @@
       "items": {
         "cost": {
           "question": "How much does a repair cost?",
-          "answer": "The cost depends on the nature of the breakdown. We perform an accurate diagnosis and provide you with a detailed quote before intervening."
+          "answer": "The cost depends on the nature of the failure. We perform an accurate diagnosis and provide you with a detailed quote before any intervention."
         },
         "duration": {
           "question": "What is the repair time?",
@@ -585,7 +586,7 @@
     },
     "appointment": {
       "title": "Repair Request",
-      "subtitle": "Schedule an appointment for a repair of your vehicle. Our qualified technicians will use the latest repair tools to precisely identify the cause of problems.",
+      "subtitle": "Schedule an appointment for a repair of your vehicle. Our qualified technicians will use the latest repair tools to accurately identify the cause of problems.",
       "form": {
         "name": {
           "label": "Your Name",
@@ -614,23 +615,23 @@
           "label": "Problem Description",
           "placeholder": "How can we help you?"
         },
-        "submit": "Schedule Appointment"
+        "submit": "Make an Appointment"
       }
     }
   },
   "revision": {
-    "title": "Car Overhaul",
+    "title": "Car Revision",
     "subtitle": "Complete check for optimal performance",
     "intro": {
-      "description1": "At Global Car Services, we offer a complete overhaul service to ensure the optimal operation of your vehicle. Our qualified technicians perform a thorough inspection of all essential components.",
-      "description2": "Regular overhauls are essential to extend the life of your vehicle and avoid costly repairs. Trust our expertise for a complete and professional overhaul.",
+      "description1": "At Global Car Services, we offer a complete revision service to ensure the optimal operation of your vehicle. Our qualified technicians perform a thorough inspection of all essential components.",
+      "description2": "Regular revisions are essential to extend the life of your vehicle and avoid costly repairs. Trust our expertise for a complete and professional revision.",
       "experience": {
         "more_than": "More than",
         "years": "Years of experience"
       }
     },
     "services": {
-      "title": "Our Overhaul Services",
+      "title": "Our Revision Services",
       "items": {
         "inspection": {
           "title": "Complete Inspection",
@@ -642,10 +643,10 @@
         },
         "safety": {
           "title": "Safety Check",
-          "description": "Inspection of safety elements like brakes, tires, suspension, and lighting"
+          "description": "Inspection of safety elements such as brakes, tires, suspension, and lighting"
         },
         "emissions": {
-          "title": "Emissions Check",
+          "title": "Emission Check",
           "description": "Check of the exhaust system and emission levels to ensure compliance with environmental standards"
         }
       }
@@ -654,25 +655,25 @@
       "title": "Frequently Asked Questions",
       "items": {
         "frequency": {
-          "question": "How often should I have an overhaul?",
-          "answer": "We recommend a complete overhaul every 20,000 to 30,000 km or every two years, whichever comes first. The frequency may vary depending on the model, age of the vehicle, and your driving habits."
+          "question": "How often should I have a revision?",
+          "answer": "We recommend a full revision every 20,000 to 30,000 km or every two years, whichever comes first. The frequency may vary depending on the model, age of the vehicle, and your driving habits."
         },
         "difference": {
-          "question": "What's the difference between maintenance and overhaul?",
-          "answer": "Maintenance involves regular operations like oil changes or filter replacements. Overhaul is more comprehensive and includes a thorough inspection of all vehicle systems, with replacement of worn parts if necessary."
+          "question": "What is the difference between maintenance and revision?",
+          "answer": "Maintenance involves regular operations such as oil changes or filter replacements. Revision is more comprehensive and includes a thorough inspection of all vehicle systems, with replacement of worn parts if necessary."
         },
         "preparation": {
-          "question": "How do I prepare my vehicle for an overhaul?",
-          "answer": "No special preparation is needed. However, it's useful to note any problems or unusual behavior you've noticed so our technicians can pay special attention to them."
+          "question": "How do I prepare my vehicle for a revision?",
+          "answer": "No special preparation is needed. However, it is useful to note any problems or unusual behavior you've noticed so our technicians can pay special attention to them."
         },
         "report": {
-          "question": "Will I receive a detailed report after the overhaul?",
-          "answer": "Yes, after each overhaul, you'll receive a detailed report with the status of each checked component, the work performed, and our recommendations for future interventions if needed."
+          "question": "Will I receive a detailed report after the revision?",
+          "answer": "Yes, after each revision, you will receive a detailed report with the status of each checked component, the work performed, and our recommendations for any future interventions if needed."
         }
       }
     },
     "appointment": {
-      "title": "Overhaul Request",
+      "title": "Revision Request",
       "form": {
         "name": {
           "label": "Your Name",
@@ -701,7 +702,117 @@
           "label": "Observed Symptoms",
           "placeholder": "How can we help you?"
         },
-        "submit": "Schedule Appointment"
+        "submit": "Make an Appointment"
+      }
+    }
+  },
+  "maintenance": {
+    "hero": {
+      "title": "Car Maintenance",
+      "subtitle": "Regular maintenance for optimal performance"
+    },
+    "intro": {
+      "description1": "At Global Car Services, we understand the importance of regular maintenance to keep your vehicle in perfect condition. Our technicians know their trade. With the right equipment and extensive experience, they ensure your car is in perfect order.",
+      "description2": "We offer a complete maintenance service for all types of vehicles, regardless of the brand.",
+      "experience": {
+        "more_than": "More than",
+        "years": "Years of experience"
+      }
+    },
+    "services": {
+      "title": "Our Maintenance Services",
+      "items": {
+        "inspection": {
+          "title": "Full Maintenance",
+          "description": "Complete diagnosis and preventive maintenance of your vehicle"
+        },
+        "oil": {
+          "title": "Oil and Filters",
+          "description": "Oil change and replacement of essential filters"
+        },
+        "crash": {
+          "title": "Braking System",
+          "description": "Check and maintenance of the braking system"
+        },
+        "repair": {
+          "title": "Car Repair",
+          "description": "Complete analysis of electronic systems"
+        },
+        "battery": {
+          "title": "Battery & Electricity",
+          "description": "Check and replacement of electrical systems"
+        },
+        "airco": {
+          "title": "Air Conditioning",
+          "description": "Maintenance and refill of your air conditioning system"
+        },
+        "wheels": {
+          "title": "Tires",
+          "description": "Balancing, rotation, and replacement of tires"
+        },
+        "mechanics": {
+          "title": "General Mechanics",
+          "description": "Various mechanical repairs and interventions"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "price": {
+          "question": "What is the price of maintenance?",
+          "answer": "The price of maintenance depends on the brand and type of vehicle. We provide you with a free quote during your appointment."
+        },
+        "duration": {
+          "question": "What is the execution time of maintenance?",
+          "answer": "The execution time of maintenance depends on the complexity of the revision. We provide you with a free quote during your appointment."
+        },
+        "equipment": {
+          "question": "What equipment is used for maintenance?",
+          "answer": "We use professional diagnostic tools and quality spare parts to ensure complete and lasting maintenance."
+        },
+        "warranty": {
+          "question": "Do you offer a warranty on repairs?",
+          "answer": "Yes, all our repairs are covered by a warranty of at least 6 months."
+        },
+        "brands": {
+          "question": "Do you accept vehicles of all brands?",
+          "answer": "We work on most car brands, whether they run on petrol, diesel, or electricity."
+        }
+      }
+    },
+    "appointment": {
+      "title": "Revision Request",
+      "subtitle": "Schedule an appointment for maintenance",
+      "form": {
+        "name": {
+          "label": "Your Name",
+          "placeholder": "Name"
+        },
+        "phone": {
+          "label": "Your Phone",
+          "placeholder": "Phone Number"
+        },
+        "date": {
+          "label": "Desired Date"
+        },
+        "vehicle_type": {
+          "label": "Vehicle Type",
+          "placeholder": "Select",
+          "options": {
+            "city_car": "City Car",
+            "sedan": "Sedan",
+            "suv": "SUV / 4x4",
+            "station_wagon": "Station Wagon",
+            "utility": "Commercial Vehicle",
+            "other": "Other"
+          }
+        },
+        "symptoms": {
+          "label": "Observed Symptoms",
+          "placeholder": "How can we help you?"
+        },
+        "submit": "Make an Appointment"
       }
     }
   },
@@ -718,7 +829,7 @@
           "available": "available models"
         },
         "box": {
-          "title": "Box Trucks",
+          "title": "Box Vans",
           "available": "available models"
         },
         "minibus": {
@@ -726,7 +837,7 @@
           "available": "available models"
         },
         "refrigerated": {
-          "title": "Refrigerated Vehicles",
+          "title": "Refrigerated Vans",
           "available": "available models"
         }
       },
@@ -742,7 +853,7 @@
       "conditions": {
         "title": "Rental Conditions",
         "kilometers": {
-          "title": "Mileage",
+          "title": "Kilometers",
           "description": "200 km included per day (extra charge 0.21€/km)"
         },
         "periods": {
@@ -768,8 +879,8 @@
     },
     "refrigerated": {
       "hero": {
-        "title": "Refrigerated Vehicles",
-        "subtitle": "Professional refrigerated vehicles for transporting temperature-sensitive goods"
+        "title": "Refrigerated Vans",
+        "subtitle": "Professional refrigerated vans for transporting temperature-sensitive goods"
       },
       "results": {
         "showing": "Showing",
@@ -794,8 +905,8 @@
     },
     "box": {
       "hero": {
-        "title": "Box Trucks",
-        "subtitle": "Professional box trucks for transporting large volumes"
+        "title": "Box Vans",
+        "subtitle": "Professional box vans for transporting large volumes"
       },
       "results": {
         "showing": "Showing",
@@ -817,7 +928,7 @@
       "conditions": {
         "driver": {
           "title": "Driver Requirements",
-          "content": "• Valid European B driver's license (no provisional license)\n• Minimum 2 years of license or 25 years old\n• Copy of ID and driver's license required\n• Additional drivers possible with extra charge"
+          "content": "• Valid European driver's license B (no provisional license)\n• Minimum 2 years of license or 25 years old\n• Copy of ID and driver's license required\n• Additional drivers possible with extra charge"
         },
         "documents": {
           "title": "Required Documents",
@@ -829,15 +940,15 @@
         },
         "insurance": {
           "title": "Insurance",
-          "content": "• Third-party liability insurance included\n• Deductible in case of damage\n• Optional extensions:\n  - Deductible reduction\n  - Driver insurance\n  - Tire and glass protection"
+          "content": "• Third-party insurance included\n• Deductible in case of damage\n• Optional extensions:\n  - Deductible reduction\n  - Driver insurance\n  - Tire and window protection"
         },
         "usage": {
           "title": "Usage Conditions",
-          "content": "• Use as a good family man\n• Prohibitions:\n  - Smoking or vaping\n  - Animals (except in a closed carrier)\n  - Driving off paved roads\n• Tank at least 1/4 full at return\n• Return vehicle clean"
+          "content": "• Use as a good family man\n• Prohibited:\n  - Smoking or vaping\n  - Animals (except in closed carrier)\n  - Driving off paved roads\n• Tank at least 1/4 full at return\n• Return vehicle clean"
         },
         "mileage": {
           "title": "Mileage",
-          "content": "Included kilometers:\n• Half day: 75 km\n• Day: 200 km\n• Weekend: 400 km\n• 5 days: 750 km\n• Week: 1000 km\n\nExtra charge per additional km:\n• Vans: 0.21€\n• Minibus: 0.19€\n• Refrigerated vehicles: 0.28€"
+          "content": "Included kilometers:\n• Half day: 75 km\n• Day: 200 km\n• Weekend: 400 km\n• 5 days: 750 km\n• Week: 1000 km\n\nExtra charge per additional km:\n• Vans: 0.21€\n• Minibus: 0.19€\n• Refrigerated vans: 0.28€"
         },
         "accident": {
           "title": "In Case of Accident",
@@ -845,26 +956,26 @@
         },
         "cancellation": {
           "title": "Cancellation and Modification",
-          "content": "• Cancellation: 40% of total amount as compensation\n• Modifications possible with extra charges\n• Late return: 50% surcharge on daily rate\n• Traffic fines will be charged"
+          "content": "• Cancellation: 40% of total amount as compensation\n• Changes possible with additional costs\n• Late return: 50% surcharge on daily rate\n• Traffic fines will be charged"
         }
       },
       "insurance": {
         "title": "Insurances",
         "basic": {
           "title": "Basic Coverage",
-          "description": "All our vehicles are third-party liability insured. In case of damage, a deductible applies."
+          "description": "All our vehicles are third-party insured. In case of damage, a deductible applies."
         },
         "options": {
           "title": "Extra Options",
           "deductible": "• Deductible reduction",
           "driver": "• Driver insurance",
-          "tire": "• Tire and glass protection"
+          "tire": "• Tire and window protection"
         }
       },
       "restrictions": {
         "title": "Restrictions and Mileage",
         "mileage": {
-          "title": "Included Kilometers",
+          "title": "Included Mileage",
           "halfDay": "• Half day: 75 km",
           "day": "• Day: 200 km",
           "weekend": "• Weekend: 400 km",
@@ -872,14 +983,14 @@
           "week": "• Week: 1000 km"
         },
         "extraKm": {
-          "title": "Extra Charge per Additional km",
+          "title": "Extra Charge per Additional Km",
           "van": "• Vans: 0.21€",
           "minibus": "• Minibus: 0.19€",
-          "refrigerated": "• Refrigerated vehicles: 0.28€"
+          "refrigerated": "• Refrigerated vans: 0.28€"
         }
       },
       "penalties": {
-        "title": "Fines and Extra Charges",
+        "title": "Fines and Extra Costs",
         "late": {
           "title": "Late Return",
           "description": "Any delay in returning the vehicle will be charged at the daily rate plus 50%."
@@ -892,8 +1003,8 @@
       "faq": {
         "title": "Frequently Asked Questions",
         "pickup": {
-          "question": "Can I pick up the vehicle at another time?",
-          "answer": "Yes, we offer flexible pickup and return times. Contact us to schedule an appointment outside regular opening hours."
+          "question": "Can I pick up the vehicle at a different time?",
+          "answer": "Yes, we offer flexible pickup and return times. Contact us to arrange an appointment outside regular opening hours."
         },
         "damage": {
           "question": "What happens if the vehicle is damaged?",
@@ -905,11 +1016,11 @@
         },
         "included": {
           "question": "What is included in the rental price?",
-          "answer": "The rental price includes: third-party liability insurance, mileage according to chosen formula, 24/7 breakdown service, and a clean, fueled car at pickup."
+          "answer": "The rental price includes: third-party insurance, mileage according to chosen formula, 24/7 breakdown service, and a clean, fueled car at pickup."
         },
         "insurance": {
-          "question": "Am I insured for all damage?",
-          "answer": "The vehicle is third-party liability insured with a deductible. You can opt for additional insurances like deductible reduction, driver insurance, and tire and glass protection. Note: damage due to non-compliance with height restrictions or off-road driving is not covered by insurance."
+          "question": "Am I insured for all damages?",
+          "answer": "The vehicle is third-party insured with a deductible. You can optionally choose additional insurances such as deductible reduction, driver insurance, and tire and window protection. Note: damage caused by not respecting height restrictions or off-road driving is not covered by insurance."
         }
       }
     }
@@ -941,7 +1052,7 @@
       "per_km": "/km",
       "selectDuration": "Select Rental Duration",
       "duration": {
-        "half_day": "½ Day (4h)",
+        "half_day": "½ Day (4 hours)",
         "day": "1 Day",
         "weekend": "Weekend",
         "five_days": "5 Days",
@@ -971,7 +1082,7 @@
       "total": {
         "days": "Number of Days",
         "total": "Total",
-        "vat_included": "VAT Included"
+        "vat_included": "VAT included"
       },
       "submit": "Book Now",
       "included_services": "Included Services",
@@ -995,7 +1106,7 @@
   "contact": {
     "hero": {
       "title": "Contact",
-      "subtitle": "We're ready to answer all your questions and needs"
+      "subtitle": "We're here to answer all your questions and needs"
     },
     "form": {
       "title": "Contact Us",
@@ -1055,13 +1166,13 @@
       "subtitle": "Available 24/7 for all breakdowns"
     },
     "intro": {
-      "image": "Car Diagnostic",
+      "image": "Car Diagnostics",
       "stats": {
         "prefix": "More than",
         "suffix": "Years of experience"
       },
-      "paragraph1": "Car trouble never comes at a good time. That's why our breakdown service is available day and night. We'll send an experienced mechanic to you, whether you're at home, on the road, or on the highway. One phone call and we'll get you back on the road.",
-      "paragraph2": "Our team of professional mechanics responds quickly to all types of breakdowns, whether on the road, highway, or at home. Just remember one number for immediate help."
+      "paragraph1": "Car trouble never comes at a good time. That's why our breakdown service is available day and night. We send an experienced mechanic to you, whether you're at home, on the road, or on the highway. One phone call and we'll get you back on the road.",
+      "paragraph2": "Our team of professional mechanics responds quickly to all types of breakdowns, whether on the road, highway, or at home. Remember just one number for immediate help."
     },
     "services": {
       "title": "Our Breakdown Services",
@@ -1094,7 +1205,7 @@
       },
       "billing": {
         "question": "How does billing work?",
-        "answer": "We give you a fixed rate before we intervene. Payment can be made by card or cash."
+        "answer": "We give you a fixed rate before any intervention. Payment possible by card or cash."
       },
       "highway": {
         "question": "What to do in case of a breakdown on the highway?",
@@ -1114,7 +1225,7 @@
         "options": {
           "battery": "Battery Failure",
           "fuel": "Out of Fuel",
-          "mechanical": "Mechanical Defect",
+          "mechanical": "Mechanical Failure",
           "accident": "Accident",
           "other": "Other"
         }
@@ -1126,23 +1237,23 @@
   "about": {
     "hero": {
       "title": "About Us",
-      "subtitle": "From passion to professional custom service"
+      "subtitle": "From passion to professional tailor-made service"
     },
     "story": {
       "title": "Our Story",
       "image": "Our Garage",
-      "paragraph1": "In 2013, Samir started with one lift and a clear belief: if you work honestly and master your craft, success will follow. Under the name RS Cars, he built something bigger step by step.",
-      "paragraph2": "What began as a one-man business has today grown into a professional garage and rental service. We combine years of experience with personal service and continue to invest in quality, both in our team and our infrastructure."
+      "paragraph1": "In 2013, Samir started with one lift and a clear belief: if you work honestly and know your trade, success will follow. Under the name RS Cars, he built something bigger step by step.",
+      "paragraph2": "What started as a one-man business has today grown into a professional garage and rental service. We combine years of experience with personal service and continue to invest in quality, both in our team and our infrastructure."
     },
     "mission": {
       "title": "What Drives Us",
-      "description": "We believe quality is no accident. Every vehicle that comes to us gets our full attention. We work efficiently, communicate clearly, and think in solutions. Quick switching is standard."
+      "description": "We believe quality is no accident. Every vehicle that comes to us gets our full attention. We work efficiently, communicate clearly, and think in solutions. Quick action is standard."
     },
     "values": {
       "title": "Why Choose Global Car Services?",
       "personal": {
         "title": "Personal Contact",
-        "description": "We believe in personal service and direct communication with our customers."
+        "description": "We believe in personalized service and direct communication with our customers."
       },
       "technicians": {
         "title": "Experienced Technicians",
@@ -1165,7 +1276,7 @@
       "iframe_title": "Make an Appointment - Global Car Service",
       "questions": {
         "title": "Have Questions?",
-        "description": "Can't find a suitable time slot or have specific questions? Contact us directly."
+        "description": "Can't find a suitable time or have specific questions? Contact us directly."
       }
     }
   }

@@ -1,10 +1,16 @@
 import { useTranslations } from "next-intl"
+import { unstable_setRequestLocale } from "next-intl/server"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { User, FileText, CreditCard, Shield, MapPin, Clock, AlertTriangle, Car } from "lucide-react"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
-export default function RentalConditionsPage() {
+export default function RentalConditionsPage({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) {
+  unstable_setRequestLocale(locale)
   const t = useTranslations("rental.conditions")
 
   const conditions = [

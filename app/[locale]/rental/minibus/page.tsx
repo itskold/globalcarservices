@@ -15,7 +15,7 @@ import Image from "next/image"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function MinibusPage() {
-  const t = useTranslations("rental.minibus")
+    const t = useTranslations("rental.minibus")
   const { locale } = useParams()
   const [vehicles, setVehicles] = useState<VehicleData[]>([])
   const [loading, setLoading] = useState(true)

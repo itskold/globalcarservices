@@ -8,7 +8,7 @@ import { Wrench, Search, Settings, RotateCcw, Truck, FileText, MessageCircle } f
 import { useTranslations } from "next-intl"
 
 export default function ServicesPage() {
-  const t = useTranslations("services.page")
+    const t = useTranslations("services.page")
 
   const mainServices = [
     {
