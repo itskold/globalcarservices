@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { useTranslations, useLocale } from "next-intl"
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function AppointmentPage() {
   const t = useTranslations("appointment.page")
@@ -42,9 +43,11 @@ export default function AppointmentPage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="appointment.page" id="title" />
+            </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {t("subtitle")}
+              <EditableTranslationText namespace="appointment.page" id="subtitle" />
             </p>
           </div>
         </div>
@@ -70,9 +73,11 @@ export default function AppointmentPage() {
       {/* Contact Info */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-[#050b20] mb-4">{t("questions.title")}</h2>
+          <h2 className="text-2xl font-bold text-[#050b20] mb-4">
+            <EditableTranslationText namespace="appointment.page" id="questions.title" />
+          </h2>
           <p className="text-gray-600 mb-6">
-            {t("questions.description")}
+            <EditableTranslationText namespace="appointment.page" id="questions.description" />
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

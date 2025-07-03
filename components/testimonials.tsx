@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "lucide-react"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
+import { EditableTranslation } from "./admin/editable-translation"
 
 export default function Testimonials() {
   const t = useTranslations("testimonials")
@@ -19,9 +20,15 @@ export default function Testimonials() {
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("title")}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <EditableTranslation translationKey="testimonials.title">
+              {t("title")}
+            </EditableTranslation>
+          </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {t("subtitle")}
+            <EditableTranslation translationKey="testimonials.subtitle">
+              {t("subtitle")}
+            </EditableTranslation>
           </p>
         </div>
 
@@ -42,9 +49,17 @@ export default function Testimonials() {
                     height={24}
                   />
                 </div>
-                <p className="text-gray-700 mb-4 italic">"{t(`reviews.${review.index}.text`)}"</p>
+                <p className="text-gray-700 mb-4 italic">
+                  "<EditableTranslation translationKey={`testimonials.reviews.${review.index}.text`}>
+                    {t(`reviews.${review.index}.text`)}
+                  </EditableTranslation>"
+                </p>
                 <div>
-                  <p className="font-semibold text-gray-900">{t(`reviews.${review.index}.name`)}</p>
+                  <p className="font-semibold text-gray-900">
+                    <EditableTranslation translationKey={`testimonials.reviews.${review.index}.name`}>
+                      {t(`reviews.${review.index}.name`)}
+                    </EditableTranslation>
+                  </p>
                 </div>
               </CardContent>
             </Card>

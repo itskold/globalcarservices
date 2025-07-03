@@ -9,6 +9,7 @@ import Image from "next/image"
 import { getVehicles, type VehicleData } from "@/data/vehicles"
 import { useTranslations } from "next-intl"
 import { useEffect, useState } from "react"
+import { EditableTranslation } from "./admin/editable-translation"
 
 export default function VehicleRental() {
   const t = useTranslations("vehicleRental")
@@ -33,9 +34,15 @@ export default function VehicleRental() {
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("title")}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <EditableTranslation translationKey="vehicleRental.title">
+              {t("title")}
+            </EditableTranslation>
+          </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {t("subtitle")}
+            <EditableTranslation translationKey="vehicleRental.subtitle">
+              {t("subtitle")}
+            </EditableTranslation>
           </p>
         </div>
 
@@ -44,11 +51,15 @@ export default function VehicleRental() {
             <Card key={vehicle.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="relative h-48">
                 <Image src={vehicle.image} alt={vehicle.title} fill className="object-cover" />
-                <Badge className="absolute top-4 left-4 bg-[#95c8e2] text-[#050b20]">{vehicle.category}</Badge>
+                <Badge className="absolute top-4 left-4 bg-[#95c8e2] text-[#050b20]">
+                  <EditableTranslation translationKey={`vehicleRental.categories.${vehicle.category}`}>
+                    {vehicle.category}
+                  </EditableTranslation>
+                </Badge>
               </div>
               <CardHeader>
                 <CardTitle className="text-xl">{vehicle.title}</CardTitle>
-                <CardDescription className="text-2xl font-bold text-[#050b20]">{vehicle.pricing[0].price}</CardDescription>
+                <CardDescription className="text-2xl font-bold text-[#050b20]">€{vehicle.pricing[0].price},-</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-3 gap-4 mb-4 text-sm">
@@ -62,22 +73,36 @@ export default function VehicleRental() {
                   </div>
                   <div className="flex items-center gap-1">
                     <Fuel className="h-4 w-4 text-gray-500" />
-                    <span>{vehicle.fuel}</span>
+                    <span>
+                      <EditableTranslation translationKey={`vehicleRental.fuel.${vehicle.fuel}`}>
+                        {vehicle.fuel}
+                      </EditableTranslation>
+                    </span>
                   </div>
                 </div>
                 <div className="mb-4">
-                  <h4 className="font-semibold mb-2">{t("included")}</h4>
+                  <h4 className="font-semibold mb-2">
+                    <EditableTranslation translationKey="vehicleRental.included">
+                      {t("included")}
+                    </EditableTranslation>
+                  </h4>
                   <ul className="text-sm text-gray-600 space-y-1">
                     {vehicle.features.slice(0, 3).map((feature, index) => (
                       <li key={index} className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-[#95c8e2] rounded-full"></div>
-                        {feature}
+                        <EditableTranslation translationKey={`vehicleRental.features.${feature}`}>
+                          {feature}
+                        </EditableTranslation>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <Button asChild className="w-full bg-[#95C8E2] hover:bg-[#95C8E2]">
-                  <Link href={`/rental/vehicle/${vehicle.id}`}>{t("reserve")}</Link>
+                  <Link href={`/rental/vehicle/${vehicle.id}`}>
+                    <EditableTranslation translationKey="vehicleRental.reserve">
+                      {t("reserve")}
+                    </EditableTranslation>
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -93,7 +118,9 @@ export default function VehicleRental() {
           >
             <Link href="/rental">
               <Calendar className="mr-2 h-5 w-5" />
-              {t("viewAll")}
+              <EditableTranslation translationKey="vehicleRental.viewAll">
+                {t("viewAll")}
+              </EditableTranslation>
             </Link>
           </Button>
         </div>

@@ -12,6 +12,7 @@ import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { db } from "@/lib/firebase"
 import { doc, getDoc, DocumentData, collection, query, where, getDocs, limit } from 'firebase/firestore'
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 interface CarData extends DocumentData {
   id: string;
@@ -148,7 +149,9 @@ export default function CarPage() {
                         </svg>
                       ))}
                     </div>
-                    <span className="text-sm text-gray-600">({car.reviewCount} {t("reviews")})</span>
+                    <span className="text-sm text-gray-600">
+                      ({car.reviewCount} <EditableTranslationText namespace="cars.vehicle.page" id="reviews" />)
+                    </span>
                   </div>
                 </div>
 
@@ -157,28 +160,36 @@ export default function CarPage() {
                     <div className="flex items-center gap-3">
                       <Calendar className="h-5 w-5 text-[#95c8e2]" />
                       <div>
-                        <p className="text-sm text-gray-600">{t("specs.year")}</p>
+                        <p className="text-sm text-gray-600">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.year" />
+                        </p>
                         <p className="font-medium">{car.year}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Fuel className="h-5 w-5 text-[#95c8e2]" />
                       <div>
-                        <p className="text-sm text-gray-600">{t("specs.fuel")}</p>
+                        <p className="text-sm text-gray-600">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.fuel" />
+                        </p>
                         <p className="font-medium">{car.fuel}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Users className="h-5 w-5 text-[#95c8e2]" />
                       <div>
-                        <p className="text-sm text-gray-600">{t("specs.seats")}</p>
+                        <p className="text-sm text-gray-600">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.seats" />
+                        </p>
                         <p className="font-medium">{car.seats}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Gauge className="h-5 w-5 text-[#95c8e2]" />
                       <div>
-                        <p className="text-sm text-gray-600">{t("specs.mileage")}</p>
+                        <p className="text-sm text-gray-600">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.mileage" />
+                        </p>
                         <p className="font-medium">{car.mileage.toLocaleString()} km</p>
                       </div>
                     </div>
@@ -187,30 +198,44 @@ export default function CarPage() {
 
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-2xl font-semibold mb-4">{t("specs.title")}</h2>
+                    <h2 className="text-2xl font-semibold mb-4">
+                      <EditableTranslationText namespace="cars.vehicle.page" id="specs.title" />
+                    </h2>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <h3 className="font-medium text-[#050b20]">{t("specs.engine")}</h3>
+                        <h3 className="font-medium text-[#050b20]">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.engine" />
+                        </h3>
                         <p className="text-gray-600">{car.specifications.engine}</p>
                       </div>
                       <div>
-                        <h3 className="font-medium text-[#050b20]">{t("specs.power")}</h3>
+                        <h3 className="font-medium text-[#050b20]">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.power" />
+                        </h3>
                         <p className="text-gray-600">{car.specifications.power}</p>
                       </div>
                       <div>
-                        <h3 className="font-medium text-[#050b20]">{t("specs.consumption")}</h3>
+                        <h3 className="font-medium text-[#050b20]">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.consumption" />
+                        </h3>
                         <p className="text-gray-600">{car.specifications.consumption}</p>
                       </div>
                       <div>
-                        <h3 className="font-medium text-[#050b20]">{t("specs.color")}</h3>
+                        <h3 className="font-medium text-[#050b20]">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.color" />
+                        </h3>
                         <p className="text-gray-600">{car.specifications.color}</p>
                       </div>
                       <div>
-                        <h3 className="font-medium text-[#050b20]">{t("specs.interior")}</h3>
+                        <h3 className="font-medium text-[#050b20]">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.interior" />
+                        </h3>
                         <p className="text-gray-600">{car.specifications.interior}</p>
                       </div>
                       <div>
-                        <h3 className="font-medium text-[#050b20]">{t("specs.doors")}</h3>
+                        <h3 className="font-medium text-[#050b20]">
+                          <EditableTranslationText namespace="cars.vehicle.page" id="specs.doors" />
+                        </h3>
                         <p className="text-gray-600">{car.specifications.doors}</p>
                       </div>
                     </div>
@@ -219,7 +244,9 @@ export default function CarPage() {
                   <Separator />
 
                   <div>
-                    <h2 className="text-2xl font-semibold mb-4">{t("options.title")}</h2>
+                    <h2 className="text-2xl font-semibold mb-4">
+                      <EditableTranslationText namespace="cars.vehicle.page" id="options.title" />
+                    </h2>
                     <div className="grid grid-cols-2 gap-2">
                       {car.options.map((option: string, index: number) => (
                         <div key={index} className="flex items-center gap-2">
@@ -233,7 +260,9 @@ export default function CarPage() {
                   <Separator />
 
                   <div>
-                    <h2 className="text-2xl font-semibold mb-4">{t("included.title")}</h2>
+                    <h2 className="text-2xl font-semibold mb-4">
+                      <EditableTranslationText namespace="cars.vehicle.page" id="included.title" />
+                    </h2>
                     <div className="grid grid-cols-2 gap-2">
                       {car.included.map((item: string, index: number) => (
                         <div key={index} className="flex items-center gap-2">
@@ -248,13 +277,13 @@ export default function CarPage() {
                     <Link href="tel:+32489876613" className="flex-1">
                       <Button className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20]" size="lg">
                         <Phone className="mr-2 h-5 w-5" />
-                        {t("actions.call")}
+                        <EditableTranslationText namespace="cars.vehicle.page" id="actions.call" />
                       </Button>
                     </Link>
                     <Link href="mailto:info@globalcarservices.be" className="flex-1">
-                      <Button className="w-full" variant="outline" size="lg">
+                      <Button className="w-full bg-[#050b20] hover:bg-[#0a1530] text-white" size="lg">
                         <Mail className="mr-2 h-5 w-5" />
-                        {t("actions.email")}
+                        <EditableTranslationText namespace="cars.vehicle.page" id="actions.email" />
                       </Button>
                     </Link>
                   </div>
@@ -264,8 +293,6 @@ export default function CarPage() {
           </div>
         </div>
       </section>
-
-
     </main>
   )
 } 

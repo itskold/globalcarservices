@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -11,11 +10,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Wrench, Settings, Battery, Wind, Gauge, Car, Shield, Cog } from "lucide-react"
 import { LiaOilCanSolid } from "react-icons/lia"
-import { TbCarCrash,TbBatteryAutomotive } from "react-icons/tb";
-import { GiCarWheel } from "react-icons/gi";
-
+import { TbCarCrash, TbBatteryAutomotive } from "react-icons/tb"
+import { GiCarWheel } from "react-icons/gi"
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
+import { useTranslations } from "next-intl"
 
 export default function MaintenancePage() {
+  const t = useTranslations("maintenance")
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -27,69 +29,66 @@ export default function MaintenancePage() {
   const services = [
     {
       icon: Settings,
-      title: "Volledig onderhoud",
-      description: "Volledige diagnose en preventief onderhoud van uw voertuig",
+      title: <EditableTranslationText namespace="maintenance" id="services.items.inspection.title" />,
+      description: <EditableTranslationText namespace="maintenance" id="services.items.inspection.description" />,
     },
     {
       icon: LiaOilCanSolid,
-      title: "Olie en Filters",
-      description: "Olieverversing en vervanging van essentiële filters",
+      title: <EditableTranslationText namespace="maintenance" id="services.items.oil.title" />,
+      description: <EditableTranslationText namespace="maintenance" id="services.items.oil.description" />,
     },
     {
       icon: TbCarCrash,
-      title: "Remsysteem",
-      description: "Controle en onderhoud van het remsysteem",
+      title: <EditableTranslationText namespace="maintenance" id="services.items.crash.title" />,
+      description: <EditableTranslationText namespace="maintenance" id="services.items.crash.description" />,
     },
     {
       icon: Wrench,
-      title: "Auto herstelling",
-      description: "Volledige analyse van elektronische systemen",
+      title: <EditableTranslationText namespace="maintenance" id="services.items.repair.title" />,
+      description: <EditableTranslationText namespace="maintenance" id="services.items.repair.description" />,
     },
     {
       icon: TbBatteryAutomotive,
-      title: "Batterij & elektriciteit",
-      description: "Controle en vervanging van elektrische systemen",
+      title: <EditableTranslationText namespace="maintenance" id="services.items.battery.title" />,
+      description: <EditableTranslationText namespace="maintenance" id="services.items.battery.description" />,
     },
     {
       icon: Wind,
-      title: "Airco",
-      description: "Onderhoud en bijvullen van uw airconditioningsysteem",
+      title: <EditableTranslationText namespace="maintenance" id="services.items.airco.title" />,
+      description: <EditableTranslationText namespace="maintenance" id="services.items.airco.description" />,
     },
     {
       icon: GiCarWheel,
-      title: "Banden",
-      description: "Balanceren, roteren en vervangen van banden",
+      title: <EditableTranslationText namespace="maintenance" id="services.items.wheels.title" />,
+      description: <EditableTranslationText namespace="maintenance" id="services.items.wheels.description" />,
     },
     {
       icon: Cog,
-      title: "Algemene mechanica",
-      description: "Diverse mechanische reparaties en interventies",
+      title: <EditableTranslationText namespace="maintenance" id="services.items.mechanics.title" />,
+      description: <EditableTranslationText namespace="maintenance" id="services.items.mechanics.description" />,
     },
   ]
 
   const faqs = [
     {
-      question: "Wat is de prijs van onderhoud?",
-      answer:
-        "De prijs van onderhoud is afhankelijk van het merk en type voertuig. We bieden u een gratis offerte tijdens uw afspraak.",
+      question: <EditableTranslationText namespace="maintenance" id="faq.items.price.question" />,
+      answer: <EditableTranslationText namespace="maintenance" id="faq.items.price.answer" />,
     },
     {
-      question: "Wat is de uitvoeringstijd van onderhoud?",
-      answer:
-        "De uitvoeringstijd van onderhoud hangt af van de complexiteit van de revisie. We bieden u een gratis offerte tijdens uw afspraak.",
+      question: <EditableTranslationText namespace="maintenance" id="faq.items.duration.question" />,
+      answer: <EditableTranslationText namespace="maintenance" id="faq.items.duration.answer" />,
     },
     {
-      question: "Welke apparatuur wordt gebruikt voor onderhoud?",
-      answer:
-        "We gebruiken professionele diagnosetools en kwaliteitsreserveonderdelen om volledig en duurzaam onderhoud te garanderen.",
+      question: <EditableTranslationText namespace="maintenance" id="faq.items.equipment.question" />,
+      answer: <EditableTranslationText namespace="maintenance" id="faq.items.equipment.answer" />,
     },
     {
-      question: "Biedt u garantie op reparaties?",
-      answer: "Ja, al onze reparaties worden gedekt door een garantie van minimaal 6 maanden.",
+      question: <EditableTranslationText namespace="maintenance" id="faq.items.warranty.question" />,
+      answer: <EditableTranslationText namespace="maintenance" id="faq.items.warranty.answer" />,
     },
     {
-      question: "Accepteert u voertuigen van alle merken?",
-      answer: "We werken aan de meeste automerken, of ze nu op benzine, diesel of elektrisch rijden.",
+      question: <EditableTranslationText namespace="maintenance" id="faq.items.brands.question" />,
+      answer: <EditableTranslationText namespace="maintenance" id="faq.items.brands.answer" />,
     },
   ]
 
@@ -111,8 +110,12 @@ export default function MaintenancePage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Auto Onderhoud</h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Regelmatig onderhoud voor optimale prestaties</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="maintenance" id="hero.title" />
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <EditableTranslationText namespace="maintenance" id="hero.subtitle" />
+            </p>
           </div>
         </div>
       </section>
@@ -127,9 +130,13 @@ export default function MaintenancePage() {
                 <div className="absolute -bottom-4 -right-4">
                   <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">
-                      <div className="text-xs font-medium uppercase tracking-wide">Meer dan</div>
+                    <div className="text-xs font-medium uppercase tracking-wide">
+                        <EditableTranslationText namespace="maintenance" id="intro.experience.more_than" />
+                      </div>
                       <div className="text-5xl font-bold">10+</div>
-                      <div className="text-xs font-medium">Jaren ervaring</div>
+                      <div className="text-xs font-medium uppercase tracking-wide">
+                        <EditableTranslationText namespace="maintenance" id="intro.experience.years" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -138,12 +145,10 @@ export default function MaintenancePage() {
             <div>
               <div className="space-y-6">
                 <p className="text-gray-700 text-lg">
-                  Bij Global Car Services begrijpen we het belang van regelmatig onderhoud om uw voertuig in perfecte
-                  staat te houden. Onze techniekers kennen hun vak. Met het juiste materiaal en veel ervaring zorgen zij
-                  dat uw wagen helemaal in orde is.
+                  <EditableTranslationText namespace="maintenance" id="intro.description1" />
                 </p>
                 <p className="text-gray-700 text-lg">
-                  We bieden een complete onderhoudsdienst voor alle soorten voertuigen, ongeacht het merk.
+                  <EditableTranslationText namespace="maintenance" id="intro.description2" />
                 </p>
               </div>
             </div>
@@ -155,7 +160,9 @@ export default function MaintenancePage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">Onze Onderhoudsdiensten</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="maintenance" id="services.title" />
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -180,7 +187,9 @@ export default function MaintenancePage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">Veelgestelde vragen</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="maintenance" id="faq.title" />
+            </h2>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
@@ -200,8 +209,12 @@ export default function MaintenancePage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">Afspraak maken</h2>
-            <p className="text-xl text-gray-600">Boek uw onderhoud eenvoudig online. We nemen snel contact met u op.</p>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="maintenance" id="appointment.title" />
+            </h2>
+            <p className="text-xl text-gray-600">
+              <EditableTranslationText namespace="maintenance" id="appointment.subtitle" />
+            </p>
           </div>
 
           <Card>
@@ -210,7 +223,7 @@ export default function MaintenancePage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Uw naam
+                      <EditableTranslationText namespace="maintenance" id="appointment.form.name.label" />
                     </label>
                     <Input
                       type="text"
@@ -218,13 +231,13 @@ export default function MaintenancePage() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Naam"
+                      placeholder={t("appointment.form.name.placeholder")}
                       required
                     />
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Uw telefoon
+                      <EditableTranslationText namespace="maintenance" id="appointment.form.phone.label" />
                     </label>
                     <Input
                       type="tel"
@@ -232,7 +245,7 @@ export default function MaintenancePage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="Telefoonnummer"
+                      placeholder={t("appointment.form.phone.placeholder")}
                       required
                     />
                   </div>
@@ -241,23 +254,25 @@ export default function MaintenancePage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">
-                      Gewenste datum
+                      <EditableTranslationText namespace="maintenance" id="appointment.form.date.label" />
                     </label>
                     <Input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Type voertuig</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <EditableTranslationText namespace="maintenance" id="appointment.form.vehicle_type.label" />
+                    </label>
                     <Select onValueChange={(value) => setFormData({ ...formData, vehicleType: value })}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Selecteer" />
+                        <SelectValue placeholder={t("appointment.form.vehicle_type.placeholder")} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="city_car">Stadsauto</SelectItem>
-                        <SelectItem value="sedan">Sedan</SelectItem>
-                        <SelectItem value="suv">SUV / 4x4</SelectItem>
-                        <SelectItem value="station_wagon">Stationwagen</SelectItem>
-                        <SelectItem value="utility">Bedrijfswagen</SelectItem>
-                        <SelectItem value="other">Andere</SelectItem>
+                        <SelectItem value="car"><EditableTranslationText namespace="maintenance" id="appointment.form.vehicle_type.options.city_car" /></SelectItem>
+                        <SelectItem value="sedan"><EditableTranslationText namespace="maintenance" id="appointment.form.vehicle_type.options.sedan" /></SelectItem>
+                        <SelectItem value="suv"><EditableTranslationText namespace="maintenance" id="appointment.form.vehicle_type.options.suv" /></SelectItem>
+                        <SelectItem value="station_wagon"><EditableTranslationText namespace="maintenance" id="appointment.form.vehicle_type.options.station_wagon" /></SelectItem>
+                        <SelectItem value="utility"><EditableTranslationText namespace="maintenance" id="appointment.form.vehicle_type.options.utility" /></SelectItem>
+                        <SelectItem value="other"><EditableTranslationText namespace="maintenance" id="appointment.form.vehicle_type.options.other" /></SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -265,24 +280,20 @@ export default function MaintenancePage() {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Bericht (optioneel)
+                    <EditableTranslationText namespace="maintenance" id="appointment.form.symptoms.label" />
                   </label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Waarmee kunnen we u van dienst zijn?"
+                    placeholder={t("appointment.form.symptoms.placeholder")}
                     rows={4}
                   />
                 </div>
 
-                <Button
-                  type="submit"
-                  className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold"
-                  size="lg"
-                >
-                  Afspraak maken
+                <Button type="submit" className="w-full bg-[#050b20] hover:bg-[#0a1530] text-white">
+                  <EditableTranslationText namespace="maintenance" id="appointment.form.submit" />
                 </Button>
               </form>
             </CardContent>

@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Phone, MapPin } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { EditableTranslation } from "./admin/editable-translation"
 
 export default function Services() {
   const t = useTranslations("services")
@@ -38,9 +39,15 @@ export default function Services() {
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("title")}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <EditableTranslation translationKey="services.title">
+              {t("title")}
+            </EditableTranslation>
+          </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {t("subtitle")}
+            <EditableTranslation translationKey="services.subtitle">
+              {t("subtitle")}
+            </EditableTranslation>
           </p>
         </div>
 
@@ -51,12 +58,24 @@ export default function Services() {
                 <Image src={service.image || "/placeholder.svg"} alt={t(service.titleKey)} fill className="object-cover filter grayscale" />
               </div>
               <CardHeader className="text-center">
-                <CardTitle className="text-xl">{t(service.titleKey)}</CardTitle>
+                <CardTitle className="text-xl">
+                  <EditableTranslation translationKey={`services.${service.titleKey}`}>
+                    {t(service.titleKey)}
+                  </EditableTranslation>
+                </CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <CardDescription className="mb-4">{t(service.descriptionKey)}</CardDescription>
+                <CardDescription className="mb-4">
+                  <EditableTranslation translationKey={`services.${service.descriptionKey}`}>
+                    {t(service.descriptionKey)}
+                  </EditableTranslation>
+                </CardDescription>
                 <Button asChild variant="outline" className="w-full bg-transparent">
-                  <Link href={service.href}>{t(service.buttonKey)}</Link>
+                  <Link href={service.href}>
+                    <EditableTranslation translationKey={`services.${service.buttonKey}`}>
+                      {t(service.buttonKey)}
+                    </EditableTranslation>
+                  </Link>
                 </Button>
               </CardContent>
             </Card>

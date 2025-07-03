@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { Users, Package, Fuel, Calendar } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function VanPage() {
   const t = useTranslations('vanPage')
@@ -67,9 +68,11 @@ export default function VanPage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('hero.title')}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="vanPage" id="hero.title" />
+            </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {t('hero.description')}
+              <EditableTranslationText namespace="vanPage" id="hero.description" />
             </p>
           </div>
         </div>
@@ -82,7 +85,8 @@ export default function VanPage() {
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gray-600">
-            {t('results.count', { count: filteredVehicles.length, total: vehicles.length })}
+          {filteredVehicles.length} <EditableTranslationText namespace="rental.page" id="results.found" /> {vehicles.length} <EditableTranslationText namespace="rental.page" id="results.types" />
+
           </p>
         </div>
       </section>
@@ -112,8 +116,10 @@ export default function VanPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="text-2xl font-bold text-[#050b20]">
-                      {t('vehicle.from')} €{vehicle.pricing[0].price}
-                      <span className="text-sm font-normal text-gray-600">{t('vehicle.per')}</span>
+                      <EditableTranslationText namespace="vanPage" id="vehicle.from" /> €{vehicle.pricing[0].price}
+                      <span className="text-sm font-normal text-gray-600">
+                        <EditableTranslationText namespace="vanPage" id="vehicle.per" />
+                      </span>
                     </div>
                     <ul className="space-y-2">
                       {vehicle.features.map((feature, idx) => (
@@ -127,7 +133,9 @@ export default function VanPage() {
                       asChild
                       className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium rounded-2xl shadow-sm hover:shadow-md transition-all"
                     >
-                      <Link href={`/rental/vehicle/${vehicle.id}`}>{t('vehicle.viewDetails')}</Link>
+                      <Link href={`/rental/vehicle/${vehicle.id}`}>
+                        <EditableTranslationText namespace="vanPage" id="vehicle.viewDetails" />
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>

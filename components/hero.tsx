@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
+import { EditableTranslation } from "./admin/editable-translation"
 
 export default function Hero() {
   const t = useTranslations("home.hero")
@@ -28,7 +29,9 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-          {t("title")}
+          <EditableTranslation translationKey="home.hero.title">
+            {t("title")}
+          </EditableTranslation>
         </h1>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -37,7 +40,11 @@ export default function Hero() {
             size="lg"
             className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold text-lg px-8 py-4"
           >
-            <Link href={`/${locale}/rental`}>{t("rentButton")}</Link>
+            <Link href={`/${locale}/rental`}>
+              <EditableTranslation translationKey="home.hero.rentButton">
+                {t("rentButton")}
+              </EditableTranslation>
+            </Link>
           </Button>
           <Button
             asChild
@@ -45,7 +52,11 @@ export default function Hero() {
             size="lg"
             className="border-2 border-white text-white hover:bg-white hover:text-[#050b20] bg-transparent text-lg px-8 py-4"
           >
-            <Link href={`/${locale}/appointment`}>{t("appointmentButton")}</Link>
+            <Link href={`/${locale}/appointment`}>
+              <EditableTranslation translationKey="home.hero.appointmentButton">
+                {t("appointmentButton")}
+              </EditableTranslation>
+            </Link>
           </Button>
         </div>
       </div>

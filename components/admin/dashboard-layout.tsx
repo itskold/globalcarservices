@@ -1,11 +1,43 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, ReactNode } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import Link from "next/link"
+import { TranslationEditor } from './translation-editor'
+import { TranslationEditorProvider, useTranslationEditor } from '@/lib/contexts/translation-editor-context'
+import { Button } from '@/components/ui/button'
+import { Languages } from 'lucide-react'
+
+function TranslationControls() {
+  const { isEditMode, toggleEditMode, selectedKey, translations, clearSelection, saveTranslation } = useTranslationEditor()
+
+  return (
+    <>
+      <Button
+        variant={isEditMode ? "secondary" : "outline"}
+        size="sm"
+        onClick={toggleEditMode}
+        className="ml-4"
+      >
+        <Languages className="h-4 w-4 mr-2" />
+        {isEditMode ? 'Désactiver l\'édition' : 'Éditer les traductions'}
+      </Button>
+
+      {isEditMode && (
+        <TranslationEditor
+          isOpen={!!selectedKey}
+          onClose={clearSelection}
+          translationKey={selectedKey}
+          translations={translations}
+          onSave={saveTranslation}
+        />
+      )}
+    </>
+  )
+}
 
 interface DashboardLayoutProps {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
@@ -29,49 +61,21 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   }
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-md">
-        <div className="p-4">
-          <h2 className="text-xl font-bold mb-4">Administration</h2>
-          <nav className="space-y-2">
-            <div className="font-medium px-3 py-2 text-gray-500 underline">Véhicules de location</div>
-            <Link 
-              href="/admin/dashboard/vehicles" 
-              className={`block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded ${isActive("/admin/dashboard/vehicles")}`}
-            >
-              Liste des véhicules
-            </Link>
-            <Link 
-              href="/admin/dashboard/vehicles/new" 
-              className={`block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded ${isActive("/admin/dashboard/vehicles/new")}`}
-            >
-              Ajouter un véhicule
-            </Link>
-            
-            <div className="font-medium px-3 py-2 mt-4 text-gray-500 underline">Voitures d'occasion</div>
-            <Link 
-              href="/admin/dashboard/cars" 
-              className={`block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded ${isActive("/admin/dashboard/cars")}`}
-            >
-              Liste des voitures
-            </Link>
-            <Link 
-              href="/admin/dashboard/cars/new" 
-              className={`block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded ${isActive("/admin/dashboard/cars/new")}`}
-            >
-              Ajouter une voiture
-            </Link>
-          </nav>
-        </div>
-      </aside>
+    <TranslationEditorProvider>
+      <div className="min-h-screen bg-gray-100">
+        <header className="bg-white shadow">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex justify-between items-center">
+              <h1 className="text-xl font-semibold">Administration</h1>
+              <TranslationControls />
+            </div>
+          </div>
+        </header>
 
-      {/* Main content */}
-      <main className="flex-1 p-8">
-        <div className="max-w-7xl mx-auto">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {children}
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </TranslationEditorProvider>
   )
 } 

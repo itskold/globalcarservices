@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Search, Gauge, Shield, Leaf } from "lucide-react"
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function RevisionPage() {
   const t = useTranslations("revision")
@@ -25,42 +26,42 @@ export default function RevisionPage() {
   const services = [
     {
       icon: Search,
-      title: t("services.items.inspection.title"),
-      description: t("services.items.inspection.description"),
+      title: <EditableTranslationText namespace="revision" id="services.items.inspection.title" />,
+      description: <EditableTranslationText namespace="revision" id="services.items.inspection.description" />,
     },
     {
       icon: Gauge,
-      title: t("services.items.performance.title"),
-      description: t("services.items.performance.description"),
+      title: <EditableTranslationText namespace="revision" id="services.items.performance.title" />,
+      description: <EditableTranslationText namespace="revision" id="services.items.performance.description" />,
     },
     {
       icon: Shield,
-      title: t("services.items.safety.title"),
-      description: t("services.items.safety.description"),
+      title: <EditableTranslationText namespace="revision" id="services.items.safety.title" />,
+      description: <EditableTranslationText namespace="revision" id="services.items.safety.description" />,
     },
     {
       icon: Leaf,
-      title: t("services.items.emissions.title"),
-      description: t("services.items.emissions.description"),
+      title: <EditableTranslationText namespace="revision" id="services.items.emissions.title" />,
+      description: <EditableTranslationText namespace="revision" id="services.items.emissions.description" />,
     },
   ]
 
   const faqs = [
     {
-      question: t("faq.items.frequency.question"),
-      answer: t("faq.items.frequency.answer"),
+      question: <EditableTranslationText namespace="revision" id="faq.items.frequency.question" />,
+      answer: <EditableTranslationText namespace="revision" id="faq.items.frequency.answer" />,
     },
     {
-      question: t("faq.items.difference.question"),
-      answer: t("faq.items.difference.answer"),
+      question: <EditableTranslationText namespace="revision" id="faq.items.difference.question" />,
+      answer: <EditableTranslationText namespace="revision" id="faq.items.difference.answer" />,
     },
     {
-      question: t("faq.items.preparation.question"),
-      answer: t("faq.items.preparation.answer"),
+      question: <EditableTranslationText namespace="revision" id="faq.items.preparation.question" />,
+      answer: <EditableTranslationText namespace="revision" id="faq.items.preparation.answer" />,
     },
     {
-      question: t("faq.items.report.question"),
-      answer: t("faq.items.report.answer"),
+      question: <EditableTranslationText namespace="revision" id="faq.items.report.question" />,
+      answer: <EditableTranslationText namespace="revision" id="faq.items.report.answer" />,
     },
   ]
 
@@ -82,8 +83,12 @@ export default function RevisionPage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t("subtitle")}</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="revision" id="title" />
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <EditableTranslationText namespace="revision" id="subtitle" />
+            </p>
           </div>
         </div>
       </section>
@@ -94,13 +99,17 @@ export default function RevisionPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="relative">
-                <img src="/Globalcar2024-34.jpg" alt={t("title")} className="rounded-lg shadow-lg aspect-square object-cover" />
+                <img src="/Globalcar2024-34.jpg" alt="Revision" className="rounded-lg shadow-lg aspect-square object-cover" />
                 <div className="absolute -bottom-4 -right-4">
                   <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">
-                      <div className="text-xs font-medium uppercase tracking-wide">{t("intro.experience.more_than")}</div>
+                      <div className="text-xs font-medium uppercase tracking-wide">
+                        <EditableTranslationText namespace="revision" id="intro.experience.more_than" />
+                      </div>
                       <div className="text-5xl font-bold">10+</div>
-                      <div className="text-xs font-medium">{t("intro.experience.years")}</div>
+                      <div className="text-xs font-medium">
+                        <EditableTranslationText namespace="revision" id="intro.experience.years" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -108,8 +117,12 @@ export default function RevisionPage() {
             </div>
             <div>
               <div className="space-y-6">
-                <p className="text-gray-700 text-lg">{t("intro.description1")}</p>
-                <p className="text-gray-700 text-lg">{t("intro.description2")}</p>
+                <p className="text-gray-700 text-lg">
+                  <EditableTranslationText namespace="revision" id="intro.description1" />
+                </p>
+                <p className="text-gray-700 text-lg">
+                  <EditableTranslationText namespace="revision" id="intro.description2" />
+                </p>
               </div>
             </div>
           </div>
@@ -120,7 +133,9 @@ export default function RevisionPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("services.title")}</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="revision" id="services.title" />
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -145,7 +160,9 @@ export default function RevisionPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("faq.title")}</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="revision" id="faq.title" />
+            </h2>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
@@ -165,7 +182,9 @@ export default function RevisionPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("appointment.title")}</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="revision" id="appointment.title" />
+            </h2>
           </div>
 
           <Card>
@@ -174,7 +193,7 @@ export default function RevisionPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("appointment.form.name.label")}
+                      <EditableTranslationText namespace="revision" id="appointment.form.name.label" />
                     </label>
                     <Input
                       type="text"
@@ -188,7 +207,7 @@ export default function RevisionPage() {
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("appointment.form.phone.label")}
+                      <EditableTranslationText namespace="revision" id="appointment.form.phone.label" />
                     </label>
                     <Input
                       type="tel"
@@ -205,25 +224,37 @@ export default function RevisionPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("appointment.form.date.label")}
+                      <EditableTranslationText namespace="revision" id="appointment.form.date.label" />
                     </label>
                     <Input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("appointment.form.vehicle_type.label")}
+                      <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.label" />
                     </label>
                     <Select onValueChange={(value) => setFormData({ ...formData, vehicleType: value })}>
                       <SelectTrigger>
                         <SelectValue placeholder={t("appointment.form.vehicle_type.placeholder")} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="city_car">{t("appointment.form.vehicle_type.options.city_car")}</SelectItem>
-                        <SelectItem value="sedan">{t("appointment.form.vehicle_type.options.sedan")}</SelectItem>
-                        <SelectItem value="suv">{t("appointment.form.vehicle_type.options.suv")}</SelectItem>
-                        <SelectItem value="station_wagon">{t("appointment.form.vehicle_type.options.station_wagon")}</SelectItem>
-                        <SelectItem value="utility">{t("appointment.form.vehicle_type.options.utility")}</SelectItem>
-                        <SelectItem value="other">{t("appointment.form.vehicle_type.options.other")}</SelectItem>
+                        <SelectItem value="city_car">
+                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.city_car" />
+                        </SelectItem>
+                        <SelectItem value="sedan">
+                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.sedan" />
+                        </SelectItem>
+                        <SelectItem value="suv">
+                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.suv" />
+                        </SelectItem>
+                        <SelectItem value="station_wagon">
+                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.station_wagon" />
+                        </SelectItem>
+                        <SelectItem value="utility">
+                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.utility" />
+                        </SelectItem>
+                        <SelectItem value="other">
+                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.other" />
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -231,7 +262,7 @@ export default function RevisionPage() {
 
                 <div>
                   <label htmlFor="symptoms" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("appointment.form.symptoms.label")}
+                    <EditableTranslationText namespace="revision" id="appointment.form.symptoms.label" />
                   </label>
                   <Textarea
                     id="symptoms"
@@ -246,9 +277,8 @@ export default function RevisionPage() {
                 <Button
                   type="submit"
                   className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold"
-                  size="lg"
                 >
-                  {t("appointment.form.submit")}
+                  <EditableTranslationText namespace="revision" id="appointment.form.submit" />
                 </Button>
               </form>
             </CardContent>

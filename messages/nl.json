@@ -2,7 +2,7 @@
   "navigation": {
     "home": "Home",
     "services": "Diensten",
-    "rental": "Verhuur",
+    "rental": "Location",
     "about": "Over ons",
     "contact": "Contact",
     "appointment": "Afspraak maken",
@@ -158,7 +158,8 @@
       "button": "Afspraak maken",
       "diagnostic": "Auto diagnose",
       "repair": "Auto herstelling",
-      "revision": "Volledige onderhoud"
+      "revision": "Volledige onderhoud",
+      "maintenance": "Auto onderhoud"
     },
     "extra": {
       "title": "Extra Diensten",
@@ -281,7 +282,7 @@
     "included": "Inbegrepen:",
     "reserve": "Reserveren",
     "viewAll": "Bekijk alle voertuigen"
-  } ,
+  },
   "whyChooseUs": {
     "title": "Waarom kiezen voor Global Car Services?",
     "subtitle": "Ontdek waarom duizenden klanten ons vertrouwen voor hun automotive behoeften.",
@@ -303,7 +304,7 @@
         "description": "Wij kennen onze klanten en bieden op maat gemaakte oplossingen voor elke situatie."
       }
     }
-  } ,
+  },
   "testimonials": {
     "title": "Wat onze klanten vertellen",
     "subtitle": "Lees wat onze klanten over ons zeggen",
@@ -318,17 +319,17 @@
         "name": "Fahd El Uazani",
         "rating": 5
       },
-      "2": { 
+      "2": {
         "text": "Goede service , aangenaam om met de Box Van te kunnen rijden , vriendelijke eigenaar , kortweg een dikke aanrader om er te huren .",
         "name": "Ronny Van Gucht",
         "rating": 5
       },
-      "3": { 
+      "3": {
         "text": "Niets op aan te merken, zowel ophalen als afleveren. En natuurlijk netjes mijn borg terug gekregen.",
         "name": "Yassin Deneef",
         "rating": 5
       },
-      "4": { 
+      "4": {
         "text": "Top verhuur ! Een van de betere in Antwerpen zeker! Bestelwagens van hoge kwaliteit. 5 sterren.",
         "name": "'Moussa Elboualati",
         "rating": 5
@@ -441,7 +442,7 @@
       "clearAll": "Alles wissen",
       "show": "Toon"
     },
-    "activeFilters":{
+    "activeFilters": {
       "title": "Actieve filters",
       "clear": "Alles wissen"
     }
@@ -673,6 +674,116 @@
     },
     "appointment": {
       "title": "Revisieverzoek",
+      "form": {
+        "name": {
+          "label": "Uw naam",
+          "placeholder": "Naam"
+        },
+        "phone": {
+          "label": "Uw telefoon",
+          "placeholder": "Telefoonnummer"
+        },
+        "date": {
+          "label": "Gewenste datum"
+        },
+        "vehicle_type": {
+          "label": "Type voertuig",
+          "placeholder": "Selecteer",
+          "options": {
+            "city_car": "Stadsauto",
+            "sedan": "Sedan",
+            "suv": "SUV / 4x4",
+            "station_wagon": "Stationwagen",
+            "utility": "Bedrijfswagen",
+            "other": "Andere"
+          }
+        },
+        "symptoms": {
+          "label": "Waargenomen symptomen",
+          "placeholder": "Waarmee kunnen we u van dienst zijn?"
+        },
+        "submit": "Afspraak maken"
+      }
+    }
+  },
+  "maintenance": {
+    "hero": {
+      "title": "Auto Onderhoud",
+      "subtitle": "Regelmatig onderhoud voor optimale prestaties"
+    },
+    "intro": {
+      "description1": " Bij Global Car Services begrijpen we het belang van regelmatig onderhoud om uw voertuig in perfecte staat te houden. Onze techniekers kennen hun vak. Met het juiste materiaal en veel ervaring zorgen zij dat uw wagen helemaal in orde is.",
+      "description2": "We bieden een complete onderhoudsdienst voor alle soorten voertuigen, ongeacht het merk.",
+      "experience": {
+        "more_than": "Meer dan",
+        "years": "Jaren ervaring"
+      }
+    },
+    "services": {
+      "title": "Onze Onderhoudsdiensten",
+      "items": {
+        "inspection": {
+          "title": "Volledig onderhoud",
+          "description": "Volledige diagnose en preventief onderhoud van uw voertuig"
+        },
+        "oil": {
+          "title": "Olie en Filters",
+          "description": "Olieverversing en vervanging van essentiële filters"
+        },
+        "crash": {
+          "title": "Remsysteem",
+          "description": "Controle en onderhoud van het remsysteem"
+        },
+        "repair": {
+          "title": "Auto herstelling",
+          "description": "Volledige analyse van elektronische systemen"
+        },
+        "battery": {
+          "title": "Batterij & elektriciteit",
+          "description": "Controle en vervanging van elektrische systemen"
+        },
+        "airco": {
+          "title": "Airco",
+          "description": "Onderhoud en bijvullen van uw airconditioningsysteem"
+        },
+        "wheels": {
+          "title": "Banden",
+          "description": "Balanceren, roteren en vervangen van banden"
+        },
+        "mechanics": {
+          "title": "Algemene mechanica",
+          "description": "Diverse mechanische reparaties en interventies"
+        }
+      }
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": {
+        "price": {
+          "question": "Wat is de prijs van onderhoud?",
+          "answer": "De prijs van onderhoud is afhankelijk van het merk en type voertuig. We bieden u een gratis offerte tijdens uw afspraak."
+        },
+        "duration": {
+          "question": "Wat is de uitvoeringstijd van onderhoud?",
+          "answer": "De uitvoeringstijd van onderhoud hangt af van de complexiteit van de revisie. We bieden u een gratis offerte tijdens uw afspraak."
+        },
+        "equipment": {
+          "question": "Welke apparatuur wordt gebruikt voor onderhoud?",
+          "answer": "We gebruiken professionele diagnosetools en kwaliteitsreserveonderdelen om volledig en duurzaam onderhoud te garanderen."
+        },
+        "warranty": {
+          "question": "Biedt u garantie op reparaties?",
+          "answer": "Ja, al onze reparaties worden gedekt door een garantie van minimaal 6 maanden."
+        },
+        "brands": {
+          "question": "Accepteert u voertuigen van alle merken?",
+          "answer": "We werken aan de meeste automerken, of ze nu op benzine, diesel of elektrisch rijden."
+        }
+      }
+    },
+    "appointment": {
+      "title": "Revisieverzoek",
+      "subtitle": "Maak een afspraak voor onderhoud",
       "form": {
         "name": {
           "label": "Uw naam",
@@ -1169,4 +1280,4 @@
       }
     }
   }
-} 
+}

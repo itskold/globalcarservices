@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { Users, Package, Fuel, Calendar } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function RefrigeratedPage() {
   const t = useTranslations("rental.refrigerated")
@@ -67,9 +68,11 @@ export default function RefrigeratedPage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("hero.title")}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="rental.refrigerated" id="hero.title" />
+            </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {t("hero.subtitle")}
+              <EditableTranslationText namespace="rental.refrigerated" id="hero.subtitle" />
             </p>
           </div>
         </div>
@@ -82,7 +85,9 @@ export default function RefrigeratedPage() {
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gray-600">
-            {t("results.showing")} {filteredVehicles.length} {t("results.results")}
+            <EditableTranslationText namespace="rental.refrigerated" id="results.showing" />{" "}
+            {filteredVehicles.length}{" "}
+            <EditableTranslationText namespace="rental.refrigerated" id="results.results" />
           </p>
         </div>
       </section>
@@ -112,8 +117,10 @@ export default function RefrigeratedPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="text-2xl font-bold text-[#050b20]">
-                      {t("fromPrice")} €{vehicle.pricing[0].price}
-                      <span className="text-sm font-normal text-gray-600">{t("pricePerHour")}</span>
+                      <EditableTranslationText namespace="rental.refrigerated" id="fromPrice" /> €{vehicle.pricing[0].price}
+                      <span className="text-sm font-normal text-gray-600">
+                        <EditableTranslationText namespace="rental.refrigerated" id="pricePerHour" />
+                      </span>
                     </div>
                     <ul className="space-y-2">
                       {vehicle.features.map((feature, idx) => (
@@ -127,7 +134,9 @@ export default function RefrigeratedPage() {
                       asChild
                       className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium rounded-2xl shadow-sm hover:shadow-md transition-all"
                     >
-                      <Link href={`/${locale}/rental/vehicle/${vehicle.id}`}>{t("viewDetails")}</Link>
+                      <Link href={`/${locale}/rental/vehicle/${vehicle.id}`}>
+                        <EditableTranslationText namespace="rental.refrigerated" id="viewDetails" />
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>

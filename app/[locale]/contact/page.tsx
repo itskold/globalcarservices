@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function ContactPage() {
   const t = useTranslations("contact")
@@ -38,9 +39,11 @@ export default function ContactPage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("hero.title")}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="contact" id="hero.title" />
+            </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {t("hero.subtitle")}
+              <EditableTranslationText namespace="contact" id="hero.subtitle" />
             </p>
           </div>
         </div>
@@ -51,12 +54,14 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-[#050b20] mb-6">{t("form.title")}</h2>
+              <h2 className="text-3xl font-bold text-[#050b20] mb-6">
+                <EditableTranslationText namespace="contact" id="form.title" />
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("form.firstName.label")}
+                      <EditableTranslationText namespace="contact" id="form.firstName.label" />
                     </label>
                     <Input
                       type="text"
@@ -70,7 +75,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("form.lastName.label")}
+                      <EditableTranslationText namespace="contact" id="form.lastName.label" />
                     </label>
                     <Input
                       type="text"
@@ -85,7 +90,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("form.email.label")}
+                    <EditableTranslationText namespace="contact" id="form.email.label" />
                   </label>
                   <Input
                     type="email"
@@ -99,7 +104,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("form.phone.label")}
+                    <EditableTranslationText namespace="contact" id="form.phone.label" />
                   </label>
                   <Input
                     type="tel"
@@ -113,7 +118,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("form.message.label")}
+                    <EditableTranslationText namespace="contact" id="form.message.label" />
                   </label>
                   <Textarea
                     id="message"
@@ -130,16 +135,18 @@ export default function ContactPage() {
                   className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold"
                   size="lg"
                 >
-                  {t("form.submit")}
+                  <EditableTranslationText namespace="contact" id="form.submit" />
                 </Button>
               </form>
             </div>
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-[#050b20] mb-6">{t("info.title")}</h2>
+              <h2 className="text-3xl font-bold text-[#050b20] mb-6">
+                <EditableTranslationText namespace="contact" id="info.title" />
+              </h2>
               <p className="text-gray-600 mb-8">
-                {t("info.subtitle")}
+                <EditableTranslationText namespace="contact" id="info.subtitle" />
               </p>
 
               <div className="space-y-6">
@@ -147,11 +154,13 @@ export default function ContactPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center text-[#050b20]">
                       <Phone className="h-5 w-5 text-[#95c8e2] mr-2" />
-                      {t("info.phone.title")}
+                      <EditableTranslationText namespace="contact" id="info.phone.title" />
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700">{t("info.phone.value")}</p>
+                    <p className="text-gray-700">
+                      <EditableTranslationText namespace="contact" id="info.phone.value" />
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -159,11 +168,13 @@ export default function ContactPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center text-[#050b20]">
                       <Mail className="h-5 w-5 text-[#95c8e2] mr-2" />
-                      {t("info.email.title")}
+                      <EditableTranslationText namespace="contact" id="info.email.title" />
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700">{t("info.email.value")}</p>
+                    <p className="text-gray-700">
+                      <EditableTranslationText namespace="contact" id="info.email.value" />
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -171,11 +182,13 @@ export default function ContactPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center text-[#050b20]">
                       <MapPin className="h-5 w-5 text-[#95c8e2] mr-2" />
-                      {t("info.address.title")}
+                      <EditableTranslationText namespace="contact" id="info.address.title" />
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700">{t("info.address.value")}</p>
+                    <p className="text-gray-700">
+                      <EditableTranslationText namespace="contact" id="info.address.value" />
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -183,14 +196,14 @@ export default function ContactPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center text-[#050b20]">
                       <Clock className="h-5 w-5 text-[#95c8e2] mr-2" />
-                      {t("info.hours.title")}
+                      <EditableTranslationText namespace="contact" id="info.hours.title" />
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-1 text-gray-700">
-                      <p>{t("info.hours.weekdays")}</p>
-                      <p>{t("info.hours.saturday")}</p>
-                      <p>{t("info.hours.sunday")}</p>
+                      <p><EditableTranslationText namespace="contact" id="info.hours.weekdays" /></p>
+                      <p><EditableTranslationText namespace="contact" id="info.hours.saturday" /></p>
+                      <p><EditableTranslationText namespace="contact" id="info.hours.sunday" /></p>
                     </div>
                   </CardContent>
                 </Card>

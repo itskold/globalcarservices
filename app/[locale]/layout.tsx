@@ -7,6 +7,9 @@ import Footer from "@/components/footer"
 import SmoothScrollToTop from "@/components/smooth-scroll-to-top"
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
+import { TranslationEditorProvider } from '@/lib/contexts/translation-editor-context'
+import { TranslationEditorWrapper } from '@/components/admin/translation-editor-wrapper'
+import { TranslationEditorButton } from '@/components/admin/translation-editor-button'
 import { headers } from 'next/headers'
 
 const inter = Inter({ subsets: ["latin"] })
@@ -41,10 +44,14 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          <SmoothScrollToTop />
-          {children}
-          <Footer />
+          <TranslationEditorProvider>
+            <Header />
+            <SmoothScrollToTop />
+            {children}
+            <Footer />
+            <TranslationEditorWrapper />
+            <TranslationEditorButton />
+          </TranslationEditorProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Truck, Battery, Fuel, Wrench, Phone } from "lucide-react"
 import { TbBatteryAutomotive } from "react-icons/tb";
 import { BsTruckFlatbed } from "react-icons/bs";
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function BreakdownPage() {
   const t = useTranslations("breakdown")
@@ -22,42 +23,42 @@ export default function BreakdownPage() {
   const services = [
     {
       icon: BsTruckFlatbed,
-      title: t("services.towing.title"),
-      description: t("services.towing.description"),
+      titleId: "services.towing.title",
+      descriptionId: "services.towing.description",
     },
     {
       icon: TbBatteryAutomotive,
-      title: t("services.battery.title"),
-      description: t("services.battery.description"),
+      titleId: "services.battery.title",
+      descriptionId: "services.battery.description",
     },
     {
       icon: Fuel,
-      title: t("services.fuel.title"),
-      description: t("services.fuel.description"),
+      titleId: "services.fuel.title",
+      descriptionId: "services.fuel.description",
     },
     {
       icon: Wrench,
-      title: t("services.repair.title"),
-      description: t("services.repair.description"),
+      titleId: "services.repair.title",
+      descriptionId: "services.repair.description",
     },
   ]
 
   const faqs = [
     {
-      question: t("faq.response.question"),
-      answer: t("faq.response.answer"),
+      questionId: "faq.response.question",
+      answerId: "faq.response.answer",
     },
     {
-      question: t("faq.area.question"),
-      answer: t("faq.area.answer"),
+      questionId: "faq.area.question",
+      answerId: "faq.area.answer",
     },
     {
-      question: t("faq.billing.question"),
-      answer: t("faq.billing.answer"),
+      questionId: "faq.billing.question",
+      answerId: "faq.billing.answer",
     },
     {
-      question: t("faq.highway.question"),
-      answer: t("faq.highway.answer"),
+      questionId: "faq.highway.question",
+      answerId: "faq.highway.answer",
     },
   ]
 
@@ -79,8 +80,12 @@ export default function BreakdownPage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("hero.title")}</h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t("hero.subtitle")}</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="breakdown" id="hero.title" />
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <EditableTranslationText namespace="breakdown" id="hero.subtitle" />
+            </p>
           </div>
         </div>
       </section>
@@ -90,11 +95,15 @@ export default function BreakdownPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-red-600 text-white p-8 rounded-lg">
             <Phone className="h-16 w-16 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-4">{t("emergency.title")}</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              <EditableTranslationText namespace="breakdown" id="emergency.title" />
+            </h2>
             <a href="tel:+32489876613" className="text-4xl font-bold hover:underline">
-              {t("emergency.phone")}
+              <EditableTranslationText namespace="breakdown" id="emergency.phone" />
             </a>
-            <p className="mt-4 text-lg">{t("emergency.subtitle")}</p>
+            <p className="mt-4 text-lg">
+              <EditableTranslationText namespace="breakdown" id="emergency.subtitle" />
+            </p>
           </div>
         </div>
       </section>
@@ -109,9 +118,13 @@ export default function BreakdownPage() {
                 <div className="absolute -bottom-4 -right-4">
                   <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">
-                      <div className="text-xs font-medium uppercase tracking-wide">{t("intro.stats.prefix")}</div>
+                      <div className="text-xs font-medium uppercase tracking-wide">
+                        <EditableTranslationText namespace="breakdown" id="intro.stats.prefix" />
+                      </div>
                       <div className="text-5xl font-bold">10+</div>
-                      <div className="text-xs font-medium">{t("intro.stats.suffix")}</div>
+                      <div className="text-xs font-medium">
+                        <EditableTranslationText namespace="breakdown" id="intro.stats.suffix" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -120,10 +133,10 @@ export default function BreakdownPage() {
             <div>
               <div className="space-y-6">
                 <p className="text-gray-700 text-lg">
-                  {t("intro.paragraph1")}
+                  <EditableTranslationText namespace="breakdown" id="intro.paragraph1" />
                 </p>
                 <p className="text-gray-700 text-lg">
-                  {t("intro.paragraph2")}
+                  <EditableTranslationText namespace="breakdown" id="intro.paragraph2" />
                 </p>
               </div>
             </div>
@@ -135,7 +148,9 @@ export default function BreakdownPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("services.title")}</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="breakdown" id="services.title" />
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -145,10 +160,14 @@ export default function BreakdownPage() {
                   <div className="mx-auto w-16 h-16 bg-[#95c8e2] rounded-full flex items-center justify-center mb-4">
                     <service.icon className="h-8 w-8 text-[#050b20]" />
                   </div>
-                  <CardTitle className="text-lg font-semibold text-[#050b20]">{service.title}</CardTitle>
+                  <CardTitle className="text-lg font-semibold text-[#050b20]">
+                    <EditableTranslationText namespace="breakdown" id={service.titleId} />
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">{service.description}</p>
+                  <p className="text-gray-600">
+                    <EditableTranslationText namespace="breakdown" id={service.descriptionId} />
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -160,16 +179,20 @@ export default function BreakdownPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("faq.title")}</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="breakdown" id="faq.title" />
+            </h2>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold text-[#050b20] hover:text-[#95c8e2]">
-                  {faq.question}
+                  <EditableTranslationText namespace="breakdown" id={faq.questionId} />
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-700 pt-4">{faq.answer}</AccordionContent>
+                <AccordionContent className="text-gray-700 pt-4">
+                  <EditableTranslationText namespace="breakdown" id={faq.answerId} />
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -180,7 +203,9 @@ export default function BreakdownPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("form.title")}</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="breakdown" id="form.title" />
+            </h2>
             <p className="text-xl text-gray-600">
               {t("form.subtitle", { phone: "+32 489 87 66 13" })}
             </p>
@@ -191,7 +216,7 @@ export default function BreakdownPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("form.location.label")}
+                    <EditableTranslationText namespace="breakdown" id="form.location.label" />
                   </label>
                   <Input
                     type="text"
@@ -205,17 +230,29 @@ export default function BreakdownPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{t("form.type.label")}</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <EditableTranslationText namespace="breakdown" id="form.type.label" />
+                  </label>
                   <Select onValueChange={(value) => setFormData({ ...formData, breakdownType: value })}>
                     <SelectTrigger>
                       <SelectValue placeholder={t("form.type.placeholder")} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="battery_failure">{t("form.type.options.battery")}</SelectItem>
-                      <SelectItem value="fuel_shortage">{t("form.type.options.fuel")}</SelectItem>
-                      <SelectItem value="mechanical_failure">{t("form.type.options.mechanical")}</SelectItem>
-                      <SelectItem value="accident">{t("form.type.options.accident")}</SelectItem>
-                      <SelectItem value="other">{t("form.type.options.other")}</SelectItem>
+                      <SelectItem value="battery_failure">
+                        <EditableTranslationText namespace="breakdown" id="form.type.options.battery" />
+                      </SelectItem>
+                      <SelectItem value="fuel_shortage">
+                        <EditableTranslationText namespace="breakdown" id="form.type.options.fuel" />
+                      </SelectItem>
+                      <SelectItem value="mechanical_failure">
+                        <EditableTranslationText namespace="breakdown" id="form.type.options.mechanical" />
+                      </SelectItem>
+                      <SelectItem value="accident">
+                        <EditableTranslationText namespace="breakdown" id="form.type.options.accident" />
+                      </SelectItem>
+                      <SelectItem value="other">
+                        <EditableTranslationText namespace="breakdown" id="form.type.options.other" />
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -235,7 +272,7 @@ export default function BreakdownPage() {
                     className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold flex-1"
                     size="lg"
                   >
-                    {t("form.submit")}
+                    <EditableTranslationText namespace="breakdown" id="form.submit" />
                   </Button>
                 </div>
               </form>

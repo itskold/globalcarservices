@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { Users, Package, Fuel, Calendar } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function RentalPage() {
   const t = useTranslations("rental.page")
@@ -73,9 +74,11 @@ export default function RentalPage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("hero.title")}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="rental.page" id="hero.title" />
+            </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {t("hero.description")}
+              <EditableTranslationText namespace="rental.page" id="hero.description" />
             </p>
           </div>
         </div>
@@ -84,16 +87,20 @@ export default function RentalPage() {
       {/* Categories Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#050b20] mb-8 text-center">{t("categories.title")}</h2>
+          <h2 className="text-3xl font-bold text-[#050b20] mb-8 text-center">
+            <EditableTranslationText namespace="rental.page" id="categories.title" />
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Link href="/rental/van" className="group">
               <Card className="hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02]">
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <Package className="w-12 h-12 mx-auto mb-4 text-[#95c8e2]" />
-                    <h3 className="text-xl font-semibold mb-2">{t("categories.van.title")}</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      <EditableTranslationText namespace="rental.page" id="categories.van.title" />
+                    </h3>
                     <p className="text-gray-600 text-sm">
-                      {vehiclesByCategory["Bestelwagen"]?.length || 0} {t("categories.van.available")}
+                      {vehiclesByCategory["Bestelwagen"]?.length || 0} <EditableTranslationText namespace="rental.page" id="categories.van.available" />
                     </p>
                   </div>
                 </CardContent>
@@ -105,9 +112,11 @@ export default function RentalPage() {
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <Package className="w-12 h-12 mx-auto mb-4 text-[#95c8e2]" />
-                    <h3 className="text-xl font-semibold mb-2">{t("categories.box.title")}</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      <EditableTranslationText namespace="rental.page" id="categories.box.title" />
+                    </h3>
                     <p className="text-gray-600 text-sm">
-                      {vehiclesByCategory["Bakwagen"]?.length || 0} {t("categories.box.available")}
+                      {vehiclesByCategory["Bakwagen"]?.length || 0} <EditableTranslationText namespace="rental.page" id="categories.box.available" />
                     </p>
                   </div>
                 </CardContent>
@@ -119,9 +128,11 @@ export default function RentalPage() {
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <Users className="w-12 h-12 mx-auto mb-4 text-[#95c8e2]" />
-                    <h3 className="text-xl font-semibold mb-2">{t("categories.minibus.title")}</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      <EditableTranslationText namespace="rental.page" id="categories.minibus.title" />
+                    </h3>
                     <p className="text-gray-600 text-sm">
-                      {vehiclesByCategory["Minibus"]?.length || 0} {t("categories.minibus.available")}
+                      {vehiclesByCategory["Minibus"]?.length || 0} <EditableTranslationText namespace="rental.page" id="categories.minibus.available" />
                     </p>
                   </div>
                 </CardContent>
@@ -133,9 +144,11 @@ export default function RentalPage() {
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <Package className="w-12 h-12 mx-auto mb-4 text-[#95c8e2]" />
-                    <h3 className="text-xl font-semibold mb-2">{t("categories.refrigerated.title")}</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      <EditableTranslationText namespace="rental.page" id="categories.refrigerated.title" />
+                    </h3>
                     <p className="text-gray-600 text-sm">
-                      {vehiclesByCategory["Koelwagen"]?.length || 0} {t("categories.refrigerated.available")}
+                      {vehiclesByCategory["Koelwagen"]?.length || 0} <EditableTranslationText namespace="rental.page" id="categories.refrigerated.available" />
                     </p>
                   </div>
                 </CardContent>
@@ -152,7 +165,7 @@ export default function RentalPage() {
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gray-600">
-            {filteredVehicles.length} {t("results.found")} {vehicles.length} {t("results.types")}
+            {filteredVehicles.length} <EditableTranslationText namespace="rental.page" id="results.found" /> {vehicles.length} <EditableTranslationText namespace="rental.page" id="results.types" />
           </p>
         </div>
       </section>
@@ -182,8 +195,10 @@ export default function RentalPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="text-2xl font-bold text-[#050b20]">
-                      {t("vehicle.from")} €{vehicle.pricing[0].price}
-                      <span className="text-sm font-normal text-gray-600">{t("vehicle.perHours")}</span>
+                      <EditableTranslationText namespace="rental.page" id="vehicle.from" /> €{vehicle.pricing[0].price}
+                      <span className="text-sm font-normal text-gray-600">
+                        <EditableTranslationText namespace="rental.page" id="vehicle.perHours" />
+                      </span>
                     </div>
                     <ul className="space-y-2">
                       {vehicle.features.map((feature, idx) => (
@@ -197,7 +212,9 @@ export default function RentalPage() {
                       asChild
                       className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium rounded-2xl shadow-sm hover:shadow-md transition-all"
                     >
-                      <Link href={`/rental/vehicle/${vehicle.id}`}>{t("vehicle.viewDetails")}</Link>
+                      <Link href={`/rental/vehicle/${vehicle.id}`}>
+                        <EditableTranslationText namespace="rental.page" id="vehicle.viewDetails" />
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -212,41 +229,49 @@ export default function RentalPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-[#050b20] mb-6">{t("conditions.title")}</h2>
+              <h2 className="text-3xl font-bold text-[#050b20] mb-6">
+                <EditableTranslationText namespace="rental.page" id="conditions.title" />
+              </h2>
               <div className="space-y-4 text-gray-700">
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-3 mt-2"></div>
                   <div>
-                    <strong>{t("conditions.kilometers.title")}:</strong> {t("conditions.kilometers.description")}
+                    <strong><EditableTranslationText namespace="rental.page" id="conditions.kilometers.title" />:</strong>{" "}
+                    <EditableTranslationText namespace="rental.page" id="conditions.kilometers.description" />
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-3 mt-2"></div>
                   <div>
-                    <strong>{t("conditions.periods.title")}:</strong> {t("conditions.periods.description")}
+                    <strong><EditableTranslationText namespace="rental.page" id="conditions.periods.title" />:</strong>{" "}
+                    <EditableTranslationText namespace="rental.page" id="conditions.periods.description" />
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-3 mt-2"></div>
                   <div>
-                    <strong>{t("conditions.options.title")}:</strong> {t("conditions.options.description")}
+                    <strong><EditableTranslationText namespace="rental.page" id="conditions.options.title" />:</strong>{" "}
+                    <EditableTranslationText namespace="rental.page" id="conditions.options.description" />
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-3 mt-2"></div>
                   <div>
-                    <strong>{t("conditions.documents.title")}:</strong> {t("conditions.documents.description")}
+                    <strong><EditableTranslationText namespace="rental.page" id="conditions.documents.title" />:</strong>{" "}
+                    <EditableTranslationText namespace="rental.page" id="conditions.documents.description" />
                   </div>
                 </div>
               </div>
               <Button asChild className="mt-6 bg-[#050b20] hover:bg-[#0a1530] text-white">
-                <Link href="/rental/conditions">{t("conditions.fullConditions")}</Link>
+                <Link href="/rental/conditions">
+                  <EditableTranslationText namespace="rental.page" id="conditions.fullConditions" />
+                </Link>
               </Button>
             </div>
             <div>
               <img
                 src="/rental.jpg"
-                alt="Huurvoorwaarden"
+                alt="Location de véhicules"
                 className="rounded-lg shadow-lg"
               />
             </div>
@@ -257,13 +282,17 @@ export default function RentalPage() {
       {/* CTA Section */}
       <section className="py-16 bg-[#050b20] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">{t("cta.title")}</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            <EditableTranslationText namespace="rental.page" id="cta.title" />
+          </h2>
           <p className="text-xl text-gray-300 mb-8">
-            {t("cta.description")}
+            <EditableTranslationText namespace="rental.page" id="cta.description" />
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold">
-              <Link href="/#search">{t("cta.checkAvailability")}</Link>
+              <Link href="/#search">
+                <EditableTranslationText namespace="rental.page" id="cta.checkAvailability" />
+              </Link>
             </Button>
             <Button
               asChild
@@ -271,7 +300,9 @@ export default function RentalPage() {
               size="lg"
               className="border-white text-white hover:bg-white hover:text-[#050b20] bg-transparent"
             >
-              <Link href="/contact">{t("cta.contact")}</Link>
+              <Link href="/contact">
+                <EditableTranslationText namespace="rental.page" id="cta.contact" />
+              </Link>
             </Button>
           </div>
         </div>

@@ -20,6 +20,7 @@ import { format } from "date-fns"
 import { nl } from "date-fns/locale"
 import { db } from "@/lib/firebase"
 import { doc, getDoc, collection, query, where, getDocs, DocumentData } from 'firebase/firestore'
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 interface VehicleData extends DocumentData {
   id: string;
@@ -168,16 +169,16 @@ export default function VehicleDetailPage() {
           <div className="flex items-center justify-between">
             <Link href="/rental" className="flex items-center text-gray-600 hover:text-[#050b20] transition-colors">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              {t('navigation.backToOverview')}
+              <EditableTranslationText namespace="vehicleDetail" id="navigation.backToOverview" />
             </Link>
             <div className="flex items-center gap-2">
               <Button variant="ghost" size="sm">
                 <Share2 className="h-4 w-4 mr-2" />
-                {t('navigation.share')}
+                <EditableTranslationText namespace="vehicleDetail" id="navigation.share" />
               </Button>
               <Button variant="ghost" size="sm">
                 <Heart className="h-4 w-4 mr-2" />
-                {t('navigation.save')}
+                <EditableTranslationText namespace="vehicleDetail" id="navigation.save" />
               </Button>
             </div>
           </div>
@@ -192,7 +193,6 @@ export default function VehicleDetailPage() {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Badge className="bg-[#95c8e2] text-[#050b20]">{vehicle.category}</Badge>
-
               </div>
               <h1 className="text-3xl font-bold text-[#050b20] mb-2">
                 {vehicle.brand} {vehicle.title} ({vehicle.year})
@@ -200,7 +200,7 @@ export default function VehicleDetailPage() {
               <div className="flex items-center gap-4 text-gray-600">
                 <span className="flex items-center">
                   <Users className="h-4 w-4 mr-1" />
-                  {vehicle.seats} {t('specifications.persons')}
+                  {vehicle.seats} <EditableTranslationText namespace="vehicleDetail" id="specifications.persons" />
                 </span>
                 <span className="flex items-center">
                   <Fuel className="h-4 w-4 mr-1" />
@@ -239,32 +239,38 @@ export default function VehicleDetailPage() {
 
             {/* Vehicle Description */}
             <div>
-              <h2 className="text-2xl font-bold text-[#050b20] mb-4">{t('specifications.aboutVehicle')}</h2>
+              <h2 className="text-2xl font-bold text-[#050b20] mb-4">
+                <EditableTranslationText namespace="vehicleDetail" id="specifications.aboutVehicle" />
+              </h2>
               <p className="text-gray-600 mb-6">{vehicle.description}</p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-semibold text-[#050b20] mb-3">{t('specifications.title')}</h3>
+                  <h3 className="font-semibold text-[#050b20] mb-3">
+                    <EditableTranslationText namespace="vehicleDetail" id="specifications.title" />
+                  </h3>
                   <ul className="space-y-2">
                     <li className="flex items-center text-gray-600">
                       <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
-                      {t('specifications.engine')}: {vehicle.specifications.engine}
+                      <EditableTranslationText namespace="vehicleDetail" id="specifications.engine" />: {vehicle.specifications.engine}
                     </li>
                     <li className="flex items-center text-gray-600">
                       <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
-                      {t('specifications.power')}: {vehicle.specifications.power}
+                      <EditableTranslationText namespace="vehicleDetail" id="specifications.power" />: {vehicle.specifications.power}
                     </li>
                     <li className="flex items-center text-gray-600">
                       <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
-                      {t('specifications.consumption')}: {vehicle.specifications.consumption}
+                      <EditableTranslationText namespace="vehicleDetail" id="specifications.consumption" />: {vehicle.specifications.consumption}
                     </li>
                     <li className="flex items-center text-gray-600">
                       <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
-                      {t('specifications.storage')}: {vehicle.specifications.luggage}
+                      <EditableTranslationText namespace="vehicleDetail" id="specifications.storage" />: {vehicle.specifications.luggage}
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#050b20] mb-3">{t('specifications.features')}</h3>
+                  <h3 className="font-semibold text-[#050b20] mb-3">
+                    <EditableTranslationText namespace="vehicleDetail" id="specifications.features" />
+                  </h3>
                   <ul className="space-y-2">
                     {vehicle.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center text-gray-600">
@@ -281,185 +287,180 @@ export default function VehicleDetailPage() {
           </div>
 
           {/* Right Column - Booking Form */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <Card>
-                <CardHeader>
-                  <div className="space-y-6">
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <div className="text-2xl font-bold text-[#050b20] mb-2">
-                        €{vehicle.pricing.find(p => p.duration === selectedDuration)?.price || 'Op aanvraag'}/{selectedDuration?.replace('_', ' ')}
-                      </div>
-                      <div className="text-sm text-gray-600">
-                        {vehicle.pricing.find(p => p.duration === selectedDuration)?.included_km} {t('booking.included_km')}
-                        <br />
-                        {t('booking.extra_km')}: €{vehicle.km_price}{t('booking.per_km')}
-                      </div>
+          <div>
+            <Card className="sticky top-8">
+              <CardHeader>
+                <CardTitle>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-2xl font-bold text-[#050b20] mb-2">
+                      €{vehicle.pricing.find(p => p.duration === selectedDuration)?.price || 'Op aanvraag'}/{selectedDuration?.replace('_', ' ')}
                     </div>
-                    <div>
-                      <Label htmlFor="duration">{t('booking.selectDuration')}</Label>
-                      <Select
-                        value={selectedDuration}
-                        onValueChange={(value: '4_uur' | 'day' | 'weekend' | '5_days' | 'week' | 'month') => setSelectedDuration(value)}
-                      >
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder={t('booking.selectDuration')} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="4 uur">{t('booking.duration.half_day')}</SelectItem>
-                          <SelectItem value="day">{t('booking.duration.day')}</SelectItem>
-                          <SelectItem value="weekend">{t('booking.duration.weekend')}</SelectItem>
-                          <SelectItem value="5_days">{t('booking.duration.five_days')}</SelectItem>
-                          <SelectItem value="week">{t('booking.duration.week')}</SelectItem>
-                          <SelectItem value="month">{t('booking.duration.month')}</SelectItem>
-                        </SelectContent>
-                      </Select>
+                    <div className="text-sm text-gray-600">
+                      {vehicle.pricing.find(p => p.duration === selectedDuration)?.included_km} <EditableTranslationText namespace="vehicleDetail" id="booking.included_km" />
+                      <br />
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.extra_km" />: €{vehicle.km_price}<EditableTranslationText namespace="vehicleDetail" id="booking.per_km" />
                     </div>
-
-                    
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleBooking} className="space-y-6">
-                    {/* Insurance */}
-                    <div>
-                      <Label>{t('booking.insurance.title')}</Label>
-                      <Select
-                        value={bookingData.insurance}
-                        onValueChange={(value) => setBookingData((prev) => ({ ...prev, insurance: value }))}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder={t('booking.insurance.title')} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="basic">{t('booking.insurance.basic')}</SelectItem>
-                          <SelectItem value="premium">{t('booking.insurance.premium')}</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    {/* Extras */}
-                    <div>
-                      <Label className="mb-2 block">{t('booking.extras.title')}</Label>
-                      <div className="space-y-2">
-                        {vehicle.extras.map((extra) => (
-                          <div key={extra.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                            <div>
-                              <div className="font-medium text-[#050b20]">{extra.name}</div>
-                              <div className="text-sm text-gray-600">+€{extra.price}/dag</div>
-                            </div>
-                            <Button
-                              type="button"
-                              variant={bookingData.extras.includes(extra.id) ? "default" : "outline"}
-                              size="sm"
-                              onClick={() => handleExtraToggle(extra.id)}
-                            >
-                              {bookingData.extras.includes(extra.id) ? (
-                                <>
-                                  <Check className="h-4 w-4 mr-1" /> {t('booking.extras.selected')}
-                                </>
-                              ) : (
-                                t('booking.extras.add')
-                              )}
-                            </Button>
-                          </div>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleBooking} className="space-y-6">
+                  <div>
+                    <Label>
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.selectDuration" />
+                    </Label>
+                    <Select value={selectedDuration} onValueChange={(value: any) => setSelectedDuration(value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder={t("booking.selectDuration")} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {vehicle.pricing.map((price) => (
+                          <SelectItem key={price.duration} value={price.duration}>
+                            {price.duration} - €{price.price}
+                          </SelectItem>
                         ))}
-                      </div>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label>
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.insurance.title" />
+                    </Label>
+                    <Select value={bookingData.insurance} onValueChange={(value: any) => setBookingData(prev => ({ ...prev, insurance: value }))}>
+                      <SelectTrigger>
+                        <SelectValue placeholder={t("booking.insurance.title")} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="basic">
+                          <EditableTranslationText namespace="vehicleDetail" id="booking.insurance.basic" />
+                        </SelectItem>
+                        <SelectItem value="premium">
+                          <EditableTranslationText namespace="vehicleDetail" id="booking.insurance.premium" /> (+€15)
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label>
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.extras.title" />
+                    </Label>
+                    <div className="space-y-2">
+                      {vehicle.extras.map((extra) => (
+                        <div key={extra.id} className="flex items-center">
+                          <input
+                            type="checkbox"
+                            id={extra.id}
+                            checked={bookingData.extras.includes(extra.id)}
+                            onChange={() => handleExtraToggle(extra.id)}
+                            className="mr-2"
+                          />
+                          <label htmlFor={extra.id} className="text-sm text-gray-600">
+                            {extra.name} (+€{extra.price})
+                          </label>
+                        </div>
+                      ))}
                     </div>
-
-                    {/* Contact Information */}
-                    <div className="space-y-4">
-                      <div>
-                        <Label>{t('booking.contact.name')}</Label>
-                        <Input
-                          value={bookingData.name}
-                          onChange={(e) => setBookingData((prev) => ({ ...prev, name: e.target.value }))}
-                          placeholder={t('booking.contact.name_placeholder')}
-                        />
-                      </div>
-                      <div>
-                        <Label>{t('booking.contact.email')}</Label>
-                        <Input
-                          type="email"
-                          value={bookingData.email}
-                          onChange={(e) => setBookingData((prev) => ({ ...prev, email: e.target.value }))}
-                          placeholder={t('booking.contact.email_placeholder')}
-                        />
-                      </div>
-                      <div>
-                        <Label>{t('booking.contact.phone')}</Label>
-                        <Input
-                          type="tel"
-                          value={bookingData.phone}
-                          onChange={(e) => setBookingData((prev) => ({ ...prev, phone: e.target.value }))}
-                          placeholder={t('booking.contact.phone_placeholder')}
-                        />
-                      </div>
-                      <div>
-                        <Label>{t('booking.contact.message')}</Label>
-                        <Textarea
-                          value={bookingData.message}
-                          onChange={(e) => setBookingData((prev) => ({ ...prev, message: e.target.value }))}
-                          placeholder={t('booking.contact.message_placeholder')}
-                        />
-                      </div>
+                  </div>
+                  <div>
+                    <Label>
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.contact.name" />
+                    </Label>
+                    <Input
+                      type="text"
+                      value={bookingData.name}
+                      onChange={(e) => setBookingData(prev => ({ ...prev, name: e.target.value }))}
+                      placeholder={t("booking.contact.name_placeholder")}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label>
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.contact.email" />
+                    </Label>
+                    <Input
+                      type="email"
+                      value={bookingData.email}
+                      onChange={(e) => setBookingData(prev => ({ ...prev, email: e.target.value }))}
+                      placeholder={t("booking.contact.email_placeholder")}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label>
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.contact.phone" />
+                    </Label>
+                    <Input
+                      type="tel"
+                      value={bookingData.phone}
+                      onChange={(e) => setBookingData(prev => ({ ...prev, phone: e.target.value }))}
+                      placeholder={t("booking.contact.phone_placeholder")}
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label>
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.contact.message" />
+                    </Label>
+                    <Textarea
+                      value={bookingData.message}
+                      onChange={(e) => setBookingData(prev => ({ ...prev, message: e.target.value }))}
+                      placeholder={t("booking.contact.message_placeholder")}
+                      rows={4}
+                    />
+                  </div>
+                  <div className="border-t pt-4">
+                    <div className="flex justify-between text-lg font-semibold mb-2">
+                      <span>
+                        <EditableTranslationText namespace="vehicleDetail" id="booking.total.total" />
+                      </span>
+                      <span>€{calculateTotal()}</span>
                     </div>
-
-                    {/* Total Price */}
-                    <div className="border-t pt-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-600">{t('booking.total.days')}</span>
-                        <span className="font-medium">{getRentalDays()}</span>
-                      </div>
-                      <div className="flex items-center justify-between text-lg font-bold">
-                        <span>{t('booking.total.total')}</span>
-                        <span>€{calculateTotal()}</span>
-                      </div>
-                      <div className="text-sm text-gray-500 mt-1">{t('booking.total.vat_included')}</div>
-                    </div>
-
-                    {/* Submit Button */}
-                    <Button type="submit" className="w-full bg-[#050b20] hover:bg-[#0a1530]">
-                      {t('booking.submit')}
+                    <Button type="submit" className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20]">
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.submit" />
                     </Button>
+                  </div>
 
-                    {/* Included Services */}
-                    <div className="border-t pt-4">
-                      <h3 className="font-semibold text-[#050b20] mb-3">{t('booking.included_services')}</h3>
-                      <ul className="space-y-2">
-                        {vehicle.included.map((service, idx) => (
-                          <li key={idx} className="flex items-center text-gray-600">
-                            <Shield className="h-4 w-4 mr-2 text-[#95c8e2]" />
-                            {service}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {/* Included Services */}
+                  <div className="border-t pt-4">
+                    <h3 className="font-semibold text-[#050b20] mb-3">
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.included_services" />
+                    </h3>
+                    <ul className="space-y-2">
+                      {vehicle.included.map((service, idx) => (
+                        <li key={idx} className="flex items-center text-gray-600">
+                          <Shield className="h-4 w-4 mr-2 text-[#95c8e2]" />
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                    {/* Contact Support */}
-                    <div className="border-t pt-4">
-                      <h3 className="font-semibold text-[#050b20] mb-3">{t('booking.need_help')}</h3>
-                      <div className="space-y-2">
-                        <Link
-                          href="tel:+32489876613"
-                          className="flex items-center text-gray-600 hover:text-[#050b20] transition-colors"
-                        >
-                          <Phone className="h-4 w-4 mr-2" />
-                          +32 489 87 66 13
-                        </Link>
-                        <Link
-                          href="mailto:info@globalcarservices.be"
-                          className="flex items-center text-gray-600 hover:text-[#050b20] transition-colors"
-                        >
-                          <Mail className="h-4 w-4 mr-2" />
-                          info@globalcarservices.be
-                        </Link>
-                      </div>
+                  {/* Contact Support */}
+                  <div className="border-t pt-4">
+                    <h3 className="font-semibold text-[#050b20] mb-3">
+                      <EditableTranslationText namespace="vehicleDetail" id="booking.need_help" />
+                    </h3>
+                    <div className="space-y-2">
+                      <Link
+                        href="tel:+32489876613"
+                        className="flex items-center text-gray-600 hover:text-[#050b20] transition-colors"
+                      >
+                        <Phone className="h-4 w-4 mr-2" />
+                        +32 489 87 66 13
+                      </Link>
+                      <Link
+                        href="mailto:info@globalcarservices.be"
+                        className="flex items-center text-gray-600 hover:text-[#050b20] transition-colors"
+                      >
+                        <Mail className="h-4 w-4 mr-2" />
+                        info@globalcarservices.be
+                      </Link>
                     </div>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

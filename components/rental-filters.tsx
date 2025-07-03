@@ -15,6 +15,7 @@ import { format } from "date-fns"
 import { nl } from "date-fns/locale"
 import { DateRange } from "react-day-picker"
 import { useTranslations } from 'next-intl'
+import { EditableTranslation } from "./admin/editable-translation"
 
 interface FilterState {
   location: string
@@ -64,14 +65,14 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
 
   const vehicleTypes = [
-    { id: "mini-van", label: t('vehicleType.options.mini-van') },
-    { id: "normal-van", label: t('vehicleType.options.normal-van') },
-    { id: "large-van", label: t('vehicleType.options.large-van') },
-    { id: "xl-van", label: t('vehicleType.options.xl-van') },
-    { id: "box-van", label: t('vehicleType.options.box-van') },
-    { id: "box-van-lift", label: t('vehicleType.options.box-van-lift') },
-    { id: "minibus", label: t('vehicleType.options.minibus') },
-    { id: "koelwagen", label: t('vehicleType.options.koelwagen') }
+    { id: "mini-van", label: "vehicleType.options.mini-van" },
+    { id: "normal-van", label: "vehicleType.options.normal-van" },
+    { id: "large-van", label: "vehicleType.options.large-van" },
+    { id: "xl-van", label: "vehicleType.options.xl-van" },
+    { id: "box-van", label: "vehicleType.options.box-van" },
+    { id: "box-van-lift", label: "vehicleType.options.box-van-lift" },
+    { id: "minibus", label: "vehicleType.options.minibus" },
+    { id: "koelwagen", label: "vehicleType.options.koelwagen" }
   ]
 
   const models = [
@@ -103,43 +104,43 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
   ]
 
   const brands = [
-    { value: "Peugeot", label: t('brands.options.Peugeot') },
-    { value: "Citroen", label: t('brands.options.Citroen') },
-    { value: "Renault", label: t('brands.options.Renault') },
-    { value: "Ford", label: t('brands.options.Ford') },
-    { value: "VW", label: t('brands.options.VW') },
-    { value: "Mercedes", label: t('brands.options.Mercedes') }
+    { value: "Peugeot", label: "brands.options.Peugeot" },
+    { value: "Citroen", label: "brands.options.Citroen" },
+    { value: "Renault", label: "brands.options.Renault" },
+    { value: "Ford", label: "brands.options.Ford" },
+    { value: "VW", label: "brands.options.VW" },
+    { value: "Mercedes", label: "brands.options.Mercedes" }
   ]
 
   const features = [
-    { value: "airco", label: t('features.options.airco') },
-    { value: "navigation", label: t('features.options.navigation') },
-    { value: "carplay", label: t('features.options.carplay') },
-    { value: "android-auto", label: t('features.options.android-auto') },
-    { value: "trekhaak", label: t('features.options.trekhaak') },
-    { value: "laadklep", label: t('features.options.laadklep') },
-    { value: "koeling", label: t('features.options.koeling') },
-    { value: "camera", label: t('features.options.camera') },
-    { value: "schuifdeuren", label: t('features.options.schuifdeuren') }
+    { value: "airco", label: "features.options.airco" },
+    { value: "navigation", label: "features.options.navigation" },
+    { value: "carplay", label: "features.options.carplay" },
+    { value: "android-auto", label: "features.options.android-auto" },
+    { value: "trekhaak", label: "features.options.trekhaak" },
+    { value: "laadklep", label: "features.options.laadklep" },
+    { value: "koeling", label: "features.options.koeling" },
+    { value: "camera", label: "features.options.camera" },
+    { value: "schuifdeuren", label: "features.options.schuifdeuren" }
   ]
 
   const transmissionOptions = [
-    { id: "manual", label: t('transmission.options.manual') },
-    { id: "automatic", label: t('transmission.options.automatic') },
+    { id: "manual", label: "transmission.options.manual" },
+    { id: "automatic", label: "transmission.options.automatic" }
   ]
 
   const fuelOptions = [
-    { id: "diesel", label: t('fuel.options.diesel') },
-    { id: "petrol", label: t('fuel.options.petrol') },
-    { id: "electric", label: t('fuel.options.electric') },
+    { id: "diesel", label: "fuel.options.diesel" },
+    { id: "petrol", label: "fuel.options.petrol" },
+    { id: "electric", label: "fuel.options.electric" }
   ]
 
   const durations = [
-    { value: "half-day", label: t('duration.options.half-day') },
-    { value: "day", label: t('duration.options.day') },
-    { value: "weekend", label: t('duration.options.weekend') },
-    { value: "week", label: t('duration.options.week') },
-    { value: "month", label: t('duration.options.month') }
+    { value: "half-day", label: "duration.options.half-day" },
+    { value: "day", label: "duration.options.day" },
+    { value: "weekend", label: "duration.options.weekend" },
+    { value: "week", label: "duration.options.week" },
+    { value: "month", label: "duration.options.month" }
   ]
 
   const updateFilters = (newFilters: Partial<FilterState>) => {
@@ -329,7 +330,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                 <option value="">{t('vehicleType.placeholder')}</option>
                 {vehicleTypes.map((type) => (
                   <option key={type.id} value={type.id}>
-                    {type.label}
+                    <EditableTranslation translationKey={`rentalFilters.${type.label}`}>
+                      {t(type.label)}
+                    </EditableTranslation>
                   </option>
                 ))}
               </select>
@@ -379,7 +382,11 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Brands */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">{t('brands.title')}</Label>
+                  <Label className="text-base font-medium text-[#050b20]">
+                    <EditableTranslation translationKey="rentalFilters.brands.title">
+                      {t('brands.title')}
+                    </EditableTranslation>
+                  </Label>
                   <div className="grid grid-cols-2 gap-3">
                     {brands.map((brand) => (
                       <div key={brand.value} className="flex items-center space-x-2">
@@ -394,7 +401,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                           }}
                         />
                         <Label htmlFor={brand.value} className="text-sm font-normal cursor-pointer">
-                          {brand.label}
+                          <EditableTranslation translationKey={`rentalFilters.${brand.label}`}>
+                            {t(brand.label)}
+                          </EditableTranslation>
                         </Label>
                       </div>
                     ))}
@@ -403,7 +412,11 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Transmission */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">{t('transmission.title')}</Label>
+                  <Label className="text-base font-medium text-[#050b20]">
+                    <EditableTranslation translationKey="rentalFilters.transmission.title">
+                      {t('transmission.title')}
+                    </EditableTranslation>
+                  </Label>
                   <div className="flex gap-3">
                     {transmissionOptions.map((option) => (
                       <Button
@@ -421,7 +434,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                         }}
                       >
                         <Settings className="mr-2 h-4 w-4" />
-                        {option.label}
+                        <EditableTranslation translationKey={`rentalFilters.${option.label}`}>
+                          {t(option.label)}
+                        </EditableTranslation>
                       </Button>
                     ))}
                   </div>
@@ -429,7 +444,11 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Fuel Type */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">{t('fuel.title')}</Label>
+                  <Label className="text-base font-medium text-[#050b20]">
+                    <EditableTranslation translationKey="rentalFilters.fuel.title">
+                      {t('fuel.title')}
+                    </EditableTranslation>
+                  </Label>
                   <div className="flex gap-3">
                     {fuelOptions.map((option) => (
                       <Button
@@ -447,7 +466,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                         }}
                       >
                         <Fuel className="mr-2 h-4 w-4" />
-                        {option.label}
+                        <EditableTranslation translationKey={`rentalFilters.${option.label}`}>
+                          {t(option.label)}
+                        </EditableTranslation>
                       </Button>
                     ))}
                   </div>
@@ -475,7 +496,11 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Vehicle Types */}
                 <div>
-                  <Label className="text-base font-medium text-[#050b20]">{t('vehicleType.label')}</Label>
+                  <Label className="text-base font-medium text-[#050b20]">
+                    <EditableTranslation translationKey="rentalFilters.vehicleType.label">
+                      {t('vehicleType.label')}
+                    </EditableTranslation>
+                  </Label>
                   <div className="grid grid-cols-2 gap-3 mt-2">
                     {vehicleTypes.map((type) => (
                       <div key={type.id} className="flex items-center space-x-2">
@@ -505,7 +530,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                           }}
                         />
                         <Label htmlFor={type.id} className="text-sm font-normal cursor-pointer">
-                          {type.label}
+                          <EditableTranslation translationKey={`rentalFilters.${type.label}`}>
+                            {t(type.label)}
+                          </EditableTranslation>
                         </Label>
                       </div>
                     ))}
@@ -538,7 +565,11 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Features */}
                 <div>
-                  <Label className="text-base font-medium text-[#050b20]">Kenmerken</Label>
+                  <Label className="text-base font-medium text-[#050b20]">
+                    <EditableTranslation translationKey="rentalFilters.features.label">
+                      {t('features.label')}
+                    </EditableTranslation>
+                  </Label>
                   <div className="grid grid-cols-2 gap-3 mt-2">
                     {getFilteredFeatures(filters.vehicleTypes).map((feature) => (
                       <div key={feature.value} className="flex items-center space-x-2">
@@ -553,7 +584,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                           }}
                         />
                         <Label htmlFor={feature.value} className="text-sm font-normal cursor-pointer">
-                          {feature.label}
+                          <EditableTranslation translationKey={`rentalFilters.features.options.${feature.value}`}>
+                            {t(`features.options.${feature.value}`)}
+                          </EditableTranslation>
                         </Label>
                       </div>
                     ))}
@@ -562,7 +595,11 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
 
                 {/* Duration */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium text-[#050b20]">{t('duration.label')}</Label>
+                  <Label className="text-base font-medium text-[#050b20]">
+                    <EditableTranslation translationKey="rentalFilters.duration.label">
+                      {t('duration.label')}
+                    </EditableTranslation>
+                  </Label>
                   <div className="flex flex-wrap gap-3">
                     {durations.map((duration) => (
                       <Button
@@ -574,7 +611,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
                         }`}
                         onClick={() => updateFilters({ duration: duration.value })}
                       >
-                        {duration.label}
+                        <EditableTranslation translationKey={`rentalFilters.${duration.label}`}>
+                          {t(duration.label)}
+                        </EditableTranslation>
                       </Button>
                     ))}
                   </div>
@@ -631,7 +670,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
             )}
             {filters.vehicleTypes.map((type) => (
               <Badge key={type} variant="secondary" className="rounded-2xl px-3 py-1 shadow-sm">
-                {vehicleTypes.find((v) => v.id === type)?.label}
+                <EditableTranslation translationKey={`rentalFilters.${vehicleTypes.find((v) => v.id === type)?.label}`}>
+                  {t(vehicleTypes.find((v) => v.id === type)?.label)}
+                </EditableTranslation>
                 <X
                   className="ml-1 h-3 w-3 cursor-pointer"
                   onClick={() => updateFilters({ vehicleTypes: filters.vehicleTypes.filter((t) => t !== type) })}
@@ -642,7 +683,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
               const modelInfo = models.find(m => m.value === model);
               return (
                 <Badge key={model} variant="secondary" className="rounded-2xl px-3 py-1 shadow-sm">
-                  {modelInfo?.label}
+                  <EditableTranslation translationKey={`rentalFilters.${modelInfo?.label}`}>
+                    {modelInfo?.label}
+                  </EditableTranslation>
                   <X
                     className="ml-1 h-3 w-3 cursor-pointer"
                     onClick={() => updateFilters({ models: filters.models.filter((m) => m !== model) })}
@@ -654,7 +697,9 @@ export default function RentalFilters({ onFiltersChange, vehicleType = "all" }: 
               const featureInfo = features.find(f => f.value === feature);
               return (
                 <Badge key={feature} variant="secondary" className="rounded-2xl px-3 py-1 shadow-sm">
-                  {featureInfo?.label}
+                  <EditableTranslation translationKey={`rentalFilters.${featureInfo?.label}`}>
+                    {featureInfo?.label}
+                  </EditableTranslation>
                   <X
                     className="ml-1 h-3 w-3 cursor-pointer"
                     onClick={() => updateFilters({ features: filters.features.filter((f) => f !== feature) })}

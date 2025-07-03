@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { TbEngine, TbManualGearbox, TbCarCrash, TbBatteryAutomotive } from "react-icons/tb"
+import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 
 export default function RepairPage() {
   const t = useTranslations("repair")
@@ -25,42 +26,42 @@ export default function RepairPage() {
   const services = [
     {
       icon: TbEngine,
-      title: t("services.items.engine.title"),
-      description: t("services.items.engine.description"),
+      title: <EditableTranslationText namespace="repair" id="services.items.engine.title" />,
+      description: <EditableTranslationText namespace="repair" id="services.items.engine.description" />,
     },
     {
       icon: TbManualGearbox,
-      title: t("services.items.gearbox.title"),
-      description: t("services.items.gearbox.description"),
+      title: <EditableTranslationText namespace="repair" id="services.items.gearbox.title" />,
+      description: <EditableTranslationText namespace="repair" id="services.items.gearbox.description" />,
     },
     {
       icon: TbCarCrash,
-      title: t("services.items.brakes.title"),
-      description: t("services.items.brakes.description"),
+      title: <EditableTranslationText namespace="repair" id="services.items.brakes.title" />,
+      description: <EditableTranslationText namespace="repair" id="services.items.brakes.description" />,
     },
     {
       icon: TbBatteryAutomotive,
-      title: t("services.items.electronics.title"),
-      description: t("services.items.electronics.description"),
+      title: <EditableTranslationText namespace="repair" id="services.items.electronics.title" />,
+      description: <EditableTranslationText namespace="repair" id="services.items.electronics.description" />,
     },
   ]
 
   const faqs = [
     {
-      question: t("faq.items.cost.question"),
-      answer: t("faq.items.cost.answer"),
+      question: <EditableTranslationText namespace="repair" id="faq.items.cost.question" />,
+      answer: <EditableTranslationText namespace="repair" id="faq.items.cost.answer" />,
     },
     {
-      question: t("faq.items.duration.question"),
-      answer: t("faq.items.duration.answer"),
+      question: <EditableTranslationText namespace="repair" id="faq.items.duration.question" />,
+      answer: <EditableTranslationText namespace="repair" id="faq.items.duration.answer" />,
     },
     {
-      question: t("faq.items.warranty.question"),
-      answer: t("faq.items.warranty.answer"),
+      question: <EditableTranslationText namespace="repair" id="faq.items.warranty.question" />,
+      answer: <EditableTranslationText namespace="repair" id="faq.items.warranty.answer" />,
     },
     {
-      question: t("faq.items.brands.question"),
-      answer: t("faq.items.brands.answer"),
+      question: <EditableTranslationText namespace="repair" id="faq.items.brands.question" />,
+      answer: <EditableTranslationText namespace="repair" id="faq.items.brands.answer" />,
     },
   ]
 
@@ -82,8 +83,12 @@ export default function RepairPage() {
       <section className="bg-gradient-to-br from-[#050b20] to-[#0a1530] text-white py-20 rounded-t-[4rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t("subtitle")}</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <EditableTranslationText namespace="repair" id="title" />
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <EditableTranslationText namespace="repair" id="subtitle" />
+            </p>
           </div>
         </div>
       </section>
@@ -94,13 +99,17 @@ export default function RepairPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="relative">
-                <img src="/Globalcar2024-25.jpg" alt={t("title")} className="rounded-lg shadow-lg aspect-square object-cover" />
+                <img src="/Globalcar2024-25.jpg" alt="Repair" className="rounded-lg shadow-lg aspect-square object-cover" />
                 <div className="absolute -bottom-4 -right-4">
                   <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">
-                      <div className="text-xs font-medium uppercase tracking-wide">{t("intro.experience.more_than")}</div>
+                      <div className="text-xs font-medium uppercase tracking-wide">
+                        <EditableTranslationText namespace="repair" id="intro.experience.more_than" />
+                      </div>
                       <div className="text-5xl font-bold">10+</div>
-                      <div className="text-xs font-medium">{t("intro.experience.years")}</div>
+                      <div className="text-xs font-medium">
+                        <EditableTranslationText namespace="repair" id="intro.experience.years" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -108,8 +117,12 @@ export default function RepairPage() {
             </div>
             <div>
               <div className="space-y-6">
-                <p className="text-gray-700 text-lg">{t("intro.description1")}</p>
-                <p className="text-gray-700 text-lg">{t("intro.description2")}</p>
+                <p className="text-gray-700 text-lg">
+                  <EditableTranslationText namespace="repair" id="intro.description1" />
+                </p>
+                <p className="text-gray-700 text-lg">
+                  <EditableTranslationText namespace="repair" id="intro.description2" />
+                </p>
               </div>
             </div>
           </div>
@@ -120,7 +133,9 @@ export default function RepairPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("services.title")}</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="repair" id="services.title" />
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -145,7 +160,9 @@ export default function RepairPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("faq.title")}</h2>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="repair" id="faq.title" />
+            </h2>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
@@ -165,8 +182,12 @@ export default function RepairPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#050b20] mb-4">{t("appointment.title")}</h2>
-            <p className="text-xl text-gray-600">{t("appointment.subtitle")}</p>
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="repair" id="appointment.title" />
+            </h2>
+            <p className="text-xl text-gray-600">
+              <EditableTranslationText namespace="repair" id="appointment.subtitle" />
+            </p>
           </div>
 
           <Card>
@@ -175,7 +196,7 @@ export default function RepairPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("appointment.form.name.label")}
+                      <EditableTranslationText namespace="repair" id="appointment.form.name.label" />
                     </label>
                     <Input
                       type="text"
@@ -189,7 +210,7 @@ export default function RepairPage() {
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("appointment.form.phone.label")}
+                      <EditableTranslationText namespace="repair" id="appointment.form.phone.label" />
                     </label>
                     <Input
                       type="tel"
@@ -206,25 +227,37 @@ export default function RepairPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("appointment.form.date.label")}
+                      <EditableTranslationText namespace="repair" id="appointment.form.date.label" />
                     </label>
                     <Input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("appointment.form.vehicle_type.label")}
+                      <EditableTranslationText namespace="repair" id="appointment.form.vehicle_type.label" />
                     </label>
                     <Select onValueChange={(value) => setFormData({ ...formData, vehicleType: value })}>
                       <SelectTrigger>
                         <SelectValue placeholder={t("appointment.form.vehicle_type.placeholder")} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="city_car">{t("appointment.form.vehicle_type.options.city_car")}</SelectItem>
-                        <SelectItem value="sedan">{t("appointment.form.vehicle_type.options.sedan")}</SelectItem>
-                        <SelectItem value="suv">{t("appointment.form.vehicle_type.options.suv")}</SelectItem>
-                        <SelectItem value="station_wagon">{t("appointment.form.vehicle_type.options.station_wagon")}</SelectItem>
-                        <SelectItem value="utility">{t("appointment.form.vehicle_type.options.utility")}</SelectItem>
-                        <SelectItem value="other">{t("appointment.form.vehicle_type.options.other")}</SelectItem>
+                        <SelectItem value="city_car">
+                          <EditableTranslationText namespace="repair" id="appointment.form.vehicle_type.options.city_car" />
+                        </SelectItem>
+                        <SelectItem value="sedan">
+                          <EditableTranslationText namespace="repair" id="appointment.form.vehicle_type.options.sedan" />
+                        </SelectItem>
+                        <SelectItem value="suv">
+                          <EditableTranslationText namespace="repair" id="appointment.form.vehicle_type.options.suv" />
+                        </SelectItem>
+                        <SelectItem value="station_wagon">
+                          <EditableTranslationText namespace="repair" id="appointment.form.vehicle_type.options.station_wagon" />
+                        </SelectItem>
+                        <SelectItem value="utility">
+                          <EditableTranslationText namespace="repair" id="appointment.form.vehicle_type.options.utility" />
+                        </SelectItem>
+                        <SelectItem value="other">
+                          <EditableTranslationText namespace="repair" id="appointment.form.vehicle_type.options.other" />
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -232,7 +265,7 @@ export default function RepairPage() {
 
                 <div>
                   <label htmlFor="problemDescription" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("appointment.form.problem.label")}
+                    <EditableTranslationText namespace="repair" id="appointment.form.problem.label" />
                   </label>
                   <Textarea
                     id="problemDescription"
@@ -248,9 +281,8 @@ export default function RepairPage() {
                 <Button
                   type="submit"
                   className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold"
-                  size="lg"
                 >
-                  {t("appointment.form.submit")}
+                  <EditableTranslationText namespace="repair" id="appointment.form.submit" />
                 </Button>
               </form>
             </CardContent>
