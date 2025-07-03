@@ -112,8 +112,16 @@ export default getRequestConfig(async ({ locale }) => {
     
     return { 
       messages,
-      // Désactiver le cache pour forcer le rechargement des traductions
-      unstable_noStore: true
+      // Forcer le rechargement dynamique - désactiver TOUS les caches
+      unstable_noStore: true,
+      // Désactiver le cache de Next.js
+      revalidate: 0,
+      // Headers pour éviter le cache
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
     }
   } catch (error) {
     console.error('[i18n] Erreur lors du chargement des traductions:', error)
@@ -121,7 +129,13 @@ export default getRequestConfig(async ({ locale }) => {
     const defaultMessages = (await import(`./messages/${locale}.json`)).default
     return { 
       messages: defaultMessages,
-      unstable_noStore: true
+      unstable_noStore: true,
+      revalidate: 0,
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
     }
   }
 }) 
