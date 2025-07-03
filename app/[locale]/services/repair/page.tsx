@@ -100,7 +100,7 @@ export default function RepairPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="relative">
-                <EditableImage src="/Globalcar2024-25.jpg" alt="Repair" className="rounded-lg shadow-lg aspect-square object-cover" />
+                <EditableImage src="/Globalcar2024-25.jpg" alt="Repair" className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600}/>
                 <div className="absolute -bottom-4 -right-4">
                   <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">

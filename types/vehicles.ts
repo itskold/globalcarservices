@@ -15,6 +15,7 @@ export interface VehicleData {
   km_price: number;
   features: string[];
   image: string;
+  imageUrl?: string;
   type: string;
   brand: string;
   year: number;

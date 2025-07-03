@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -8,59 +8,180 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import { db, storage } from "@/lib/firebase"
-import { collection, addDoc } from "firebase/firestore"
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore"
+import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage"
 import type { VehicleData } from "@/types/vehicles"
-import { Package } from "lucide-react"
+import { Package, Upload, X, Image as ImageIcon } from "lucide-react"
+import { useRouter } from "next/navigation"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
 
-export default function VehicleForm() {
+interface VehicleFormProps {
+  initialData?: VehicleData | null
+}
+
+const defaultFormData: Partial<VehicleData> = {
+  icon: Package,
+  title: "",
+  description: "",
+  pricing: [
+    { duration: "4 uur", price: 0, included_km: 0 },
+    { duration: "day", price: 0, included_km: 0 },
+    { duration: "weekend", price: 0, included_km: 0 },
+    { duration: "5_days", price: 0, included_km: 0 },
+    { duration: "week", price: 0, included_km: 0 },
+  ],
+  km_price: 0,
+  features: [],
+  type: "",
+  brand: "",
+  year: new Date().getFullYear(),
+  category: "",
+  seats: 0,
+  fuel: "",
+  transmission: "",
+  rating: 5,
+  reviewCount: 0,
+  images: [],
+  image: "",
+  specifications: {
+    engine: "",
+    power: "",
+    consumption: "",
+    doors: 0,
+    luggage: "",
+    aircon: true,
+    gps: true,
+  },
+  included: [],
+  extras: [{ id: "1", name: "", price: 0 }],
+}
+
+export default function VehicleForm({ initialData }: VehicleFormProps) {
   const [loading, setLoading] = useState(false)
-  const [images, setImages] = useState<FileList | null>(null)
-  const [formData, setFormData] = useState<Partial<VehicleData>>({
-    icon: Package,
-    title: "",
-    description: "",
-    pricing: [
-      { duration: "4 uur", price: 0, included_km: 0 },
-      { duration: "day", price: 0, included_km: 0 },
-      { duration: "weekend", price: 0, included_km: 0 },
-      { duration: "5_days", price: 0, included_km: 0 },
-      { duration: "week", price: 0, included_km: 0 },
-    ],
-    km_price: 0,
-    features: [],
-    type: "",
-    brand: "",
-    year: new Date().getFullYear(),
-    category: "",
-    seats: 0,
-    fuel: "",
-    transmission: "",
-    rating: 5,
-    reviewCount: 0,
-    specifications: {
-      engine: "",
-      power: "",
-      consumption: "",
-      doors: 0,
-      luggage: "",
-      aircon: true,
-      gps: true,
-    },
-    included: [],
-    extras: [{ id: "1", name: "", price: 0 }],
-  })
-
-  const handleImageUpload = async (files: FileList) => {
-    const uploadedUrls = []
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i]
-      const storageRef = ref(storage, `vehicles/${Date.now()}_${file.name}`)
-      await uploadBytes(storageRef, file)
-      const url = await getDownloadURL(storageRef)
-      uploadedUrls.push(url)
+  const [previewImages, setPreviewImages] = useState<string[]>([])
+  const [uploadedImages, setUploadedImages] = useState<string[]>([])
+  const [isDragging, setIsDragging] = useState(false)
+  const [formData, setFormData] = useState<Partial<VehicleData>>(() => {
+    if (initialData) {
+      return {
+        ...defaultFormData,
+        ...initialData,
+        specifications: {
+          ...defaultFormData.specifications,
+          ...(initialData.specifications || {}),
+        },
+        pricing: initialData.pricing?.map(price => ({
+          duration: price.duration,
+          price: Number(price.price) || 0,
+          included_km: Number(price.included_km) || 0
+        })) || defaultFormData.pricing,
+        features: Array.isArray(initialData.features) ? initialData.features : [],
+        included: Array.isArray(initialData.included) ? initialData.included : [],
+        extras: initialData.extras?.map(extra => ({
+          id: extra.id || Date.now().toString(),
+          name: extra.name || "",
+          price: Number(extra.price) || 0
+        })) || defaultFormData.extras,
+        images: initialData.images || [],
+        image: initialData.image || "",
+        title: initialData.title || "",
+        description: initialData.description || "",
+        type: initialData.type || "",
+        brand: initialData.brand || "",
+        year: Number(initialData.year) || new Date().getFullYear(),
+        category: initialData.category || "",
+        seats: Number(initialData.seats) || 0,
+        fuel: initialData.fuel || "",
+        transmission: initialData.transmission || "",
+        km_price: Number(initialData.km_price) || 0,
+      }
     }
-    return uploadedUrls
+    return defaultFormData
+  })
+  const router = useRouter()
+
+  useEffect(() => {
+    if (initialData) {
+      setUploadedImages(initialData.images || [])
+      console.log("Données initiales chargées:", initialData)
+    }
+  }, [initialData])
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (files) {
+      const newPreviewImages = Array.from(files).map(file => URL.createObjectURL(file))
+      setPreviewImages(prev => [...prev, ...newPreviewImages])
+      handleImageUpload(files)
+    }
+  }
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragging(true)
+  }
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragging(false)
+  }
+
+  const handleDrop = async (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDragging(false)
+    
+    const files = e.dataTransfer.files
+    if (files.length > 0) {
+      const newPreviewImages = Array.from(files).map(file => URL.createObjectURL(file))
+      setPreviewImages(prev => [...prev, ...newPreviewImages])
+      handleImageUpload(files)
+    }
+  }
+
+  const handleImageUpload = async (files: FileList): Promise<string[]> => {
+    setLoading(true)
+    try {
+      const uploadedUrls: string[] = []
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i]
+        const storageRef = ref(storage, `vehicles/${Date.now()}_${file.name}`)
+        await uploadBytes(storageRef, file)
+        const url = await getDownloadURL(storageRef)
+        uploadedUrls.push(url)
+      }
+      setUploadedImages(prev => [...prev, ...uploadedUrls])
+      setFormData(prev => ({
+        ...prev,
+        images: [...(prev.images || []), ...uploadedUrls],
+        image: prev.image || uploadedUrls[0] || "",
+      }))
+      return uploadedUrls
+    } catch (error) {
+      console.error("Erreur lors du téléchargement des images:", error)
+      return []
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleRemoveImage = async (index: number, imageUrl: string) => {
+    try {
+      // Supprimer l'image de Firebase Storage
+      const imageRef = ref(storage, imageUrl)
+      await deleteObject(imageRef)
+
+      // Mettre à jour les états locaux
+      setUploadedImages(prev => prev.filter((_, i) => i !== index))
+      setPreviewImages(prev => prev.filter((_, i) => i !== index))
+      setFormData(prev => ({
+        ...prev,
+        images: prev.images?.filter((_, i) => i !== index) || [],
+        image: index === 0 && prev.images && prev.images.length > 1 ? prev.images[1] : prev.image,
+      }))
+    } catch (error) {
+      console.error("Erreur lors de la suppression de l'image:", error)
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -68,57 +189,26 @@ export default function VehicleForm() {
     setLoading(true)
 
     try {
-      let imageUrls: string[] = []
-      if (images) {
-        imageUrls = await handleImageUpload(images)
-      }
-
       const vehicleData = {
         ...formData,
-        images: imageUrls,
-        image: imageUrls[0] || "",
+        images: uploadedImages,
+        image: uploadedImages[0] || "",
       }
 
-      await addDoc(collection(db, "vehicles"), vehicleData)
+      if (initialData?.id) {
+        // Mode édition
+        await updateDoc(doc(db, "vehicles", initialData.id), vehicleData)
+      } else {
+        // Mode création
+        await addDoc(collection(db, "vehicles"), vehicleData)
+      }
       
-      // Reset form
-      setFormData({
-        icon: Package,
-        title: "",
-        description: "",
-        pricing: [
-          { duration: "4 uur", price: 0, included_km: 0 },
-          { duration: "day", price: 0, included_km: 0 },
-          { duration: "weekend", price: 0, included_km: 0 },
-          { duration: "5_days", price: 0, included_km: 0 },
-          { duration: "week", price: 0, included_km: 0 },
-        ],
-        km_price: 0,
-        features: [],
-        type: "",
-        brand: "",
-        year: new Date().getFullYear(),
-        category: "",
-        seats: 0,
-        fuel: "",
-        transmission: "",
-        rating: 5,
-        reviewCount: 0,
-        specifications: {
-          engine: "",
-          power: "",
-          consumption: "",
-          doors: 0,
-          luggage: "",
-          aircon: true,
-          gps: true,
-        },
-        included: [],
-        extras: [{ id: "1", name: "", price: 0 }],
-      })
-      setImages(null)
+      // Redirection vers la liste
+      router.push('/admin/dashboard/vehicles')
+      router.refresh()
+
     } catch (error) {
-      console.error("Error adding vehicle:", error)
+      console.error("Error saving vehicle:", error)
     } finally {
       setLoading(false)
     }
@@ -526,24 +616,70 @@ export default function VehicleForm() {
         </div>
       </div>
 
-      {/* Images */}
+      {/* Section des images */}
       <div className="space-y-4">
-        <h3 className="text-lg font-medium">Images</h3>
-        <div className="space-y-2">
-          <Label htmlFor="images">Sélectionner des images</Label>
-          <Input
-            id="images"
+        <h3 className="text-lg font-medium">Images du véhicule</h3>
+        
+        <div
+          className={cn(
+            "border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors",
+            isDragging ? "border-primary bg-primary/10" : "border-gray-300 hover:border-primary"
+          )}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          onClick={() => document.getElementById('image-upload')?.click()}
+        >
+          <input
             type="file"
+            id="image-upload"
             multiple
             accept="image/*"
-            onChange={(e) => setImages(e.target.files)}
-            required
+            className="hidden"
+            onChange={handleImageChange}
           />
+          <div className="flex flex-col items-center gap-2">
+            <Upload className="w-10 h-10 text-gray-400" />
+            <p className="text-lg font-medium">
+              Glissez et déposez vos images ici
+            </p>
+            <p className="text-sm text-gray-500">
+              ou cliquez pour sélectionner des fichiers
+            </p>
+          </div>
         </div>
+
+        {/* Prévisualisation des images */}
+        {(uploadedImages.length > 0 || previewImages.length > 0) && (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+            {uploadedImages.map((imageUrl, index) => (
+              <div key={imageUrl} className="relative group aspect-square">
+                <Image
+                  src={imageUrl}
+                  alt={`Image ${index + 1}`}
+                  fill
+                  className="rounded-lg object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={() => handleRemoveImage(index, imageUrl)}
+                  className="absolute top-2 right-2 p-1 bg-red-500 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                {index === 0 && (
+                  <div className="absolute bottom-2 left-2 px-2 py-1 bg-primary rounded-md text-white text-xs">
+                    Image principale
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <Button type="submit" disabled={loading} className="w-full">
-        {loading ? "Ajout en cours..." : "Ajouter le véhicule"}
+        {loading ? "Enregistrement en cours..." : "Enregistrer le véhicule"}
       </Button>
     </form>
   )

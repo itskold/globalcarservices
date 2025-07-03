@@ -51,7 +51,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <EditableImage src="/about-inner1-2.jpg" alt={t("story.image")} className="rounded-lg shadow-lg aspect-square object-cover" />
+              <EditableImage src="/about-inner1-2.jpg" alt={t("story.image")} className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600}/>
             </div>
             <div>
               <h2 className="text-3xl font-bold text-[#050b20] mb-6">

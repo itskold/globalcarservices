@@ -42,9 +42,9 @@ export default function SearchSection() {
   const params = useParams()
   const locale = params.locale as string
 
-  const [pickupLocation, setPickupLocation] = useState("")
-  const [returnLocation, setReturnLocation] = useState("")
-  const [vehicleType, setVehicleType] = useState("")
+  const [pickupLocation, setPickupLocation] = useState("antwerpen")
+  const [returnLocation, setReturnLocation] = useState("antwerpen")
+  const [vehicleType, setVehicleType] = useState("van")
   const [pickupDateTime, setPickupDateTime] = useState<Date | undefined>(undefined)
   const [returnDateTime, setReturnDateTime] = useState<Date | undefined>(undefined)
 
@@ -69,10 +69,11 @@ export default function SearchSection() {
                   <MapPin className="h-4 w-4" />
                   <EditableTranslationText namespace="searchSection" id="pickupLocation.label" />
                 </Label>
-                <Select value={pickupLocation} onValueChange={setPickupLocation} defaultValue="antwerpen">
+                <Select value={pickupLocation} onValueChange={setPickupLocation}>
                   <SelectTrigger>
-                    <SelectValue>
-                      <EditableTranslationText namespace="searchSection" id="pickupLocation.placeholder" />
+                    <SelectValue placeholder={<EditableTranslationText namespace="searchSection" id="pickupLocation.placeholder" />}>
+                      {pickupLocation === "antwerpen" && <EditableTranslationText namespace="searchSection" id="locations.antwerpen" />}
+                      {pickupLocation === "gent" && <EditableTranslationText namespace="searchSection" id="locations.gent" />}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
@@ -92,10 +93,11 @@ export default function SearchSection() {
                   <MapPin className="h-4 w-4" />
                   <EditableTranslationText namespace="searchSection" id="returnLocation.label" />
                 </Label>
-                <Select value={returnLocation} onValueChange={setReturnLocation} defaultValue="antwerpen">
+                <Select value={returnLocation} onValueChange={setReturnLocation}>
                   <SelectTrigger>
-                    <SelectValue>
-                      <EditableTranslationText namespace="searchSection" id="returnLocation.placeholder" />
+                    <SelectValue placeholder={<EditableTranslationText namespace="searchSection" id="returnLocation.placeholder" />}>
+                      {returnLocation === "antwerpen" && <EditableTranslationText namespace="searchSection" id="locations.antwerpen" />}
+                      {returnLocation === "gent" && <EditableTranslationText namespace="searchSection" id="locations.gent" />}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
@@ -114,10 +116,13 @@ export default function SearchSection() {
                 <Label htmlFor="vehicle-type">
                   <EditableTranslationText namespace="searchSection" id="vehicleType.label" />
                 </Label>
-                <Select value={vehicleType} onValueChange={setVehicleType} defaultValue="van">
+                <Select value={vehicleType} onValueChange={setVehicleType}>
                   <SelectTrigger>
-                    <SelectValue>
-                      <EditableTranslationText namespace="searchSection" id="vehicleType.placeholder" />
+                    <SelectValue placeholder={<EditableTranslationText namespace="searchSection" id="vehicleType.placeholder" />}>
+                      {vehicleType === "van" && <EditableTranslationText namespace="searchSection" id="vehicleType.options.van" />}
+                      {vehicleType === "minibus" && <EditableTranslationText namespace="searchSection" id="vehicleType.options.minibus" />}
+                      {vehicleType === "car" && <EditableTranslationText namespace="searchSection" id="vehicleType.options.car" />}
+                      {vehicleType === "truck" && <EditableTranslationText namespace="searchSection" id="vehicleType.options.truck" />}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>

@@ -6,12 +6,14 @@ import { useToast } from '@/components/ui/use-toast'
 import type { ImageProps } from 'next/image'
 
 type EditableImageProps = Omit<ImageProps, 'src'> & {
-  src: string
+  src: string;
+  onImageUpdate?: (file: File) => void;
 }
 
 export function EditableImage({ 
   src,
   className,
+  onImageUpdate,
   ...props
 }: EditableImageProps) {
   const { isEditMode } = useImageEditor()
@@ -43,36 +45,10 @@ export function EditableImage({
       }
 
       try {
-        const formData = new FormData()
-        formData.append('file', file)
-        formData.append('path', src) // Envoyer le chemin original
-
-        const response = await fetch('/api/upload', {
-          method: 'POST',
-          body: formData,
-        })
-
-        const data = await response.json()
-
-        if (!response.ok) {
-          throw new Error(data.error || 'Upload failed')
+        // Appeler le callback onImageUpdate avec le fichier
+        if (onImageUpdate) {
+          onImageUpdate(file)
         }
-
-        // Forcer le rechargement de l'image en ajoutant un timestamp
-        const timestamp = Date.now()
-        const imgElement = document.querySelector(`img[src^="${src}"]`) as HTMLImageElement
-        if (imgElement) {
-          const newSrc = src.includes('?') 
-            ? `${src}&t=${timestamp}`
-            : `${src}?t=${timestamp}`
-          imgElement.src = newSrc
-        }
-
-        toast({
-          title: "Succès",
-          description: "L'image a été mise à jour"
-        })
-
       } catch (error) {
         console.error('Upload error:', error)
         toast({
