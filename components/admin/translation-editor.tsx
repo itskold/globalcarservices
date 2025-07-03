@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { X, RefreshCw } from 'lucide-react'
+import { X, RefreshCw, Zap } from 'lucide-react'
 
 interface TranslationValue {
   lang: string
@@ -27,6 +27,7 @@ export function TranslationEditor({
   const [values, setValues] = useState<TranslationValue[]>(translations)
   const [isSaving, setIsSaving] = useState(false)
   const [isReloading, setIsReloading] = useState(false)
+  const [isPurging, setIsPurging] = useState(false)
 
   useEffect(() => {
     setValues(translations)
@@ -63,6 +64,31 @@ export function TranslationEditor({
     }
   }
 
+  const handlePurgeCache = async () => {
+    setIsPurging(true)
+    try {
+      const response = await fetch('/api/admin/purge-cache', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      
+      const result = await response.json()
+      
+      if (result.success) {
+        alert('Cache purgé avec succès !')
+      } else {
+        alert(`Erreur lors de la purge: ${result.error}`)
+      }
+    } catch (error) {
+      console.error('Failed to purge cache:', error)
+      alert('Erreur lors de la purge du cache')
+    } finally {
+      setIsPurging(false)
+    }
+  }
+
   if (!isOpen) return null
 
   return (
@@ -71,6 +97,15 @@ export function TranslationEditor({
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold">Modifier les traductions</h3>
           <div className="flex space-x-2">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={handlePurgeCache}
+              disabled={isPurging}
+              title="Purger le cache Vercel"
+            >
+              <Zap className={`h-4 w-4 ${isPurging ? 'animate-pulse' : ''}`} />
+            </Button>
             <Button 
               variant="ghost" 
               size="icon" 

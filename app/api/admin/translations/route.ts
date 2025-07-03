@@ -15,6 +15,37 @@ function encodeKey(key: string): string {
   return key.replace(/[.#$\[\]]/g, '_')
 }
 
+// Fonction pour purger le cache Vercel
+async function purgeVercelCache(): Promise<void> {
+  try {
+    const vercelToken = process.env.VERCEL_TOKEN
+    const vercelProjectId = process.env.VERCEL_PROJECT_ID
+    
+    if (!vercelToken || !vercelProjectId) {
+      console.log('[Cache] Vercel token ou project ID manquant, skip purge')
+      return
+    }
+    
+    console.log('[Cache] Tentative de purge du cache Vercel...')
+    
+    const response = await fetch(`https://api.vercel.com/v1/projects/${vercelProjectId}/cache`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${vercelToken}`,
+        'Content-Type': 'application/json'
+      }
+    })
+    
+    if (response.ok) {
+      console.log('[Cache] Cache Vercel purgé avec succès')
+    } else {
+      console.error('[Cache] Erreur lors de la purge:', response.status, response.statusText)
+    }
+  } catch (error) {
+    console.error('[Cache] Erreur lors de la purge du cache:', error)
+  }
+}
+
 async function getTranslationFromRealtimeDB(key: string, lang: string): Promise<string | undefined> {
   try {
     const encodedKey = encodeKey(key)
@@ -81,12 +112,19 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
     }
     
+    console.log(`[Translations] Sauvegarde de la clé: ${key}`)
+    
     // Update each language in Realtime Database
     for (const { lang, value } of translations) {
       if (!SUPPORTED_LANGUAGES.includes(lang)) continue
       
       await updateTranslationInRealtimeDB(key, lang, value)
     }
+    
+    // Purger le cache Vercel après la sauvegarde
+    await purgeVercelCache()
+    
+    console.log(`[Translations] Sauvegarde terminée pour: ${key}`)
     
     return NextResponse.json({ success: true })
   } catch (error) {
