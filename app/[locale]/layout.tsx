@@ -13,6 +13,7 @@ import { TranslationEditorButton } from '@/components/admin/translation-editor-b
 import { ImageEditorProvider } from '@/lib/contexts/image-editor-context'
 import { ImageEditorButton } from '@/components/admin/image-editor-button'
 import { headers } from 'next/headers'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -41,6 +42,8 @@ export default async function LocaleLayout({
   } catch (error) {
     notFound();
   }
+
+  unstable_setRequestLocale(locale)
 
   return (
     <html lang={locale}>
