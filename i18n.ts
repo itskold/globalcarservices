@@ -1,15 +1,2 @@
-import {notFound} from 'next/navigation';
-import {getRequestConfig} from 'next-intl/server';
-
-export const locales = ['nl', 'fr', 'en'] as const;
-export type Locale = typeof locales[number];
-export const defaultLocale = 'nl' as const;
-
-export default getRequestConfig(async ({locale}) => {
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
-
-  return {
-    messages: (await import(`./messages/${locale}.json`)).default
-  };
-}); 
+export { locales, defaultLocale, type Locale } from './lib/i18n-with-firebase'
+export { default } from './lib/i18n-with-firebase' 

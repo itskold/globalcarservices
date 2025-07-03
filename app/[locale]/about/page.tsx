@@ -4,10 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, Clock, DollarSign, Shield } from "lucide-react"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 import { EditableImage } from "@/components/admin/editable-image"
+import { useServiceImages } from "@/lib/hooks/use-service-images"
 
 export default function AboutPage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale)
   const t = useTranslations("about")
+  const { serviceImages, loading, error } = useServiceImages()
 
   const values = [
     {
@@ -53,7 +55,7 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <EditableImage src="/about-inner1-2.jpg" alt={t("story.image")} className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600}/>
+              <EditableImage src={serviceImages.about} alt={t("story.image")} className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600} documentName="about" collectionName="images"/>
             </div>
             <div>
               <h2 className="text-3xl font-bold text-[#050b20] mb-6">

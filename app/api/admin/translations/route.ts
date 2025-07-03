@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs/promises'
-import path from 'path'
+import { getDatabase, ref, get, set } from 'firebase/database'
+import { app } from '@/lib/firebase'
 
-const MESSAGES_DIR = path.join(process.cwd(), 'messages')
+const database = getDatabase(app)
 const SUPPORTED_LANGUAGES = ['fr', 'en', 'nl']
 
 interface TranslationValue {
@@ -10,46 +10,42 @@ interface TranslationValue {
   value: string
 }
 
-async function getTranslationFromFile(filePath: string, key: string): Promise<string | undefined> {
+// Fonction pour encoder les clés pour Firebase Realtime Database
+function encodeKey(key: string): string {
+  return key.replace(/[.#$\[\]]/g, '_')
+}
+
+async function getTranslationFromRealtimeDB(key: string, lang: string): Promise<string | undefined> {
   try {
-    const content = await fs.readFile(filePath, 'utf-8')
-    const translations = JSON.parse(content)
+    const encodedKey = encodeKey(key)
+    const translationRef = ref(database, `translations/${lang}/${encodedKey}`)
+    const snapshot = await get(translationRef)
     
-    // Split the key by dots and traverse the object
-    const keys = key.split('.')
-    let value = translations
-    for (const k of keys) {
-      if (value === undefined) break
-      value = value[k]
+    if (snapshot.exists()) {
+      const data = snapshot.val()
+      return data.value || data // Retourner la valeur ou l'objet complet
     }
-    
-    return typeof value === 'string' ? value : undefined
+    return undefined
   } catch (error) {
-    console.error(`Error reading translation from ${filePath}:`, error)
+    console.error(`Error reading translation from Realtime DB for ${lang}/${key}:`, error)
     return undefined
   }
 }
 
-async function updateTranslationInFile(filePath: string, key: string, value: string): Promise<void> {
-  const content = await fs.readFile(filePath, 'utf-8')
-  const translations = JSON.parse(content)
-  
-  // Split the key by dots and traverse/create the object structure
-  const keys = key.split('.')
-  let current = translations
-  for (let i = 0; i < keys.length - 1; i++) {
-    const k = keys[i]
-    if (!(k in current)) {
-      current[k] = {}
-    }
-    current = current[k]
+async function updateTranslationInRealtimeDB(key: string, lang: string, value: string): Promise<void> {
+  try {
+    const encodedKey = encodeKey(key)
+    const translationRef = ref(database, `translations/${lang}/${encodedKey}`)
+    await set(translationRef, {
+      value,
+      originalKey: key, // Garder la clé originale
+      updatedAt: new Date().toISOString()
+    })
+    console.log(`Translation updated: ${lang}/${encodedKey} = "${value}"`)
+  } catch (error) {
+    console.error(`Error updating translation in Realtime DB for ${lang}/${key}:`, error)
+    throw error
   }
-  
-  // Set the value at the final key
-  current[keys[keys.length - 1]] = value
-  
-  // Write back to file
-  await fs.writeFile(filePath, JSON.stringify(translations, null, 2), 'utf-8')
 }
 
 export async function GET(request: NextRequest) {
@@ -64,8 +60,7 @@ export async function GET(request: NextRequest) {
     
     // Get translations for each supported language
     for (const lang of SUPPORTED_LANGUAGES) {
-      const filePath = path.join(MESSAGES_DIR, `${lang}.json`)
-      const value = await getTranslationFromFile(filePath, key)
+      const value = await getTranslationFromRealtimeDB(key, lang)
       if (value !== undefined) {
         translations.push({ lang, value })
       }
@@ -86,12 +81,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
     }
     
-    // Update each language file
+    // Update each language in Realtime Database
     for (const { lang, value } of translations) {
       if (!SUPPORTED_LANGUAGES.includes(lang)) continue
       
-      const filePath = path.join(MESSAGES_DIR, `${lang}.json`)
-      await updateTranslationInFile(filePath, key, value)
+      await updateTranslationInRealtimeDB(key, lang, value)
     }
     
     return NextResponse.json({ success: true })

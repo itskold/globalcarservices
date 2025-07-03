@@ -8,31 +8,36 @@ import { Phone, MapPin } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { EditableTranslation } from "./admin/editable-translation"
 import { EditableImage } from "./admin/editable-image"
+import { useServiceImages } from "@/lib/hooks/use-service-images"
 
 export default function Services() {
   const t = useTranslations("services")
+  const { serviceImages, loading, error } = useServiceImages()
 
   const services = [
     {
-      image: "/rental.jpg",
+      image: serviceImages.service1,
       titleKey: "rental.title",
       descriptionKey: "rental.description",
       buttonKey: "rental.button",
       href: "/rental",
+      documentName: "service1",
     },
     {
-      image: "/repair.jpg",
+      image: serviceImages.service2,
       titleKey: "maintenance.title",
       descriptionKey: "maintenance.description",
       buttonKey: "maintenance.button",
       href: "/services",
+      documentName: "service2",
     },
     {
-      image: "/dealer1-3.jpg",
+      image: serviceImages.service3,
       titleKey: "breakdown.title",
       descriptionKey: "breakdown.description",
       buttonKey: "breakdown.button",
       href: "/breakdown",
+      documentName: "service3",
     },
   ]
 
@@ -56,7 +61,14 @@ export default function Services() {
           {services.map((service, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden">
               <div className="relative h-48 w-full">
-                <EditableImage src={service.image || "/placeholder.svg"} alt={t(service.titleKey)} fill className="object-cover filter grayscale" />
+                <EditableImage 
+                  src={service.image || "/placeholder.svg"} 
+                  alt={t(service.titleKey)} 
+                  fill 
+                  className="object-cover filter grayscale"
+                  documentName={service.documentName}
+                  collectionName="images"
+                />
               </div>
               <CardHeader className="text-center">
                 <CardTitle className="text-xl">

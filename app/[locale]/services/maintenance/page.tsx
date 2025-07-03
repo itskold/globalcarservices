@@ -15,9 +15,11 @@ import { GiCarWheel } from "react-icons/gi"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 import { useTranslations } from "next-intl"
 import { EditableImage } from "@/components/admin/editable-image"
+import { useServiceImages } from "@/lib/hooks/use-service-images"
 
 export default function MaintenancePage() {
-    const t = useTranslations("maintenance")
+  const t = useTranslations("maintenance")
+  const { serviceImages, loading, error } = useServiceImages()
 
   const [formData, setFormData] = useState({
     name: "",
@@ -127,7 +129,7 @@ export default function MaintenancePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="relative">
-                <EditableImage src="/Globalcar2024-2.jpg" alt="Auto onderhoud" className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600}/>
+                <EditableImage src={serviceImages.maintenance} alt="Auto onderhoud" className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600} documentName="maintenance" collectionName="images"/>
                 <div className="absolute -bottom-4 -right-4">
                   <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">

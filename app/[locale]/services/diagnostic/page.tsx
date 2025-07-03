@@ -14,10 +14,13 @@ import { Cpu, Wind } from "lucide-react"
 import { TbEngine, TbBatteryAutomotive } from "react-icons/tb"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 import { EditableImage } from "@/components/admin/editable-image"
+import { useServiceImages } from "@/lib/hooks/use-service-images"
+
 
 export default function DiagnosticPage() {
     const t = useTranslations("diagnostic")
   const { locale } = useParams()
+  const { serviceImages, loading, error } = useServiceImages()
 
   const [formData, setFormData] = useState({
     name: "",
@@ -111,7 +114,7 @@ export default function DiagnosticPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="relative">
-                  <EditableImage src="/Globalcar2024-13.jpg" alt="Diagnostic" className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600}/>
+                  <EditableImage src={serviceImages.diagnostic} alt="Diagnostic" className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600} documentName="diagnostic" collectionName="images"/>
                   <div className="absolute -bottom-4 -right-4">
                     <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                       <div className="text-center">
