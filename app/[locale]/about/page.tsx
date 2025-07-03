@@ -1,10 +1,12 @@
 import { useTranslations } from "next-intl"
+import { unstable_setRequestLocale } from 'next-intl/server'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, Clock, DollarSign, Shield } from "lucide-react"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 import { EditableImage } from "@/components/admin/editable-image"
 
-export default function AboutPage() {
+export default function AboutPage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale)
   const t = useTranslations("about")
 
   const values = [
