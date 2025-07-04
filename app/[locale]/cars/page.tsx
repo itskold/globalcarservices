@@ -70,7 +70,7 @@ export default function CarsPage() {
                 <Card key={category} className="hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02]">
                   <CardContent className="pt-6">
                     <div className="text-center">
-                      <Car className="w-12 h-12 mx-auto mb-4 text-[#95c8e2]" />
+                      <Car className="w-12 h-12 mx-auto mb-4 text-[#56aad1]" />
                       <h3 className="text-xl font-semibold mb-2">
                         <EditableTranslationText namespace="cars" id={`categories.types.${category.toLowerCase()}`} />
                       </h3>
@@ -115,35 +115,35 @@ export default function CarsPage() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-[#95c8e2]" />
+                        <Calendar className="h-4 w-4 text-[#56aad1]" />
                         <span className="text-sm text-gray-600">{car.year}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Fuel className="h-4 w-4 text-[#95c8e2]" />
+                        <Fuel className="h-4 w-4 text-[#56aad1]" />
                         <span className="text-sm text-gray-600">
                           <EditableTranslationText namespace="cars" id={`specs.fuel.${car.fuel.toLowerCase()}`} />
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Users className="h-4 w-4 text-[#95c8e2]" />
+                        <Users className="h-4 w-4 text-[#56aad1]" />
                         <span className="text-sm text-gray-600">{t("specs.seats", { count: car.seats })}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Gauge className="h-4 w-4 text-[#95c8e2]" />
+                        <Gauge className="h-4 w-4 text-[#56aad1]" />
                         <span className="text-sm text-gray-600">{t("specs.mileage", { count: car.mileage.toLocaleString() })}</span>
                       </div>
                     </div>
                     <ul className="space-y-2">
                       {car.features.slice(0, 3).map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-600">
-                          <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
+                          <div className="w-2 h-2 bg-[#56aad1] rounded-full mr-2"></div>
                           <EditableTranslationText namespace="cars" id={`features.${feature.toLowerCase().replace(/\s+/g, "_")}`} />
                         </li>
                       ))}
                     </ul>
                     <Button
                       asChild
-                      className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium rounded-2xl shadow-sm hover:shadow-md transition-all"
+                      className="w-full bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] font-medium rounded-2xl shadow-sm hover:shadow-md transition-all"
                     >
                       <Link href={`/cars/vehicle/${car.id}`}>
                         <EditableTranslationText namespace="cars" id="vehicle.view_details" />
@@ -167,7 +167,7 @@ export default function CarsPage() {
             <EditableTranslationText namespace="cars" id="cta.description" />
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold">
+            <Button asChild size="lg" className="bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] font-semibold">
               <Link href="/contact">
                 <EditableTranslationText namespace="cars" id="cta.contact" />
               </Link>

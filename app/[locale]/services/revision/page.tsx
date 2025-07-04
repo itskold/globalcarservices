@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -13,9 +13,13 @@ import { Search, Gauge, Shield, Leaf } from "lucide-react"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 import { EditableImage } from "@/components/admin/editable-image"
 import { useServiceImages } from "@/lib/hooks/use-service-images"
+import { PiEngineBold } from "react-icons/pi"
+import { BsGear } from "react-icons/bs"
 
 export default function RevisionPage() {
   const t = useTranslations("revision")
+  const locale = useLocale()
+
   const { serviceImages, loading, error } = useServiceImages()
   
   const [formData, setFormData] = useState({
@@ -28,12 +32,12 @@ export default function RevisionPage() {
 
   const services = [
     {
-      icon: Search,
+      icon: BsGear,
       title: <EditableTranslationText namespace="revision" id="services.items.inspection.title" />,
       description: <EditableTranslationText namespace="revision" id="services.items.inspection.description" />,
     },
     {
-      icon: Gauge,
+      icon: PiEngineBold,
       title: <EditableTranslationText namespace="revision" id="services.items.performance.title" />,
       description: <EditableTranslationText namespace="revision" id="services.items.performance.description" />,
     },
@@ -104,7 +108,7 @@ export default function RevisionPage() {
               <div className="relative">
                 <EditableImage src={serviceImages.revision} alt="Revision" className="rounded-lg shadow-lg aspect-square object-cover" width={600} height={600} documentName="revision" collectionName="images"/>
                 <div className="absolute -bottom-4 -right-4">
-                  <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
+                  <div className="bg-[#56aad1] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">
                       <div className="text-xs font-medium uppercase tracking-wide">
                         <EditableTranslationText namespace="revision" id="intro.experience.more_than" />
@@ -145,7 +149,7 @@ export default function RevisionPage() {
             {services.map((service, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
-                  <div className="mx-auto w-16 h-16 bg-[#95c8e2] rounded-full flex items-center justify-center mb-4">
+                  <div className="mx-auto w-16 h-16 bg-[#56aad1] rounded-full flex items-center justify-center mb-4">
                     <service.icon className="h-8 w-8 text-[#050b20]" />
                   </div>
                   <CardTitle className="text-lg font-semibold text-[#050b20]">{service.title}</CardTitle>
@@ -171,7 +175,7 @@ export default function RevisionPage() {
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold text-[#050b20] hover:text-[#95c8e2]">
+                <AccordionTrigger className="text-left font-semibold text-[#050b20] hover:text-[#56aad1]">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-700 pt-4">{faq.answer}</AccordionContent>
@@ -182,110 +186,28 @@ export default function RevisionPage() {
       </section>
 
       {/* Appointment Form */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+      <section className="py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#050b20] mb-4">
-              <EditableTranslationText namespace="revision" id="appointment.title" />
+              <EditableTranslationText namespace="maintenance" id="appointment.title" />
             </h2>
+            <p className="text-xl text-gray-600">
+              <EditableTranslationText namespace="maintenance" id="appointment.subtitle" />
+            </p>
           </div>
-
-          <Card>
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      <EditableTranslationText namespace="revision" id="appointment.form.name.label" />
-                    </label>
-                    <Input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder={t("appointment.form.name.placeholder")}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      <EditableTranslationText namespace="revision" id="appointment.form.phone.label" />
-                    </label>
-                    <Input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder={t("appointment.form.phone.placeholder")}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">
-                      <EditableTranslationText namespace="revision" id="appointment.form.date.label" />
-                    </label>
-                    <Input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.label" />
-                    </label>
-                    <Select onValueChange={(value) => setFormData({ ...formData, vehicleType: value })}>
-                      <SelectTrigger>
-                        <SelectValue placeholder={t("appointment.form.vehicle_type.placeholder")} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="city_car">
-                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.city_car" />
-                        </SelectItem>
-                        <SelectItem value="sedan">
-                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.sedan" />
-                        </SelectItem>
-                        <SelectItem value="suv">
-                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.suv" />
-                        </SelectItem>
-                        <SelectItem value="station_wagon">
-                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.station_wagon" />
-                        </SelectItem>
-                        <SelectItem value="utility">
-                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.utility" />
-                        </SelectItem>
-                        <SelectItem value="other">
-                          <EditableTranslationText namespace="revision" id="appointment.form.vehicle_type.options.other" />
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="symptoms" className="block text-sm font-medium text-gray-700 mb-2">
-                    <EditableTranslationText namespace="revision" id="appointment.form.symptoms.label" />
-                  </label>
-                  <Textarea
-                    id="symptoms"
-                    name="symptoms"
-                    value={formData.symptoms}
-                    onChange={handleChange}
-                    placeholder={t("appointment.form.symptoms.placeholder")}
-                    rows={4}
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold"
-                >
-                  <EditableTranslationText namespace="revision" id="appointment.form.submit" />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          <div className="bg-white rounded-2xl overflow-hidden relative">
+            <iframe
+              src={`https://bbt-cloud.be/afspraak/?id=305&code=d7dd866900108196b56fcd0cc57c9aa0&lang=${locale}`}
+              width="100%"
+              height="800"
+              frameBorder="0"
+              className="w-full min-h-[800px]"
+              loading="lazy"
+            />
+            {/* Overlay pour masquer #app-placeholder */}
+            <div className="absolute top-0 left-0 right-0 h-16 bg-white z-10 pointer-events-none"></div>
+          </div>
         </div>
       </section>
     </main>

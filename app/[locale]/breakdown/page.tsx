@@ -116,7 +116,7 @@ export default function BreakdownPage() {
               <div className="relative">
                 <img src="/Globalcar2024-37.jpg" alt={t("intro.image")} className="rounded-lg shadow-lg aspect-square object-cover" />
                 <div className="absolute -bottom-4 -right-4">
-                  <div className="bg-[#95c8e2] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
+                  <div className="bg-[#56aad1] text-[#050b20] px-4 py-3 rounded-lg shadow-lg backdrop-blur-sm bg-opacity-90">
                     <div className="text-center">
                       <div className="text-xs font-medium uppercase tracking-wide">
                         <EditableTranslationText namespace="breakdown" id="intro.stats.prefix" />
@@ -157,7 +157,7 @@ export default function BreakdownPage() {
             {services.map((service, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
-                  <div className="mx-auto w-16 h-16 bg-[#95c8e2] rounded-full flex items-center justify-center mb-4">
+                  <div className="mx-auto w-16 h-16 bg-[#56aad1] rounded-full flex items-center justify-center mb-4">
                     <service.icon className="h-8 w-8 text-[#050b20]" />
                   </div>
                   <CardTitle className="text-lg font-semibold text-[#050b20]">
@@ -187,7 +187,7 @@ export default function BreakdownPage() {
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold text-[#050b20] hover:text-[#95c8e2]">
+                <AccordionTrigger className="text-left font-semibold text-[#050b20] hover:text-[#56aad1]">
                   <EditableTranslationText namespace="breakdown" id={faq.questionId} />
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-700 pt-4">
@@ -269,7 +269,7 @@ export default function BreakdownPage() {
                   </Button>
                   <Button
                     type="submit"
-                    className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold flex-1"
+                    className="bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] font-semibold flex-1"
                     size="lg"
                   >
                     <EditableTranslationText namespace="breakdown" id="form.submit" />

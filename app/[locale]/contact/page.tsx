@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
+import Link from "next/link"
+import { FaExternalLinkAlt } from "react-icons/fa"
 
 export default function ContactPage() {
     const t = useTranslations("contact")
@@ -132,7 +134,7 @@ export default function ContactPage() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold"
+                  className="w-full bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] font-semibold"
                   size="lg"
                 >
                   <EditableTranslationText namespace="contact" id="form.submit" />
@@ -153,7 +155,7 @@ export default function ContactPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-[#050b20]">
-                      <Phone className="h-5 w-5 text-[#95c8e2] mr-2" />
+                      <Phone className="h-5 w-5 text-[#56aad1] mr-2" />
                       <EditableTranslationText namespace="contact" id="info.phone.title" />
                     </CardTitle>
                   </CardHeader>
@@ -161,13 +163,16 @@ export default function ContactPage() {
                     <p className="text-gray-700">
                       <EditableTranslationText namespace="contact" id="info.phone.value" />
                     </p>
+                    <p className="text-gray-700">
+                      <EditableTranslationText namespace="contact" id="info.phone2.value" />
+                    </p>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-[#050b20]">
-                      <Mail className="h-5 w-5 text-[#95c8e2] mr-2" />
+                      <Mail className="h-5 w-5 text-[#56aad1] mr-2" />
                       <EditableTranslationText namespace="contact" id="info.email.title" />
                     </CardTitle>
                   </CardHeader>
@@ -181,21 +186,30 @@ export default function ContactPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-[#050b20]">
-                      <MapPin className="h-5 w-5 text-[#95c8e2] mr-2" />
+                      <MapPin className="h-5 w-5 text-[#56aad1] mr-2" />
                       <EditableTranslationText namespace="contact" id="info.address.title" />
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700">
-                      <EditableTranslationText namespace="contact" id="info.address.value" />
-                    </p>
+                    <Link href="https://maps.app.goo.gl/GENeE6wotGNhb2QW8" target="_blank">
+                      <p className="text-[#56aad1] flex items-center gap-2 underline">
+                        <EditableTranslationText namespace="contact" id="info.address.value" />
+                        <FaExternalLinkAlt className="h-4 w-4 text-[#56aad1] ml-2" />
+                      </p>
+                    </Link>
+                    <Link href="https://maps.app.goo.gl/9mdN2D412An74pCKA" target="_blank">
+                      <p className="text-[#56aad1] flex items-center gap-2 underline">
+                      <EditableTranslationText namespace="contact" id="info.address2.value" />
+                      <FaExternalLinkAlt className="h-4 w-4 text-[#56aad1] ml-2" />
+                      </p>
+                    </Link>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-[#050b20]">
-                      <Clock className="h-5 w-5 text-[#95c8e2] mr-2" />
+                      <Clock className="h-5 w-5 text-[#56aad1] mr-2" />
                       <EditableTranslationText namespace="contact" id="info.hours.title" />
                     </CardTitle>
                   </CardHeader>
@@ -203,7 +217,7 @@ export default function ContactPage() {
                     <div className="space-y-1 text-gray-700">
                       <p><EditableTranslationText namespace="contact" id="info.hours.weekdays" /></p>
                       <p><EditableTranslationText namespace="contact" id="info.hours.saturday" /></p>
-                      <p><EditableTranslationText namespace="contact" id="info.hours.sunday" /></p>
+                      <p className="font-bold"><EditableTranslationText namespace="contact" id="info.hours.sunday" /></p>
                     </div>
                   </CardContent>
                 </Card>

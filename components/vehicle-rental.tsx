@@ -51,7 +51,7 @@ export default function VehicleRental() {
             <Card key={vehicle.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="relative h-48">
                 <Image src={vehicle.image} alt={vehicle.title} fill className="object-cover" />
-                <Badge className="absolute top-4 left-4 bg-[#95c8e2] text-[#050b20]">
+                <Badge className="absolute top-4 left-4 bg-[#56aad1] text-[#050b20]">
                   <EditableTranslation translationKey={`vehicleRental.categories.${vehicle.category}`}>
                     {vehicle.category}
                   </EditableTranslation>
@@ -89,7 +89,7 @@ export default function VehicleRental() {
                   <ul className="text-sm text-gray-600 space-y-1">
                     {vehicle.features.slice(0, 3).map((feature, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#95c8e2] rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-[#56aad1] rounded-full"></div>
                         <EditableTranslation translationKey={`vehicleRental.features.${feature}`}>
                           {feature}
                         </EditableTranslation>
@@ -97,7 +97,7 @@ export default function VehicleRental() {
                     ))}
                   </ul>
                 </div>
-                <Button asChild className="w-full bg-[#95C8E2] hover:bg-[#95C8E2]">
+                <Button asChild className="w-full bg-[#56aad1] hover:bg-[#56aad1]">
                   <Link href={`/rental/vehicle/${vehicle.id}`}>
                     <EditableTranslation translationKey="vehicleRental.reserve">
                       {t("reserve")}
@@ -114,7 +114,7 @@ export default function VehicleRental() {
             asChild
             size="lg"
             variant="outline"
-            className="border-[#050b20] text-[#050b20] hover:bg-[#95C8E2] hover:border-[#95C8E2] hover:text-white bg-transparent"
+            className="border-[#050b20] text-[#050b20] hover:bg-[#56aad1] hover:border-[#56aad1] hover:text-white bg-transparent"
           >
             <Link href="/rental">
               <Calendar className="mr-2 h-5 w-5" />

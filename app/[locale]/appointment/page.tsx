@@ -54,18 +54,28 @@ export default function AppointmentPage() {
       </section>
 
       {/* Appointment Booking System */}
-      <section className="py-8">
+       {/* Appointment Form */}
+       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#050b20] mb-4">
+              <EditableTranslationText namespace="maintenance" id="appointment.title" />
+            </h2>
+            <p className="text-xl text-gray-600">
+              <EditableTranslationText namespace="maintenance" id="appointment.subtitle" />
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl overflow-hidden relative">
             <iframe
               src={`https://bbt-cloud.be/afspraak/?id=305&code=d7dd866900108196b56fcd0cc57c9aa0&lang=${locale}`}
               width="100%"
               height="800"
               frameBorder="0"
-              title={t("iframe_title")}
               className="w-full min-h-[800px]"
               loading="lazy"
             />
+            {/* Overlay pour masquer #app-placeholder */}
+            <div className="absolute top-0 left-0 right-0 h-16 bg-white z-10 pointer-events-none"></div>
           </div>
         </div>
       </section>
@@ -82,7 +92,7 @@ export default function AppointmentPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+32489876613"
-              className="inline-flex items-center justify-center px-6 py-3 bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold rounded-2xl transition-all hover:scale-105"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] font-semibold rounded-2xl transition-all hover:scale-105"
             >
               📞 +32 489 87 66 13
             </a>

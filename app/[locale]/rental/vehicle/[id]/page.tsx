@@ -64,7 +64,7 @@ export default function VehicleDetailPage() {
   const [selectedImage, setSelectedImage] = useState(0)
   const [pickupDateTime, setPickupDateTime] = useState<Date | undefined>(undefined)
   const [returnDateTime, setReturnDateTime] = useState<Date | undefined>(undefined)
-  const [selectedDuration, setSelectedDuration] = useState<'4_uur' | 'day' | 'weekend' | '5_days' | 'week' | 'month'>('day')
+  const [selectedDuration, setSelectedDuration] = useState<'4uur' | 'day' | 'weekend' | '5days' | 'week' | 'month'>('day')
   const [vehicle, setVehicle] = useState<VehicleData | null>(null)
   const [similarVehicles, setSimilarVehicles] = useState<VehicleData[]>([])
   const [loading, setLoading] = useState(true)
@@ -192,7 +192,7 @@ export default function VehicleDetailPage() {
             {/* Vehicle Header */}
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-[#95c8e2] text-[#050b20]">{vehicle.category}</Badge>
+                <Badge className="bg-[#56aad1] text-[#050b20]">{vehicle.category}</Badge>
               </div>
               <h1 className="text-3xl font-bold text-[#050b20] mb-2">
                 {vehicle.brand} {vehicle.title} ({vehicle.year})
@@ -228,7 +228,7 @@ export default function VehicleDetailPage() {
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
                     className={`aspect-video bg-gray-100 rounded-lg overflow-hidden ${
-                      selectedImage === idx ? "ring-2 ring-[#95c8e2]" : ""
+                      selectedImage === idx ? "ring-2 ring-[#56aad1]" : ""
                     }`}
                   >
                     <img src={image} alt={`${vehicle.brand} ${vehicle.title} ${idx + 1}`} className="w-full h-full object-cover" />
@@ -250,19 +250,19 @@ export default function VehicleDetailPage() {
                   </h3>
                   <ul className="space-y-2">
                     <li className="flex items-center text-gray-600">
-                      <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
+                      <div className="w-2 h-2 bg-[#56aad1] rounded-full mr-2"></div>
                       <EditableTranslationText namespace="vehicleDetail" id="specifications.engine" />: {vehicle.specifications.engine}
                     </li>
                     <li className="flex items-center text-gray-600">
-                      <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
+                      <div className="w-2 h-2 bg-[#56aad1] rounded-full mr-2"></div>
                       <EditableTranslationText namespace="vehicleDetail" id="specifications.power" />: {vehicle.specifications.power}
                     </li>
                     <li className="flex items-center text-gray-600">
-                      <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
+                      <div className="w-2 h-2 bg-[#56aad1] rounded-full mr-2"></div>
                       <EditableTranslationText namespace="vehicleDetail" id="specifications.consumption" />: {vehicle.specifications.consumption}
                     </li>
                     <li className="flex items-center text-gray-600">
-                      <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
+                      <div className="w-2 h-2 bg-[#56aad1] rounded-full mr-2"></div>
                       <EditableTranslationText namespace="vehicleDetail" id="specifications.storage" />: {vehicle.specifications.luggage}
                     </li>
                   </ul>
@@ -274,7 +274,7 @@ export default function VehicleDetailPage() {
                   <ul className="space-y-2">
                     {vehicle.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center text-gray-600">
-                        <div className="w-2 h-2 bg-[#95c8e2] rounded-full mr-2"></div>
+                        <div className="w-2 h-2 bg-[#56aad1] rounded-full mr-2"></div>
                         {feature}
                       </li>
                     ))}
@@ -416,7 +416,7 @@ export default function VehicleDetailPage() {
                       </span>
                       <span>€{calculateTotal()}</span>
                     </div>
-                    <Button type="submit" className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20]">
+                    <Button type="submit" className="w-full bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20]">
                       <EditableTranslationText namespace="vehicleDetail" id="booking.submit" />
                     </Button>
                   </div>
@@ -429,7 +429,7 @@ export default function VehicleDetailPage() {
                     <ul className="space-y-2">
                       {vehicle.included.map((service, idx) => (
                         <li key={idx} className="flex items-center text-gray-600">
-                          <Shield className="h-4 w-4 mr-2 text-[#95c8e2]" />
+                          <Shield className="h-4 w-4 mr-2 text-[#56aad1]" />
                           {service}
                         </li>
                       ))}

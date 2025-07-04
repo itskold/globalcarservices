@@ -19,7 +19,27 @@
         "berline": "Berline",
         "suv": "SUV"
       },
-      "available": "{count} modèles disponibles"
+      "available": "{count} modèles disponibles",
+      "all": {
+        "title": "Tous les véhicules",
+        "available": "véhicules disponibles"
+      },
+      "van": {
+        "title": "Fourgons",
+        "available": "modèles disponibles"
+      },
+      "minibus": {
+        "title": "Minibus",
+        "available": "modèles disponibles"
+      },
+      "refrigerated": {
+        "title": "Fourgons frigorifiques",
+        "available": "modèles disponibles"
+      },
+      "box": {
+        "title": "Fourgons à hayon",
+        "available": "modèles disponibles"
+      }
     },
     "specs": {
       "fuel": {
@@ -135,7 +155,21 @@
       "title": "Location de véhicules et services automobiles",
       "subtitle": "Solutions de transport professionnelles et services automobiles complets",
       "rentButton": "Voir nos véhicules",
-      "appointmentButton": "Prendre rendez-vous"
+      "appointmentButton": "Prendre rendez-vous",
+      "slides": {
+        "1": {
+          "title": "Location de véhicules utilitaires",
+          "button": "Voir nos véhicules"
+        },
+        "2": {
+          "title": "Service de réparation professionnel",
+          "button": "Découvrir nos services"
+        },
+        "3": {
+          "title": "Entretien et diagnostic",
+          "button": "Prendre rendez-vous"
+        }
+      }
     }
   },
   "services": {
@@ -281,7 +315,25 @@
     },
     "included": "Inclus :",
     "reserve": "Réserver",
-    "viewAll": "Voir tous les véhicules"
+    "viewAll": "Voir tous les véhicules",
+    "vehicle": {
+      "from": "À partir de",
+      "perHours": "/ 4 heures",
+      "viewDetails": "Voir les détails",
+      "pricing": {
+        "title": "Tarifs de location",
+        "4 uur": "4 heures",
+        "day": "Journée",
+        "weekend": "Week-end",
+        "5_days": "5 jours",
+        "week": "Semaine",
+        "month": "Mois",
+        "extraKm": "Kilomètres supplémentaires"
+      },
+      "extras": {
+        "title": "Options supplémentaires"
+      }
+    }
   },
   "whyChooseUs": {
     "title": "Pourquoi choisir Global Car Services ?",
@@ -848,7 +900,20 @@
       "vehicle": {
         "from": "À partir de",
         "perHours": "/ 4 heures",
-        "viewDetails": "Voir les détails"
+        "viewDetails": "Voir les détails",
+        "pricing": {
+          "title": "Tarifs de location",
+          "4 uur": "4 heures",
+          "day": "Journée",
+          "weekend": "Week-end",
+          "5_days": "5 jours",
+          "week": "Semaine",
+          "month": "Mois",
+          "extraKm": "Kilomètres supplémentaires"
+        },
+        "extras": {
+          "title": "Options supplémentaires"
+        }
       },
       "conditions": {
         "title": "Conditions de Location",
@@ -1278,6 +1343,18 @@
         "title": "Avez-vous des questions ?",
         "description": "Vous ne trouvez pas de créneau adapté ou avez des questions spécifiques ? Contactez-nous directement."
       }
+    }
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Restez informé de nos offres et actualités",
+    "placeholder": "Votre adresse email",
+    "subscribe": "S'inscrire",
+    "subscribing": "Inscription...",
+    "benefits": {
+      "free": "Gratuit",
+      "noSpam": "Pas de spam",
+      "easyUnsubscribe": "Désabonnement facile"
     }
   }
 }

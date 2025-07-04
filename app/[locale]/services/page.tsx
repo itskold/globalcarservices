@@ -97,7 +97,7 @@ export default function ServicesPage() {
             {mainServices.map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300 group">
                 <CardHeader className="text-center">
-                  <div className="mx-auto w-16 h-16 bg-[#95c8e2] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="mx-auto w-16 h-16 bg-[#56aad1] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <service.icon className="h-8 w-8 text-[#050b20]" />
                   </div>
                   <CardTitle className="text-xl font-semibold text-[#050b20]">{service.title}</CardTitle>
@@ -132,14 +132,14 @@ export default function ServicesPage() {
             {additionalServices.map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300 group">
                 <CardHeader className="text-center">
-                  <div className="mx-auto w-16 h-16 bg-[#95c8e2] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="mx-auto w-16 h-16 bg-[#56aad1] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <service.icon className="h-8 w-8 text-[#050b20]" />
                   </div>
                   <CardTitle className="text-xl font-semibold text-[#050b20]">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-gray-600 mb-6">{service.description}</p>
-                  <Button asChild className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] w-full">
+                  <Button asChild className="bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] w-full">
                     <Link href={service.href}>
                       <EditableTranslationText namespace="services.page" id="additionalServices.services.viewService" />
                     </Link>
@@ -160,7 +160,7 @@ export default function ServicesPage() {
           <p className="text-xl text-gray-300 mb-8">
             <EditableTranslationText namespace="services.page" id="cta.description" />
           </p>
-          <Button asChild size="lg" className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-semibold">
+          <Button asChild size="lg" className="bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] font-semibold">
             <Link href="/appointment">
               <EditableTranslationText namespace="services.page" id="cta.button" />
             </Link>

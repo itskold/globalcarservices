@@ -120,7 +120,7 @@ export default function CarPage() {
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
                     className={`aspect-video bg-gray-100 rounded-lg overflow-hidden ${
-                      selectedImage === idx ? "ring-2 ring-[#95c8e2]" : ""
+                      selectedImage === idx ? "ring-2 ring-[#56aad1]" : ""
                     }`}
                   >
                     <img src={image} alt={`${car.title} ${idx + 1}`} className="w-full h-full object-cover" />
@@ -133,7 +133,7 @@ export default function CarPage() {
             <div className="space-y-8">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <Badge variant="secondary" className="text-2xl font-semibold px-6 py-3 bg-[#95c8e2] text-[#050b20]">
+                  <Badge variant="secondary" className="text-2xl font-semibold px-6 py-3 bg-[#56aad1] text-[#050b20]">
                     €{car.price.toLocaleString()}
                   </Badge>
                   <div className="flex items-center gap-2">
@@ -158,7 +158,7 @@ export default function CarPage() {
                 <Card className="mb-8">
                   <CardContent className="grid grid-cols-2 gap-4 p-6">
                     <div className="flex items-center gap-3">
-                      <Calendar className="h-5 w-5 text-[#95c8e2]" />
+                      <Calendar className="h-5 w-5 text-[#56aad1]" />
                       <div>
                         <p className="text-sm text-gray-600">
                           <EditableTranslationText namespace="cars.vehicle.page" id="specs.year" />
@@ -167,7 +167,7 @@ export default function CarPage() {
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Fuel className="h-5 w-5 text-[#95c8e2]" />
+                      <Fuel className="h-5 w-5 text-[#56aad1]" />
                       <div>
                         <p className="text-sm text-gray-600">
                           <EditableTranslationText namespace="cars.vehicle.page" id="specs.fuel" />
@@ -176,7 +176,7 @@ export default function CarPage() {
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Users className="h-5 w-5 text-[#95c8e2]" />
+                      <Users className="h-5 w-5 text-[#56aad1]" />
                       <div>
                         <p className="text-sm text-gray-600">
                           <EditableTranslationText namespace="cars.vehicle.page" id="specs.seats" />
@@ -185,7 +185,7 @@ export default function CarPage() {
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Gauge className="h-5 w-5 text-[#95c8e2]" />
+                      <Gauge className="h-5 w-5 text-[#56aad1]" />
                       <div>
                         <p className="text-sm text-gray-600">
                           <EditableTranslationText namespace="cars.vehicle.page" id="specs.mileage" />
@@ -250,7 +250,7 @@ export default function CarPage() {
                     <div className="grid grid-cols-2 gap-2">
                       {car.options.map((option: string, index: number) => (
                         <div key={index} className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-[#95c8e2] rounded-full"></div>
+                          <div className="w-2 h-2 bg-[#56aad1] rounded-full"></div>
                           <span className="text-gray-600">{option}</span>
                         </div>
                       ))}
@@ -266,7 +266,7 @@ export default function CarPage() {
                     <div className="grid grid-cols-2 gap-2">
                       {car.included.map((item: string, index: number) => (
                         <div key={index} className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-[#95c8e2] rounded-full"></div>
+                          <div className="w-2 h-2 bg-[#56aad1] rounded-full"></div>
                           <span className="text-gray-600">{item}</span>
                         </div>
                       ))}
@@ -275,7 +275,7 @@ export default function CarPage() {
 
                   <div className="flex gap-4 pt-6">
                     <Link href="tel:+32489876613" className="flex-1">
-                      <Button className="w-full bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20]" size="lg">
+                      <Button className="w-full bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20]" size="lg">
                         <Phone className="mr-2 h-5 w-5" />
                         <EditableTranslationText namespace="cars.vehicle.page" id="actions.call" />
                       </Button>

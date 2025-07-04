@@ -8,6 +8,7 @@ interface ServiceImages {
   "service1": string;
   "service2": string;
   "service3": string;
+  "service4": string;
   "diagnostic": string;
   "maintenance": string;
   "repair": string;
@@ -20,6 +21,7 @@ export function useServiceImages() {
     "service1": '/rental.jpg',
     "service2": '/repair.jpg',
     "service3": '/dealer1-3.jpg',
+    "service4": '/dealer1-3.jpg',
     "diagnostic": '/Globalcar2024-13.jpg',
     "maintenance": '/Globalcar2024-2.jpg',
     "repair": '/Globalcar2024-25.jpg',
@@ -35,7 +37,7 @@ export function useServiceImages() {
         setLoading(true)
         setError(null)
         
-        const serviceNames = ['service1', 'service2', 'service3', 'diagnostic', 'maintenance', 'repair', 'revision', 'about']
+        const serviceNames = ['service1', 'service2', 'service3', "service4", 'diagnostic', 'maintenance', 'repair', 'revision', 'about']
         const images: ServiceImages = { ...serviceImages }
         
         // Récupérer les images pour chaque service

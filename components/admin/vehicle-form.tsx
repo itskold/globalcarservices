@@ -15,6 +15,7 @@ import { Package, Upload, X, Image as ImageIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { useCategories } from "@/lib/hooks/use-categories"
 
 interface VehicleFormProps {
   initialData?: VehicleData | null
@@ -25,10 +26,10 @@ const defaultFormData: Partial<VehicleData> = {
   title: "",
   description: "",
   pricing: [
-    { duration: "4 uur", price: 0, included_km: 0 },
+    { duration: "4uur", price: 0, included_km: 0 },
     { duration: "day", price: 0, included_km: 0 },
     { duration: "weekend", price: 0, included_km: 0 },
-    { duration: "5_days", price: 0, included_km: 0 },
+    { duration: "5days", price: 0, included_km: 0 },
     { duration: "week", price: 0, included_km: 0 },
   ],
   km_price: 0,
@@ -58,6 +59,7 @@ const defaultFormData: Partial<VehicleData> = {
 }
 
 export default function VehicleForm({ initialData }: VehicleFormProps) {
+  const { categories, loading: loadingCategories } = useCategories()
   const [loading, setLoading] = useState(false)
   const [previewImages, setPreviewImages] = useState<string[]>([])
   const [uploadedImages, setUploadedImages] = useState<string[]>([])
@@ -287,15 +289,17 @@ export default function VehicleForm({ initialData }: VehicleFormProps) {
             <Select
               value={formData.category}
               onValueChange={(value) => setFormData({ ...formData, category: value })}
+              disabled={loadingCategories}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Sélectionnez une catégorie" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Bestelwagen">Bestelwagen</SelectItem>
-                <SelectItem value="Bakwagen">Bakwagen</SelectItem>
-                <SelectItem value="Minibus">Minibus</SelectItem>
-                <SelectItem value="Koelwagen">Koelwagen</SelectItem>
+                {categories.map((category) => (
+                  <SelectItem key={category.id} value={category.slug}>
+                    {category.name}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>

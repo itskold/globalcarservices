@@ -15,6 +15,10 @@
     },
     "categories": {
       "title": "Onze Categorieën",
+      "all": {
+        "title": "Alle voertuigen",
+        "available": "beschikbare voertuigen"
+      },
       "types": {
         "berline": "Berline",
         "suv": "SUV"
@@ -135,7 +139,21 @@
       "title": "Alles voor uw wagen onder een dak",
       "subtitle": "Professionele transportoplossingen en complete autoservice",
       "rentButton": "Bekijk onze voertuigen",
-      "appointmentButton": "Maak een afspraak"
+      "appointmentButton": "Maak een afspraak",
+      "slides": {
+        "1": {
+          "title": "Verhuur van bedrijfsvoertuigen",
+          "button": "Bekijk onze voertuigen"
+        },
+        "2": {
+          "title": "Professionele reparatieservice",
+          "button": "Ontdek onze diensten"
+        },
+        "3": {
+          "title": "Onderhoud en diagnose",
+          "button": "Afspraak maken"
+        }
+      }
     }
   },
   "services": {
@@ -612,7 +630,7 @@
           }
         },
         "problem": {
-          "label": "Probleembeschrijving",
+          "label": "Problembeschrijving",
           "placeholder": "Waarmee kunnen we u van dienst zijn?"
         },
         "submit": "Afspraak maken"
@@ -824,6 +842,10 @@
       },
       "categories": {
         "title": "Onze Categorieën",
+        "all": {
+          "title": "Alle voertuigen",
+          "available": "beschikbare voertuigen"
+        },
         "van": {
           "title": "Bestelwagens",
           "available": "beschikbare modellen"
@@ -848,7 +870,20 @@
       "vehicle": {
         "from": "Vanaf",
         "perHours": "/ 4 uur",
-        "viewDetails": "Bekijk details"
+        "viewDetails": "Bekijk details",
+        "pricing": {
+          "title": "Huurtarieven",
+          "4 uur": "4 uur",
+          "day": "Dag",
+          "weekend": "Weekend",
+          "5_days": "5 dagen",
+          "week": "Week",
+          "month": "Maand",
+          "extraKm": "Extra kilometers"
+        },
+        "extras": {
+          "title": "Extra opties"
+        }
       },
       "conditions": {
         "title": "Huurvoorwaarden",
@@ -1278,6 +1313,18 @@
         "title": "Heeft u vragen?",
         "description": "Kunt u geen geschikte tijd vinden of heeft u specifieke vragen? Neem direct contact met ons op."
       }
+    }
+  },
+  "newsletter": {
+    "title": "Nieuwsbrief",
+    "description": "Blijf op de hoogte van onze aanbiedingen en nieuws",
+    "placeholder": "Uw e-mailadres",
+    "subscribe": "Inschrijven",
+    "subscribing": "Inschrijven...",
+    "benefits": {
+      "free": "Gratis",
+      "noSpam": "Geen spam",
+      "easyUnsubscribe": "Gemakkelijk uitschrijven"
     }
   }
 }

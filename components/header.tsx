@@ -42,7 +42,7 @@ export default function Header() {
       { name: 'box', href: `/${locale}/rental/box` },
       { name: 'minibus', href: `/${locale}/rental/minibus` },
       { name: 'refrigerated', href: `/${locale}/rental/refrigerated` },
-      { name: 'conditions', href: `/${locale}/rental/conditions` },
+      // { name: 'conditions', href: `/${locale}/rental/conditions` },
     ],
     extra: [
       { name: 'usedCars', href: `/${locale}/cars` },
@@ -103,7 +103,7 @@ export default function Header() {
                       <div className="grid grid-cols-3 gap-8">
                         {Object.entries(megaMenuItems).map(([category, items]) => (
                           <div key={category}>
-                            <h3 className="text-lg font-semibold text-[#050b20] mb-4 border-b border-[#95c8e2] pb-2">
+                            <h3 className="text-lg font-semibold text-[#050b20] mb-4 border-b border-[#56aad1] pb-2">
                               <EditableTranslationText namespace="services" id={`${category}.title`} />
                             </h3>
                             <ul className="space-y-3">
@@ -134,7 +134,7 @@ export default function Header() {
 
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
-            <Button asChild className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium">
+            <Button asChild className="bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] font-medium">
               <Link href={`/${locale}/appointment`}>
                 <EditableTranslationText namespace="navigation" id="appointment" />
               </Link>
@@ -192,7 +192,7 @@ export default function Header() {
                 <div className="px-3 py-2">
                   <LanguageSwitcher />
                 </div>
-                <Button asChild className="bg-[#95c8e2] hover:bg-[#7bb8d9] text-[#050b20] font-medium mt-4">
+                <Button asChild className="bg-[#56aad1] hover:bg-[#7bb8d9] text-[#050b20] font-medium mt-4">
                   <Link href={`/${locale}/appointment`}>
                     <EditableTranslationText namespace="navigation" id="appointment" />
                   </Link>

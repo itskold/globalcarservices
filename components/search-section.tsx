@@ -138,6 +138,9 @@ export default function SearchSection() {
                     <SelectItem value="truck">
                       <EditableTranslationText namespace="searchSection" id="vehicleType.options.truck" />
                     </SelectItem>
+                    <SelectItem value="aanhangwagen">
+                      <EditableTranslationText namespace="searchSection" id="vehicleType.options.aanhangwagen" />
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>

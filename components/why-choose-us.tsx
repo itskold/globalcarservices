@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
               className="bg-white/10 border-white/20 backdrop-blur-sm hover:bg-white/15 transition-colors duration-300"
             >
               <CardContent className="p-6 text-center">
-                <div className="mx-auto mb-4 p-3 bg-[#95c8e2] rounded-full text-[#050b20] w-fit">{reason.icon}</div>
+                <div className="mx-auto mb-4 p-3 bg-[#56aad1] rounded-full text-[#050b20] w-fit">{reason.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-[rgba(149,200,226,1)]">
                   <EditableTranslation translationKey={`whyChooseUs.${reason.titleKey}`}>
                     {t(reason.titleKey)}

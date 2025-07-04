@@ -6,6 +6,7 @@ import { Users, Clock, DollarSign, Shield } from "lucide-react"
 import { EditableTranslationText } from "@/components/admin/editable-translation-text"
 import { EditableImage } from "@/components/admin/editable-image"
 import { useServiceImages } from "@/lib/hooks/use-service-images"
+import { LuEuro } from "react-icons/lu"
 
 export function AboutContent() {
   const t = useTranslations("about")
@@ -28,7 +29,7 @@ export function AboutContent() {
       descriptionId: "values.speed.description",
     },
     {
-      icon: DollarSign,
+      icon: LuEuro,
       titleId: "values.prices.title",
       descriptionId: "values.prices.description",
     },
@@ -97,7 +98,7 @@ export function AboutContent() {
             {values.map((value, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
-                  <div className="mx-auto w-16 h-16 bg-[#95c8e2] rounded-full flex items-center justify-center mb-4">
+                  <div className="mx-auto w-16 h-16 bg-[#56aad1] rounded-full flex items-center justify-center mb-4">
                     <value.icon className="h-8 w-8 text-[#050b20]" />
                   </div>
                   <CardTitle className="text-lg font-semibold text-[#050b20]">

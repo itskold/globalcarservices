@@ -5,6 +5,9 @@ import { Phone, Mail, MapPin } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import { EditableTranslation } from "./admin/editable-translation"
+import { FaExternalLinkAlt, FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
+import Image from "next/image"
+import { Newsletter } from "./newsletter"
 
 export default function Footer() {
   const t = useTranslations("footer")
@@ -14,6 +17,11 @@ export default function Footer() {
   return (
     <footer className="bg-[#050b20] text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Newsletter Section */}
+        <div className="mb-12 text-center">
+          <Newsletter />
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
@@ -27,6 +35,9 @@ export default function Footer() {
                 {t("company.description")}
               </EditableTranslation>
             </p>
+            <Link href="https://fullcarservice.be/garage/global-car-services/" target="_blank">
+              <Image src="/ast-be-wit-landscape.svg" alt="Fullcarservice" width={100} height={100} />
+            </Link>
           </div>
 
           {/* Services */}
@@ -116,20 +127,34 @@ export default function Footer() {
             </h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-[#95c8e2]" />
+                <Phone className="h-4 w-4 text-[#56aad1]" />
                 <span className="text-gray-300">+32 489 87 66 13</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-[#95c8e2]" />
+                <Mail className="h-4 w-4 text-[#56aad1]" />
                 <span className="text-gray-300">info@globalcarservices.be</span>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-[#95c8e2] mt-1" />
+                <MapPin className="h-4 w-4 text-[#56aad1] mt-1" />
                 <span className="text-gray-300">
                   <EditableTranslation translationKey="footer.contact.address">
                     {t("contact.address")}
                   </EditableTranslation>
                 </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Link href="#" target="_blank">
+                  <FaFacebook className="h-4 w-4 text-[#56aad1]" />
+                </Link>
+                <Link href="#" target="_blank">
+                  <FaInstagram className="h-4 w-4 text-[#56aad1]" />
+                </Link>
+                <Link href="#" target="_blank">
+                  <FaLinkedin className="h-4 w-4 text-[#56aad1]" />
+                </Link>
+                <Link href="#" target="_blank">
+                  <FaTiktok className="h-4 w-4 text-[#56aad1]" />
+                </Link>
               </div>
             </div>
           </div>

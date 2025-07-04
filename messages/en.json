@@ -15,6 +15,10 @@
     },
     "categories": {
       "title": "Our Categories",
+      "all": {
+        "title": "All vehicles",
+        "available": "available vehicles"
+      },
       "types": {
         "berline": "Sedan",
         "suv": "SUV"
@@ -135,7 +139,21 @@
       "title": "Vehicle Rental and Car Services",
       "subtitle": "Professional transport solutions and complete car service",
       "rentButton": "View Our Vehicles",
-      "appointmentButton": "Make an Appointment"
+      "appointmentButton": "Make an Appointment",
+      "slides": {
+        "1": {
+          "title": "Commercial Vehicle Rental",
+          "button": "View Our Vehicles"
+        },
+        "2": {
+          "title": "Professional Repair Service",
+          "button": "Discover Our Services"
+        },
+        "3": {
+          "title": "Maintenance and Diagnostics",
+          "button": "Book Appointment"
+        }
+      }
     }
   },
   "services": {
@@ -824,6 +842,10 @@
       },
       "categories": {
         "title": "Our Categories",
+        "all": {
+          "title": "All vehicles",
+          "available": "available vehicles"
+        },
         "van": {
           "title": "Vans",
           "available": "available models"
@@ -848,7 +870,20 @@
       "vehicle": {
         "from": "From",
         "perHours": "/ 4 hours",
-        "viewDetails": "View Details"
+        "viewDetails": "View Details",
+        "pricing": {
+          "title": "Rental Rates",
+          "4 uur": "4 hours",
+          "day": "Day",
+          "weekend": "Weekend",
+          "5_days": "5 days",
+          "week": "Week",
+          "month": "Month",
+          "extraKm": "Extra kilometers"
+        },
+        "extras": {
+          "title": "Additional Options"
+        }
       },
       "conditions": {
         "title": "Rental Conditions",
@@ -1278,6 +1313,18 @@
         "title": "Have Questions?",
         "description": "Can't find a suitable time or have specific questions? Contact us directly."
       }
+    }
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Stay updated with our offers and news",
+    "placeholder": "Your email address",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "benefits": {
+      "free": "Free",
+      "noSpam": "No spam",
+      "easyUnsubscribe": "Easy unsubscribe"
     }
   }
 }

@@ -32,6 +32,14 @@ export default function Services() {
       documentName: "service2",
     },
     {
+      image: serviceImages.service4,
+      titleKey: "verkoop.title",
+      descriptionKey: "verkoop.description",
+      buttonKey: "verkoop.button",
+      href: "/cars",
+      documentName: "service4",
+    },
+    {
       image: serviceImages.service3,
       titleKey: "breakdown.title",
       descriptionKey: "breakdown.description",
@@ -57,7 +65,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {services.map((service, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden">
               <div className="relative h-48 w-full">

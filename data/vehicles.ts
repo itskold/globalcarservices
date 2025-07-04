@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore"
 import { db } from "@/lib/firebase"
 
 export interface PricingOption {
-  duration: '4 uur' | 'day' | 'weekend' | '5_days' | 'week' | 'month';
+  duration: '4uur' | 'day' | 'weekend' | '5days' | 'week' | 'month';
   price: number;
   included_km: number;
 }
