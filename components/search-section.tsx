@@ -11,6 +11,7 @@ import { MapPin, Calendar, Clock } from "lucide-react"
 import { useParams } from "next/navigation"
 import { EditableTranslationText } from './admin/editable-translation-text'
 import { useTranslations } from 'next-intl'
+import { useCategories } from '@/lib/hooks/use-categories'
 
 const EditableDateTimePicker = ({ 
   date, 
@@ -41,10 +42,11 @@ const EditableDateTimePicker = ({
 export default function SearchSection() {
   const params = useParams()
   const locale = params.locale as string
+  const { categories, loading, error } = useCategories()
 
   const [pickupLocation, setPickupLocation] = useState("antwerpen")
   const [returnLocation, setReturnLocation] = useState("antwerpen")
-  const [vehicleType, setVehicleType] = useState("van")
+  const [vehicleType, setVehicleType] = useState("")
   const [pickupDateTime, setPickupDateTime] = useState<Date | undefined>(undefined)
   const [returnDateTime, setReturnDateTime] = useState<Date | undefined>(undefined)
 
@@ -119,28 +121,21 @@ export default function SearchSection() {
                 <Select value={vehicleType} onValueChange={setVehicleType}>
                   <SelectTrigger>
                     <SelectValue placeholder={<EditableTranslationText namespace="searchSection" id="vehicleType.placeholder" />}>
-                      {vehicleType === "van" && <EditableTranslationText namespace="searchSection" id="vehicleType.options.van" />}
-                      {vehicleType === "minibus" && <EditableTranslationText namespace="searchSection" id="vehicleType.options.minibus" />}
-                      {vehicleType === "car" && <EditableTranslationText namespace="searchSection" id="vehicleType.options.car" />}
-                      {vehicleType === "truck" && <EditableTranslationText namespace="searchSection" id="vehicleType.options.truck" />}
+                      {categories.find(cat => cat.id === vehicleType)?.name}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="van">
-                      <EditableTranslationText namespace="searchSection" id="vehicleType.options.van" />
-                    </SelectItem>
-                    <SelectItem value="minibus">
-                      <EditableTranslationText namespace="searchSection" id="vehicleType.options.minibus" />
-                    </SelectItem>
-                    <SelectItem value="car">
-                      <EditableTranslationText namespace="searchSection" id="vehicleType.options.car" />
-                    </SelectItem>
-                    <SelectItem value="truck">
-                      <EditableTranslationText namespace="searchSection" id="vehicleType.options.truck" />
-                    </SelectItem>
-                    <SelectItem value="aanhangwagen">
-                      <EditableTranslationText namespace="searchSection" id="vehicleType.options.aanhangwagen" />
-                    </SelectItem>
+                    {loading ? (
+                      <SelectItem value="loading" disabled>Chargement...</SelectItem>
+                    ) : error ? (
+                      <SelectItem value="error" disabled>Erreur de chargement</SelectItem>
+                    ) : (
+                      categories.map(category => (
+                        <SelectItem key={category.id} value={category.id}>
+                          {category.name}
+                        </SelectItem>
+                      ))
+                    )}
                   </SelectContent>
                 </Select>
               </div>
